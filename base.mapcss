@@ -1,0 +1,36 @@
+/*
+ * Base MapCSS
+ *
+ * To contain main rules (Sub-rules might be imported)
+ */
+meta {
+	version:	"0.1";
+	author:		"Aun Johnsen";
+	description: "Mapnik for Brazil";
+}
+ 
+/*
+ * Background is sea
+ */
+canvas {
+	fill-color:		lightblue;
+}
+ 
+/*
+ * Fill color for land
+ */
+area[natural=coastline], relation[natural=coastline] {
+	fill-color:		snow;
+}
+ 
+/*
+ * Different base color for Federal and State highways
+ */
+way[highway][network=BR:AC], relation[type=route][network=BR:AC] > way[highway] {
+	color:			darkred;
+	set highway;
+}
+way[highway][network=BR], relation[type=route][network=BR] > way[highway] {
+	color:			darkblue; /* Federal Highway */
+	set highway;
+}
