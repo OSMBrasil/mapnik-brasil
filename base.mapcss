@@ -26,8 +26,38 @@ area[natural=coastline], relation[natural=coastline] {
 /*
  * Different base color for Federal and State highways
  */
-way[highway][network=BR:AC], relation[type=route][network=BR:AC] > way[highway] {
-	color:			darkred;
+ way[highway] {
+	color:		darkgray;
+ }
+ 
+way[highway][network=BR:AC], relation[type=route][network=BR:AC] > way[highway],
+way[highway][network=BR:AL], relation[type=route][network=BR:AL] > way[highway],
+way[highway][network=BR:AP], relation[type=route][network=BR:AP] > way[highway],
+way[highway][network=BR:AM], relation[type=route][network=BR:AM] > way[highway],
+way[highway][network=BR:BA], relation[type=route][network=BR:BA] > way[highway],
+way[highway][network=BR:CE], relation[type=route][network=BR:CE] > way[highway],
+way[highway][network=BR:DF], relation[type=route][network=BR:DF] > way[highway],
+way[highway][network=BR:ES], relation[type=route][network=BR:ES] > way[highway],
+way[highway][network=BR:GO], relation[type=route][network=BR:GO] > way[highway],
+way[highway][network=BR:MA], relation[type=route][network=BR:MA] > way[highway],
+way[highway][network=BR:MT], relation[type=route][network=BR:MT] > way[highway],
+way[highway][network=BR:MS], relation[type=route][network=BR:MS] > way[highway],
+way[highway][network=BR:MG], relation[type=route][network=BR:MG] > way[highway],
+way[highway][network=BR:PA], relation[type=route][network=BR:PA] > way[highway],
+way[highway][network=BR:PB], relation[type=route][network=BR:PB] > way[highway],
+way[highway][network=BR:PR], relation[type=route][network=BR:PR] > way[highway],
+way[highway][network=BR:PE], relation[type=route][network=BR:PE] > way[highway],
+way[highway][network=BR:PI], relation[type=route][network=BR:PI] > way[highway],
+way[highway][network=BR:RJ], relation[type=route][network=BR:RJ] > way[highway],
+way[highway][network=BR:RN], relation[type=route][network=BR:RN] > way[highway],
+way[highway][network=BR:RS], relation[type=route][network=BR:RS] > way[highway],
+way[highway][network=BR:RO], relation[type=route][network=BR:RO] > way[highway],
+way[highway][network=BR:RR], relation[type=route][network=BR:RR] > way[highway],
+way[highway][network=BR:SC], relation[type=route][network=BR:SC] > way[highway],
+way[highway][network=BR:SP], relation[type=route][network=BR:SP] > way[highway],
+way[highway][network=BR:SE], relation[type=route][network=BR:SE] > way[highway],
+way[highway][network=BR:TO], relation[type=route][network=BR:TO] > way[highway] {
+	color:			darkred; /* State Highway */
 	set highway;
 }
 way[highway][network=BR], relation[type=route][network=BR] > way[highway] {
