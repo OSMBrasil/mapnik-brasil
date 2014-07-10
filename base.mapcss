@@ -141,28 +141,38 @@ way[highway][operator].highway::operator, relation[type=route][route=road][opera
 }
 
 way[highway][name].highway {
-	text:			auto;
+	text:			any(tag("name:pt"), tag("name"), tag("official_name"), tag("alt_name"), tag("local_name"), tag("old_name"));
 	text-color:		black;
 }
 /* To force correct use of name, and use of proper tags where the streets have no name */
 way[highway][name*="Sem Denominacao"].highway,
 way[highway][name*="Sem Nome"].highway {
 	text:			eval("Sem Nome");
+	text-halo-radius:	1;
+	text-halo-color:	white;
 	font-style:		italic;
 	text-color:		red;
 }
 way[highway][noname?].highway, way[highway][unsigned?].highway {
 	text:			eval("Sem Nome");
+	text-halo-radius:	1;
+	text-halo-color:	white;
 	font-style:		italic;
 	text-color:		gray;
 }
 /* Creating shields */
 way[highway][ref].highway, relation[type=route][route=road][ref] > way[highway].highway {
 	/* Default shield */
+	shield-text:			ref;
+	shield-image:			"icon/shield-default.svg";
 }
 way[highway][ref].rodovia_estadual, relation[type=route][route=road][ref] > way[highway].rodovia_estadual {
 	/* State Highway Shields */
+	shield-text:			ref;
+	shield-image:			"icon/shield-state.svg";
 }
 way[highway][ref].rodivia_federal, relation[type=route][route=road][ref] > way[highway].rodoovia_federal {
 	/* Federal Highway Shields */
+	shield-text:			ref;
+	shield-image:			"icon/shield-br.svg";
 }
