@@ -61,11 +61,13 @@ way[highway][network=BR:TO], relation[type=route][route=road][network=BR:TO] > w
 	color:			darkgreen; /* State Highway */
 	casing-color:	darkgreen;
 	set .highway;
+	set .rodovia_estadual;
 }
 way[highway][network=BR], relation[type=route][route=road][network=BR] > way[highway] {
 	color:			darkred; /* Federal Highway */
 	casing-color:	darkred;
 	set .highway;
+	set .rodovia_federal;
 }
 
 way|z-10[highway][surface=unpaved].highway {
@@ -138,3 +140,29 @@ way[highway][operator].highway::operator, relation[type=route][route=road][opera
 	casing-color:	yellow;
 }
 
+way[highway][name].highway {
+	text:			auto;
+	text-color:		black;
+}
+/* To force correct use of name, and use of proper tags where the streets have no name */
+way[highway][name*="Sem Denominacao"].highway,
+way[highway][name*="Sem Nome"].highway {
+	text:			eval("Sem Nome");
+	font-style:		italic;
+	text-color:		red;
+}
+way[highway][noname?].highway, way[highway][unsigned?].highway {
+	text:			eval("Sem Nome");
+	font-style:		italic;
+	text-color:		gray;
+}
+/* Creating shields */
+way[highway][ref].highway, relation[type=route][route=road][ref] > way[highway].highway {
+	/* Default shield */
+}
+way[highway][ref].rodovia_estadual, relation[type=route][route=road][ref] > way[highway].rodovia_estadual {
+	/* State Highway Shields */
+}
+way[highway][ref].rodivia_federal, relation[type=route][route=road][ref] > way[highway].rodoovia_federal {
+	/* Federal Highway Shields */
+}
