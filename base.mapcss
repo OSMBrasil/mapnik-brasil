@@ -60,18 +60,28 @@ way[highway][network=BR:SE], relation[type=route][route=road][network=BR:SE] > w
 way[highway][network=BR:TO], relation[type=route][route=road][network=BR:TO] > way[highway] {
 	color:			darkgreen; /* State Highway */
 	casing-color:	darkgreen;
-	set highway;
+	set .highway;
 }
 way[highway][network=BR], relation[type=route][route=road][network=BR] > way[highway] {
 	color:			darkred; /* Federal Highway */
 	casing-color:	darkred;
-	set highway;
+	set .highway;
 }
 
-way[highway][surface=unpaved].highway {
+way|z-10[highway][surface=unpaved].highway {
 	color:			white;
 	casing-width:	2;
-	set	highway;
+	set	.highway;
+}
+way|z10-[highway][surface=unpaved].highway {
+	color:			lightgray;
+	casing-width:	2;
+	set .highway;
+}
+way|z10-[highway][surface=cobblestone].highway {
+	color:			brown;
+	casing-width:	2;
+	set	.highway;
 }
 
 way[highway=planned].highway {
