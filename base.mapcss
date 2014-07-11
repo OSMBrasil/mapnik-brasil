@@ -4,31 +4,31 @@
  * To contain main rules (Sub-rules might be imported)
  */
 meta {
-	version:	"0.1";
-	author:		"Aun Johnsen";
-	description: "Mapnik for Brazil";
+	version:			"0.1";
+	author:				"Aun Johnsen";
+	description: 		"Mapnik for Brazil";
 }
  
 /*
  * Background is sea
  */
 canvas {
-	fill-color:		lightblue;
-	antialiasing:	full;
+	fill-color:			lightblue;
+	antialiasing:		full;
 }
  
 /*
  * Fill color for land
  */
 area[natural=coastline], relation[natural=coastline] {
-	fill-color:		snow;
+	fill-color:			snow;
 }
  
 /*
  * Different base color for Federal and State highways
  */
 way[highway] {
-	color:		darkgray;
+	color:				darkgray;
 }
  
 way[highway][network=BR:AC], relation[type=route][route=road][network=BR:AC] > way[highway], way[highway][ref^=AC-], relation[type=route][route=road][ref^=AC-] > way[highway],
@@ -58,121 +58,124 @@ way[highway][network=BR:SC], relation[type=route][route=road][network=BR:SC] > w
 way[highway][network=BR:SP], relation[type=route][route=road][network=BR:SP] > way[highway], way[highway][ref^=SP-], relation[type=route][route=road][ref^=SP-] > way[highway],
 way[highway][network=BR:SE], relation[type=route][route=road][network=BR:SE] > way[highway], way[highway][ref^=SE-], relation[type=route][route=road][ref^=SE-] > way[highway],
 way[highway][network=BR:TO], relation[type=route][route=road][network=BR:TO] > way[highway], way[highway][ref^=TO-], relation[type=route][route=road][ref^=TO-] > way[highway] {
-	color:			darkgreen; /* State Highway */
-	casing-color:	darkgreen;
+	color:				darkgreen; /* State Highway */
+	casing-color:		darkgreen;
 	set .highway;
 	set .rodovia_estadual;
 }
 way[highway][network=BR], relation[type=route][route=road][network=BR] > way[highway] {
-	color:			darkred; /* Federal Highway */
-	casing-color:	darkred;
+	color:				darkred; /* Federal Highway */
+	casing-color:		darkred;
 	set .highway;
 	set .rodovia_federal;
 }
 
 way|z-10[highway][surface=unpaved].highway {
-	color:			white;
-	casing-width:	2;
+	color:				white;
+	casing-width:		2;
 	set	.highway;
 }
 way|z10-[highway][surface=unpaved].highway {
-	color:			lightgray;
-	casing-width:	2;
+	color:				lightgray;
+	casing-width:		2;
 	set .highway;
 }
 way|z10-[highway][surface=cobblestone].highway {
-	color:			brown;
-	casing-width:	2;
+	color:				brown;
+	casing-width:		2;
 	set	.highway;
 }
 
 way[highway=planned].highway {
-	color:			white;
-	width:			7;
-	dashes:			20,20,10,20;
-	casing-dashes:	20,20,10,20;
+	color:				white;
+	width:				7;
+	dashes:				20,20,10,20;
+	casing-dashes:		20,20,10,20;
 }
 
 way[highway=construction].highway {
-	color:			white;
-	width:			7;
-	dashes:			20,20;
-	casing-dashes:	20,20;
+	color:				white;
+	width:				7;
+	dashes:				20,20;
+	casing-dashes:		20,20;
 }
 
 way[highway=road].highway {
-	width:			6;
-	dashes:			20,20;
+	width:				6;
+	dashes:				20,20;
 	dashes-background-color:	red; /* This is JOSM syntax, dont know how this will work */
 }
 
 way[highway=residential].highway {
-	width:			5;
+	width:				5;
 }
 
 way[highway=unclassified].highway {
-	width:			4;
+	width:				4;
 }
 
 way[highway=tertiary].highway {
-	width:			6;
+	width:				6;
 }
 
 way[highway=secondary].highway {
-	width:			8;
+	width:				8;
 }
 
 way[highway=primary].highway {
-	width:			10;
+	width:				10;
 }
 
 way[highway=trunk].highway {
-	width:			12;
+	width:				12;
 }
 
 way[highway=motorway].highway {
-	width:			14;
+	width:				14;
 }
 
 way[highway][operator].highway::operator, relation[type=route][route=road][operator] > way[highway].highway::operator {
 	/* Highway have concecionario, need to add a yellow halo to the road, in addition to the casing */
-	casing-width:	+4;
-	casing-color:	yellow;
+	casing-width:		+4;
+	casing-color:		yellow;
+}
+
+way[highway][noname?].highway, way[highway][unsigned?].highway, way[highway][unnamed?].highway {
+	text:				eval("Sem Nome");
+	text-halo-radius:	1;
+	text-halo-color:	white;
+	font-style:			italic;
+	text-color:			gray;
 }
 
 way[highway][name].highway {
-	text:			any(tag("name:pt"), tag("name"), tag("official_name"), tag("alt_name"), tag("local_name"), tag("old_name"));
-	text-color:		black;
+	text:				any(tag("name:pt"), tag("name"), tag("official_name"), tag("alt_name"), tag("local_name"), tag("old_name"));
+	text-color:			black;
+	text-halo-radius:	1;
+	text-halo-color:	white;
 }
 /* To force correct use of name, and use of proper tags where the streets have no name */
 way[highway][name*="Sem Denominacao"].highway,
 way[highway][name*="Sem Nome"].highway {
-	text:			eval("Sem Nome");
+	text:				eval("Sem Nome");
 	text-halo-radius:	1;
 	text-halo-color:	white;
-	font-style:		italic;
-	text-color:		red;
-}
-way[highway][noname?].highway, way[highway][unsigned?].highway {
-	text:			eval("Sem Nome");
-	text-halo-radius:	1;
-	text-halo-color:	white;
-	font-style:		italic;
-	text-color:		gray;
+	font-style:			italic;
+	text-color:			red;
 }
 /* Creating shields */
 way[highway][ref].highway, relation[type=route][route=road][ref] > way[highway].highway {
 	/* Default shield */
-	shield-text:			ref;
-	shield-image:			"icons/shield-default.svg";
+	shield-text:		ref;
+	shield-image:		"icons/shield-default.svg";
 }
 way[highway][ref].rodovia_estadual, relation[type=route][route=road][ref] > way[highway].rodovia_estadual {
 	/* State Highway Shields */
-	shield-text:			ref;
-	shield-image:			"icons/shield-state.svg";
+	shield-text:		ref;
+	shield-image:		"icons/shield-state.svg";
 }
 way[highway][ref].rodivia_federal, relation[type=route][route=road][ref] > way[highway].rodoovia_federal {
 	/* Federal Highway Shields */
-	shield-text:			ref;
-	shield-image:			"icons/shield-br.svg";
+	shield-text:		ref;
+	shield-image:		"icons/shield-br.svg";
 }
