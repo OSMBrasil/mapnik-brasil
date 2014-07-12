@@ -8,4 +8,4 @@ Estilo brasileiro para o OSM com os seguintes objetivos:
 * renderização diferenciada de rodovias federais e estaduais, similar ao padrão do DNIT
 * renderização diferenciada de vias sem pavimentação
 * exibição de POIs importantes ou comuns do país
-* diferenciação de estradas com [pedágio](http://wiki.openstreetmap.org/wiki/Key:fee)
+* diferenciação de estradas com [pedágio](http://wiki.openstreetmap.org/wiki/Key:toll)
