@@ -139,6 +139,11 @@ way[highway][operator].highway::operator, relation[type=route][route=road][opera
 	casing-width:		+4;
 	casing-color:		yellow;
 }
+way|z8-[higway][toll].highway::toll, relation[type=route][route=road][toll] > way[highway].highway::operator {
+	/* Highway with toll fee to be rendered with a green halo on high zoom levels */
+	casing-width:		+5;
+	casing-color:		limegreen;
+}
 
 way[highway][noname?].highway, way[highway][unsigned?].highway, way[highway][unnamed?].highway {
 	text:				eval("Sem Nome");
@@ -178,4 +183,15 @@ way[highway][ref].rodivia_federal, relation[type=route][route=road][ref] > way[h
 	/* Federal Highway Shields */
 	shield-text:		ref;
 	shield-image:		"icons/shield-br.svg";
+}
+
+node[barrier=toll_booth] {
+	icon-image:			"icons/pedagio.svg";
+	
+}
+node[barrier=toll_booth] near[distance<100] {
+	/* No render */
+	icon-image:			"icons/void.svg";
+	icon-width:			0;
+	icon-height:		0;
 }
