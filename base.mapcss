@@ -29,6 +29,7 @@ area[natural=coastline], relation[natural=coastline] {
  */
 way[highway] {
 	color:				darkgray;
+	casing-color:		darkgray;
 }
  
 way[highway][network="BR:AC"], relation[type=route][route=road][network="BR:AC"] > way[highway], way[highway][ref^=AC-], relation[type=route][route=road][ref^=AC-] > way[highway],
@@ -86,55 +87,59 @@ way|z10-[highway][surface=cobblestone].highway {
 	set	.highway;
 }
 
-way[highway=planned].highway {
+way|z10-[highway=planned].highway {
 	color:				white;
 	width:				7;
 	dashes:				20,20,10,20;
 	casing-dashes:		20,20,10,20;
 }
 
-way[highway=construction].highway {
+way|z8-[highway=construction].highway {
 	color:				white;
 	width:				7;
 	dashes:				20,20;
 	casing-dashes:		20,20;
 }
 
-way[highway=road].highway {
+way|z8-[highway=road].highway {
 	width:				6;
 	dashes:				20,20;
 	dashes-background-color:	red; /* This is JOSM syntax, dont know how this will work */
 }
 
-way[highway=residential].highway {
+way|z10-[highway=residential].highway {
 	width:				5;
 }
 
-way[highway=unclassified].highway {
+way|z10-[highway=unclassified].highway {
 	width:				4;
 }
 
-way[highway=tertiary].highway {
+way|z6-[highway=tertiary].highway {
 	width:				6;
 }
 
-way[highway=secondary].highway {
+way|z6-[highway=secondary].highway {
 	width:				8;
 }
 
-way[highway=primary].highway {
+way|z4-[highway=primary].highway {
 	width:				10;
 }
 
-way[highway=trunk].highway {
-	width:				12;
+way|z3-[highway=trunk].highway {
+	width:				4;
+	casing-width:		8;
+	color:				white;
 }
 
-way[highway=motorway].highway {
-	width:				14;
+way|z2-[highway=motorway].highway {
+	width:				4;
+	casing-width:		10;
+	color:				white;
 }
 
-way[highway][operator].highway::operator, relation[type=route][route=road][operator] > way[highway].highway::operator {
+way|z4-[highway][operator].highway::operator, relation[type=route][route=road][operator] > way[highway].highway::operator {
 	/* Highway have concecionario, need to add a yellow halo to the road, in addition to the casing */
 	casing-width:		+4;
 	casing-color:		yellow;
@@ -145,7 +150,7 @@ way|z8-[higway][toll].highway::toll, relation[type=route][route=road][toll] > wa
 	casing-color:		limegreen;
 }
 
-way[highway][noname?].highway, way[highway][unsigned?].highway, way[highway][unnamed?].highway {
+way|z8-[highway][noname?].highway, way[highway][unsigned?].highway, way[highway][unnamed?].highway {
 	text:				eval("Sem Nome");
 	text-halo-radius:	1;
 	text-halo-color:	white;
@@ -160,8 +165,9 @@ way[highway][name].highway {
 	text-halo-color:	white;
 }
 /* To force correct use of name, and use of proper tags where the streets have no name */
-way[highway][name*="Sem Denominacao"].highway,
-way[highway][name*="Sem Nome"].highway {
+way|z8-[highway][name*="Sem Denominacao"].highway,
+way|z8-[highway][name*="Sem Denominação"].highway,
+way|z8-[highway][name*="Sem Nome"].highway {
 	text:				eval("Sem Nome");
 	text-halo-radius:	1;
 	text-halo-color:	white;
