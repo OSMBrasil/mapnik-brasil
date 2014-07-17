@@ -30,6 +30,8 @@ area[natural=coastline], relation[natural=coastline] {
 way[highway] {
 	color:				darkgray;
 	casing-color:		darkgray;
+	casing-width:		4;
+	set .highway;
 }
  
 way[highway][network="BR:AC"], relation[type=route][route=road][network="BR:AC"] > way[highway], way[highway][ref^=AC-], relation[type=route][route=road][ref^=AC-] > way[highway],
@@ -115,6 +117,7 @@ way|z8-[highway=road].highway {
 	dashes-background-color:	red; /* This is JOSM syntax, dont know how this will work */
 }
 
+way|z10-[highway=service].highway,
 way|z10-[highway=residential].highway {
 	width:				5;
 }
@@ -238,4 +241,11 @@ node|z10-[highway=traffic_signals] {
 area[natural=water],
 area[waterway=riverbank] {
 	fill-color:			skyblue;
+}
+
+/*
+ * Urban features
+ */
+area[building] {
+	fill-color:			orange;
 }
