@@ -61,14 +61,14 @@ way[highway][network="BR:SE"], relation[type=route][route=road][network="BR:SE"]
 way[highway][network="BR:TO"], relation[type=route][route=road][network="BR:TO"] > way[highway], way[highway][ref^=TO-], relation[type=route][route=road][ref^=TO-] > way[highway] {
 	color:				darkgreen; /* State Highway */
 	casing-color:		darkgreen;
-	set .highway;
 	set .rodovia_estadual;
+	set .highway;
 }
-way[highway][network=BR], relation[type=route][route=road][network=BR] > way[highway] {
+way[highway][network=BR], relation[type=route][route=road][network=BR] > way[highway], relation[type=route][route=road][ref^=BR-] > way[highway], way[highway][ref^=BR-] {
 	color:				darkred; /* Federal Highway */
 	casing-color:		darkred;
-	set .highway;
 	set .rodovia_federal;
+	set .highway;
 }
 
 way|z-10[highway][surface=unpaved].highway {
@@ -193,11 +193,11 @@ way[highway][ref].rodivia_federal, relation[type=route][route=road][ref] > way[h
 
 node[barrier=toll_booth] {
 	icon-image:			"icons/pedagio.svg";
-	
+	icon-width:			12;
 }
-node[barrier=toll_booth] near[distance<100] {
+@media (user-agent: pgmapcss) { node[barrier=toll_booth] near[distance<100] {
 	/* No render */
 	icon-image:			"icons/void.svg";
 	icon-width:			0;
 	icon-height:		0;
-}
+} }
