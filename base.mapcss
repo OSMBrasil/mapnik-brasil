@@ -61,13 +61,21 @@ way[highway][network="BR:SE"], relation[type=route][route=road][network="BR:SE"]
 way[highway][network="BR:TO"], relation[type=route][route=road][network="BR:TO"] > way[highway], way[highway][ref^=TO-], relation[type=route][route=road][ref^=TO-] > way[highway] {
 	color:				darkgreen; /* State Highway */
 	casing-color:		darkgreen;
+	casing-width:		4;
 	set .rodovia_estadual;
 	set .highway;
 }
 way[highway][network=BR], relation[type=route][route=road][network=BR] > way[highway], relation[type=route][route=road][ref^=BR-] > way[highway], way[highway][ref^=BR-] {
 	color:				darkred; /* Federal Highway */
 	casing-color:		darkred;
+	casing-width:		4;
 	set .rodovia_federal;
+	set .highway;
+}
+relation[type=route][route=road][network=BR] > way.rodovia_estadual, relation[type=route][route=road][ref^=BR-] > way.rodovia_estadual {
+	color:				darkred;
+	casing-color:		darkgreen;
+	casing-width:		4;
 	set .highway;
 }
 
@@ -115,24 +123,39 @@ way|z10-[highway=unclassified].highway {
 	width:				4;
 }
 
+way|z8-[highway=tertiary_link].highway {
+	width:				6;
+}
 way|z6-[highway=tertiary].highway {
 	width:				6;
 }
 
+way|z7-[highway=secondary_link].highway {
+	width:				8;
+}
 way|z6-[highway=secondary].highway {
 	width:				8;
 }
 
+way|z6-[highway=primary_link].highway {
+	width:				10;
+}
 way|z4-[highway=primary].highway {
 	width:				10;
 }
 
+way|z4-[highway=trunk_link].highway {
+	width:				12;
+}
 way|z3-[highway=trunk].highway {
 	width:				4;
 	casing-width:		8;
 	color:				white;
 }
 
+way|z4-[highway=motorway_link].highway {
+	width:				14;
+}
 way|z2-[highway=motorway].highway {
 	width:				4;
 	casing-width:		10;
@@ -141,11 +164,13 @@ way|z2-[highway=motorway].highway {
 
 way|z4-[highway][operator].highway::operator, relation[type=route][route=road][operator] > way[highway].highway::operator {
 	/* Highway have concecionario, need to add a yellow halo to the road, in addition to the casing */
+	object-z-index:		-1;
 	casing-width:		+4;
 	casing-color:		yellow;
 }
 way|z8-[higway][toll].highway::toll, relation[type=route][route=road][toll] > way[highway].highway::operator {
 	/* Highway with toll fee to be rendered with a green halo on high zoom levels */
+	object-z-index:		-2;
 	casing-width:		+5;
 	casing-color:		limegreen;
 }
@@ -201,3 +226,16 @@ node[barrier=toll_booth] {
 	icon-width:			0;
 	icon-height:		0;
 } }
+
+node|z10-[highway=traffic_signals] {
+	icon-image:			"icons/semaforo.svg";
+	icon-width:			12;
+}
+
+/*
+ * Waterways and water-cover
+ */
+area[natural=water],
+area[waterway=riverbank] {
+	fill-color:			skyblue;
+}
