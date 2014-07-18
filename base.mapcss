@@ -117,6 +117,38 @@ way|z8-[highway=road].highway {
 	dashes-background-color:	red; /* This is JOSM syntax, dont know how this will work */
 }
 
+way|z14-[highway=path].highway {
+	color:				green;
+	casing-color:		brown;
+	dashes:				6,4,4,4;
+}
+way|z14-[highway=footway].highway {
+	color:				limegreen;
+	casing-color:		limegreen;
+}
+way|z12-[highway=cycleway].highway {
+	color:				violet;
+	casing-color:		violet;
+}
+way|z12-[highway=track].highway {
+	casing-color:		brown;
+}
+way|z12-[highway=track][tracktype=grade1].highway {
+	dashes:				10,4,8,4;
+}
+way|z12-[highway=track][tracktype=grade2].highway {
+	dashes:				10,4,6,4;
+}
+way|z12-[highway=track][tracktype=grade3].highway {
+	dashes:				10,4,4,4;
+}
+way|z12-[highway=track][tracktype=grade4].highway {
+	dashes:				10,4,2,4;
+}
+way|z12-[highway=track][tracktype=grade5].highway {
+	dashes:				10,6,2,6;
+}
+
 way|z10-[highway=service].highway,
 way|z10-[highway=residential].highway {
 	width:				5;
@@ -187,7 +219,7 @@ way|z8-[highway][noname?].highway, way[highway][unsigned?].highway, way[highway]
 }
 
 way[highway][name].highway {
-	text:				any(tag("name:pt"), tag("name"), tag("official_name"), tag("alt_name"), tag("local_name"), tag("old_name"));
+	text:				any(tag("name:pt"), tag("name"), tag("official_name"), tag("alt_name"), tag("loc_name"), tag("old_name"));
 	text-color:			black;
 	text-halo-radius:	1;
 	text-halo-color:	white;
@@ -219,7 +251,7 @@ way[highway][ref].rodivia_federal, relation[type=route][route=road][ref] > way[h
 	shield-image:		"icons/shield-br.svg";
 }
 
-node[barrier=toll_booth] {
+node|z6-[barrier=toll_booth] {
 	icon-image:			"icons/pedagio.svg";
 	icon-width:			12;
 }
@@ -234,6 +266,12 @@ node|z10-[highway=traffic_signals] {
 	icon-image:			"icons/semaforo.svg";
 	icon-width:			12;
 }
+@media (user-agent: pgmapcss) { node[highway=traffic_signals] near[distance<20] {
+	/* No render */
+	icon-image:			"icons/void.svg";
+	icon-width:			0;
+	icon-height:		0;
+} }
 
 /*
  * Waterways and water-cover
