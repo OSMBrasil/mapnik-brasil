@@ -119,18 +119,22 @@ way|z8-[highway=road].highway {
 
 way|z14-[highway=path].highway {
 	color:				green;
+	casing-width:		1;
 	casing-color:		brown;
 	dashes:				6,4,4,4;
 }
 way|z14-[highway=footway].highway {
 	color:				limegreen;
 	casing-color:		limegreen;
+	casing-width:		2;
 }
 way|z12-[highway=cycleway].highway {
 	color:				violet;
 	casing-color:		violet;
+	casing-width:		2;
 }
 way|z12-[highway=track].highway {
+	casing-width:		2;
 	casing-color:		brown;
 }
 way|z12-[highway=track][tracktype=grade1].highway {
@@ -276,6 +280,15 @@ node|z10-[highway=traffic_signals] {
 /*
  * Waterways and water-cover
  */
+*[waterway] {
+	color:				darkblue;
+	width:				4;
+	set .waterway;
+}
+way[waterway=river].waterway {
+	width:				6;
+}
+
 area[natural=water],
 area[waterway=riverbank] {
 	fill-color:			skyblue;
