@@ -83,7 +83,7 @@ relation[type=route][route=road][network=BR] > way.rodovia_estadual, relation[ty
 
 way|z-10[highway][surface=unpaved].highway {
 	color:				white;
-	casing-width:		2;
+/*	casing-width:		2; */
 	set	.highway;
 }
 way|z10-[highway][surface=unpaved].highway {
@@ -286,7 +286,19 @@ node|z10-[highway=traffic_signals] {
 	set .waterway;
 }
 way[waterway=river].waterway {
+	width:				8;
+}
+way[waterway=canal].waterway {
 	width:				6;
+}
+way[waterway=stream].waterway {
+	width:				4;
+}
+way[waterway=ditch].waterway {
+	width:				3;
+}
+way[waterway=drain].waterway {
+	width:				2;
 }
 
 area[natural=water],
