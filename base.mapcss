@@ -255,6 +255,16 @@ way[highway][ref].rodivia_federal, relation[type=route][route=road][ref] > way[h
 	shield-image:		"icons/shield-br.svg";
 }
 
+relation[type=enfocement][enforcement=maxweight] >[role=device] * {
+	icon-image:			"icons/pesagem.svg";
+	icon-width:			12;
+}
+
+node[amenity=police][name=~/.*rodoviaria*/i] {
+	icon-image:			"icons/policia_rodoviaria.svg";
+	icon-width:			16;
+}
+
 node|z6-[barrier=toll_booth] {
 	icon-image:			"icons/pedagio.svg";
 	icon-width:			12;
@@ -309,6 +319,12 @@ area[waterway=riverbank] {
 /*
  * Urban features
  */
+area|z2-12[landuse=residential] {
+	fill-color:			yellow;
+}
+area|z13-[landuse=residential] {
+	fill-color:			lightgray;
+}
 area[building] {
 	fill-color:			orange;
 }
