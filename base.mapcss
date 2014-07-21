@@ -260,7 +260,7 @@ relation[type=enfocement][enforcement=maxweight] >[role=device] * {
 	icon-width:			12;
 }
 
-node[amenity=police][name=~/.*rodoviaria*/i] {
+node[amenity=police][name="~/.*rodoviaria*/i"] {
 	icon-image:			"icons/policia_rodoviaria.svg";
 	icon-width:			16;
 }
