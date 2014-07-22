@@ -254,7 +254,15 @@ way|z8-[highway][noname?].highway, way[highway][unsigned?].highway, way[highway]
 	text-color:			gray;
 }
 
-way[highway][name].highway {
+relation[type=route][route=road][name] > way[!name],
+relation[type=route][route=street][name] > way[!name] {
+	text:				any(parent_tag("name:pt"), parent_tag("name"), parent_tag("official_name"), parent_tag("alt_name"), parent_tag("loc_name"), parent_tag("old_name"));
+	text-color:			black;
+	text-halo-radius:	1;
+	text-halo-color:	white;
+}
+
+way[highway].highway {
 	text:				any(tag("name:pt"), tag("name"), tag("official_name"), tag("alt_name"), tag("loc_name"), tag("old_name"));
 	text-color:			black;
 	text-halo-radius:	1;
