@@ -81,6 +81,20 @@ relation[type=route][route=road][network=BR] > way.rodovia_estadual, relation[ty
 	set .highway;
 }
 
+@media (user-agent: pgmapcss) {
+way[highway=tertiary][!surface], way[highway=tertiary_link][!surface], 
+way[highway=unclassified][!surface], way[highway=track][!surface] {
+	set surface=unpaved;
+}
+way[highway=service][!surface], way[highway=residential][!surface],
+way[highway=secondary][!surface], way[highway=secondary_link][!surface],
+way[highway=primary][!surface], way[highway=primary_link][!surface],
+way[highway=trunk][!surface], way[highway=trunk_link][!surface],
+way[highway=motorway][!surface], way[highway=motorway_link][!surface] {
+	set surface=paved;
+}
+}
+
 way|z-10[highway][surface=ground].highway,
 way|z-10[highway][surface=compacted].highway,
 way|z-10[highway][surface=dirt].highway,
