@@ -82,17 +82,17 @@ relation[type=route][route=road][network=BR] > way.rodovia_estadual, relation[ty
 }
 
 @media (user-agent: pgmapcss) {
-way[highway=tertiary][!surface], way[highway=tertiary_link][!surface], 
-way[highway=unclassified][!surface], way[highway=track][!surface] {
-	set surface=unpaved;
-}
-way[highway=service][!surface], way[highway=residential][!surface],
-way[highway=secondary][!surface], way[highway=secondary_link][!surface],
-way[highway=primary][!surface], way[highway=primary_link][!surface],
-way[highway=trunk][!surface], way[highway=trunk_link][!surface],
-way[highway=motorway][!surface], way[highway=motorway_link][!surface] {
-	set surface=paved;
-}
+	way[highway=tertiary][!surface], way[highway=tertiary_link][!surface], 
+	way[highway=unclassified][!surface], way[highway=track][!surface] {
+		set surface=unpaved;
+	}
+	way[highway=service][!surface], way[highway=residential][!surface],
+	way[highway=secondary][!surface], way[highway=secondary_link][!surface],
+	way[highway=primary][!surface], way[highway=primary_link][!surface],
+	way[highway=trunk][!surface], way[highway=trunk_link][!surface],
+	way[highway=motorway][!surface], way[highway=motorway_link][!surface] {
+		set surface=paved;
+	}
 }
 
 way|z-10[highway][surface=ground].highway,
@@ -323,23 +323,27 @@ node|z6-[barrier=toll_booth] {
 	icon-image:			"icons/pedagio.svg";
 	icon-width:			12;
 }
-@media (user-agent: pgmapcss) { node[barrier=toll_booth] near[distance<100] {
-	/* No render */
-	icon-image:			"icons/void.svg";
-	icon-width:			0;
-	icon-height:		0;
-} }
+@media (user-agent: pgmapcss) { 
+	node[barrier=toll_booth] near[distance<100] {
+		/* No render */
+		icon-image:			"icons/void.svg";
+		icon-width:			0;
+		icon-height:		0;
+	}
+}
 
 node|z10-[highway=traffic_signals] {
 	icon-image:			"icons/semaforo.svg";
 	icon-width:			12;
 }
-@media (user-agent: pgmapcss) { node[highway=traffic_signals] near[distance<20] {
-	/* No render */
-	icon-image:			"icons/void.svg";
-	icon-width:			0;
-	icon-height:		0;
-} }
+@media (user-agent: pgmapcss) {
+	node[highway=traffic_signals] near[distance<20] {
+		/* No render */
+		icon-image:			"icons/void.svg";
+		icon-width:			0;
+		icon-height:		0;
+	}
+}
 
 /*
  * Waterways and water-cover
