@@ -7,6 +7,8 @@ meta {
 	version:			"0.1";
 	author:				"Aun Johnsen";
 	description: 		"Mapnik for Brazil";
+	min-pgmapcss-version: 0.1;
+	min-josm-version:	7000;
 }
  
 /*
