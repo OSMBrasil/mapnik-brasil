@@ -83,7 +83,11 @@ relation[type=route][route=road][network=BR] > way.rodovia_estadual, relation[ty
 	set .highway;
 }
 
+/*
+ * Setting default highway values where unset: surface, maxspeed, oneway, lanes
+ */
 @media (user-agent: pgmapcss) {
+	/* Default surface */
 	way[highway=tertiary][!surface], way[highway=tertiary_link][!surface], 
 	way[highway=unclassified][!surface], way[highway=track][!surface] {
 		set surface=unpaved;
@@ -94,6 +98,59 @@ relation[type=route][route=road][network=BR] > way.rodovia_estadual, relation[ty
 	way[highway=trunk][!surface], way[highway=trunk_link][!surface],
 	way[highway=motorway][!surface], way[highway=motorway_link][!surface] {
 		set surface=paved;
+	}
+	/* Default oneway */
+	way[highway=motorway][!oneway], way[highway=motorway_link][!oneway],
+	way[highway=trunk][!oneway], way[highway=trunk_link][!oneway],
+	way[highway=primary_link][!oneway] {
+		set oneway=yes;
+	}
+	way[highway][!oneway] {
+		set oneway=no;
+	}
+	/* Default lanes */
+	way[highway=motorway][oneway?][!lanes],
+	way[highway=trunk][oneway?!][!lanes] {
+		set lanes=3;
+	}
+	way[highway=motorway][oneway?!][!lanes] {
+		set lanes=5;
+	}
+	way[highway=trunk][oneway?][!lanes] {
+		set lanes=2;
+	}
+	way[highway=track][!lanes],
+	way[highway=footway][!lanes],
+	way[highway=cycleway][!lanes],
+	way[highway=unclassified][oneway?!][!lanes],
+	way[highway=tertiary][oneway?!][!lanes],
+	way[highway=residential][oneway?!][!lanes] {
+		set lanes=1;
+	}
+	way[highway][!lanes] {
+		set lanes=2;
+	}
+	/* Default Maxspeed */
+	way[highway=motorway][!maxspeed] {
+		set maxspeed=110;
+	}
+	way[highway=trunk][!maxspeed], way[highway=primary][!maxspeed] {
+		set maxspeed=80;
+	}
+	way[highway=secondary][!maxspeed], way[highway=tertiary][!maxspeed] {
+		set maxspeed=60;
+	}
+	way[highway=unclassified][!maxspeed] {
+		set maxspeed=50;
+	}
+	way[highway=residential][!maxspeed] {
+		set maxspeed=40;
+	}
+	way[highway=track][!maxspeed] {
+		set maxspeed=30;
+	}
+	way[highway=service][!maxspeed] {
+		set maxspeed=20;
 	}
 }
 
@@ -249,6 +306,14 @@ way|z2-[highway=motorway].highway {
 	color:				white;
 }
 
+/* High zoom levels should render the true width of the road */
+@media (user-agent: pgmapcss) { 
+	way|z18-[highway].highway {
+		width:				eval(any(tag(width), set_width_in_meters(3 * tag(lanes))));
+		casing-width:		3;
+	}
+}
+
 way|z4-[highway][operator].highway::operator, relation[type=route][route=road][operator] > way[highway].highway::operator {
 	/* Highway have concecionario, need to add a yellow halo to the road, in addition to the casing */
 	object-z-index:		-1;
@@ -263,6 +328,7 @@ way|z8-[higway][toll].highway::toll, relation[type=route][route=road][toll] > wa
 }
 
 way|z8-[highway][noname?].highway, way[highway][unsigned?].highway, way[highway][unnamed?].highway {
+	/* Unnamed highways render default "Sem Nome" */
 	text:				eval("Sem Nome");
 	text-halo-radius:	1;
 	text-halo-color:	white;
@@ -270,8 +336,9 @@ way|z8-[highway][noname?].highway, way[highway][unsigned?].highway, way[highway]
 	text-color:			gray;
 }
 
-relation[type=route][route=road][name] > way[!name],
-relation[type=route][route=street][name] > way[!name] {
+relation[type=route][route=road] > way,
+relation[type=route][route=street] > way {
+	/* If unnamed way is part of a named road/street relation, take name from relation */
 	text:				any(parent_tag("name:pt"), parent_tag("name"), parent_tag("official_name"), parent_tag("alt_name"), parent_tag("loc_name"), parent_tag("old_name"));
 	text-color:			black;
 	text-halo-radius:	1;
@@ -279,6 +346,7 @@ relation[type=route][route=street][name] > way[!name] {
 }
 
 way[highway].highway {
+	/* Default names for highway is tagged on the way itself */
 	text:				any(tag("name:pt"), tag("name"), tag("official_name"), tag("alt_name"), tag("loc_name"), tag("old_name"));
 	text-color:			black;
 	text-halo-radius:	1;
@@ -288,6 +356,7 @@ way[highway].highway {
 way|z8-[highway][name*="Sem Denominacao"].highway,
 way|z8-[highway][name*="Sem Denominação"].highway,
 way|z8-[highway][name*="Sem Nome"].highway {
+	/* Any form of "Sem Nome" (un-named) should be overrided and printed in a different color, wrong use of name tag */
 	text:				eval("Sem Nome");
 	text-halo-radius:	1;
 	text-halo-color:	white;
@@ -296,7 +365,7 @@ way|z8-[highway][name*="Sem Nome"].highway {
 }
 /* Creating shields */
 way[highway][ref].highway, relation[type=route][route=road][ref] > way[highway].highway {
-	/* Default shield */
+	/* Default shield (Municipal highways) */
 	shield-text:		ref;
 	shield-image:		"icons/shield-default.svg";
 }
@@ -312,22 +381,25 @@ way[highway][ref].rodivia_federal, relation[type=route][route=road][ref] > way[h
 }
 
 relation[type=enfocement][enforcement=maxweight] >[role=device] * {
+	/* Weighing Station */
 	icon-image:			"icons/pesagem.svg";
 	icon-width:			12;
 }
 
 node[amenity=police][name="~/.*rodoviaria*/i"] {
+	/* Highway Police */
 	icon-image:			"icons/policia_rodoviaria.svg";
 	icon-width:			16;
 }
 
 node|z6-[barrier=toll_booth] {
+	/* Toll booth (pedagio) */
 	icon-image:			"icons/pedagio.svg";
 	icon-width:			12;
 }
 @media (user-agent: pgmapcss) { 
 	node[barrier=toll_booth] near[distance<100] {
-		/* No render */
+		/* No render, override second booth if too close to other */
 		icon-image:			"icons/void.svg";
 		icon-width:			0;
 		icon-height:		0;
@@ -335,12 +407,13 @@ node|z6-[barrier=toll_booth] {
 }
 
 node|z10-[highway=traffic_signals] {
+	/* Traffic signal */
 	icon-image:			"icons/semaforo.svg";
 	icon-width:			12;
 }
 @media (user-agent: pgmapcss) {
 	node[highway=traffic_signals] near[distance<20] {
-		/* No render */
+		/* No render, override second traffic signal if too close to other */
 		icon-image:			"icons/void.svg";
 		icon-width:			0;
 		icon-height:		0;
@@ -372,8 +445,38 @@ way[waterway=drain].waterway {
 }
 
 area[natural=water],
-area[waterway=riverbank] {
+area[waterway=riverbank],
+area[landuse=reservoir],
+area[waterway=canal] {
 	fill-color:			skyblue;
+}
+/*
+ * Wetland
+ */
+area[natural=wetland] {
+	/* Default fill */
+	fill-image:			"icons/fill/alogado.svg";
+}
+/*
+ * Woodland
+ */
+ area[natural=wood], area[landuse=forest] {
+	fill-color:			forestgreen;
+ }
+ area[natural=scrub] {
+	fill-color:			forestgreen;
+	fill-opacity:		0.5;
+ }
+ 
+/*
+ * Other Landscape Features
+ */
+area[landuse=farm],area[landuse=farmland],area[landuse=meadow],area[landuse=orchard] {
+	/* default farmland */
+	fill-color:			cornsilk;
+}
+area[landuse=industrial] {
+	fill-color:			gray;
 }
 
 /*
@@ -385,6 +488,6 @@ area|z2-12[landuse=residential] {
 area|z13-[landuse=residential] {
 	fill-color:			lightgray;
 }
-area[building] {
+area|z8-[building] {
 	fill-color:			orange;
 }
