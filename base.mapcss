@@ -154,6 +154,13 @@ relation[type=route][route=road][network=BR] > way.rodovia_estadual, relation[ty
 	}
 }
 
+way|z3-5[highway].rodovia_estadual {
+	width:				4;
+}
+way|z0-5[highway].rodovia_federal {
+	width:				4;
+}
+
 way|z-10[highway][surface=ground].highway,
 way|z-10[highway][surface=compacted].highway,
 way|z-10[highway][surface=dirt].highway,
