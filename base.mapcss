@@ -87,6 +87,10 @@ relation[type=route][route=road][network=BR] > way.rodovia_estadual, relation[ty
  * Setting default highway values where unset: surface, maxspeed, oneway, lanes
  */
 @media (user-agent: pgmapcss) {
+	/* highway=road to be treated as unclassified */
+	way[highway=road] {
+		set highway=unclassified;
+	}
 	/* Default surface */
 	way[highway=tertiary][!surface], way[highway=tertiary_link][!surface], 
 	way[highway=unclassified][!surface], way[highway=track][!surface] {
@@ -154,6 +158,9 @@ relation[type=route][route=road][network=BR] > way.rodovia_estadual, relation[ty
 	}
 }
 
+way|z5[highway][network].highway, relation[route=road][network] > way.highway {
+	width:				4;
+}
 way|z3-5[highway].rodovia_estadual {
 	width:				4;
 }
@@ -173,7 +180,6 @@ way|z-10[highway][surface=sand].highway,
 way|z-10[highway][surface=scree].highway,
 way|z-10[highway][surface=unpaved].highway {
 	color:				white;
-/*	casing-width:		2; */
 	set	.highway;
 }
 way|z10-[highway][surface=ground].highway,
@@ -188,7 +194,6 @@ way|z10-[highway][surface=sand].highway,
 way|z10-[highway][surface=scree].highway,
 way|z10-[highway][surface=unpaved].highway {
 	color:				lightgray;
-/*	casing-width:		2; */
 	set .highway;
 }
 way|z10-[highway][surface=sett].highway,
@@ -199,26 +204,27 @@ way|z10-[highway][surface=pebblestone].highway,
 way|z10-[highway][surface=wood].highway,
 way|z10-[highway][surface=cobblestone].highway {
 	color:				brown;
-/*	casing-width:		2; */
 	set	.highway;
 }
 
-way|z12-[highway][!surface].highway {
-	color:				lightgray;
-	dashes:				3,2;
-	dashes-background-color:	pink;
+@media (user-agent: josm) {
+	way|z12-[highway][!surface].highway {
+		color:				lightgray;
+		dashes:				3,2;
+		dashes-background-color:	pink;
+	}
 }
 
 way|z10-[highway=planned].highway {
 	color:				white;
-	width:				7;
+	width:				3;
 	dashes:				20,20,10,20;
 	casing-dashes:		20,20,10,20;
 }
 
 way|z8-[highway=construction].highway {
 	color:				white;
-	width:				7;
+	width:				5;
 	dashes:				20,20;
 	casing-dashes:		20,20;
 }
@@ -435,19 +441,19 @@ node|z10-[highway=traffic_signals] {
 	width:				4;
 	set .waterway;
 }
-way[waterway=river].waterway {
+way|z4-[waterway=river].waterway {
 	width:				8;
 }
-way[waterway=canal].waterway {
+way|z6-[waterway=canal].waterway {
 	width:				6;
 }
-way[waterway=stream].waterway {
+way|z8-[waterway=stream].waterway {
 	width:				4;
 }
-way[waterway=ditch].waterway {
+way|z10-[waterway=ditch].waterway {
 	width:				3;
 }
-way[waterway=drain].waterway {
+way|z13-[waterway=drain].waterway {
 	width:				2;
 }
 
@@ -460,17 +466,17 @@ area[waterway=canal] {
 /*
  * Wetland
  */
-area[natural=wetland] {
+area|z4-[natural=wetland] {
 	/* Default fill */
 	fill-image:			"icons/fill/alogado.svg";
 }
 /*
  * Woodland
  */
- area[natural=wood], area[landuse=forest] {
+ area|z8-[natural=wood], area|z8-[landuse=forest] {
 	fill-color:			forestgreen;
  }
- area[natural=scrub] {
+ area|z13-[natural=scrub] {
 	fill-color:			forestgreen;
 	fill-opacity:		0.5;
  }
@@ -478,11 +484,11 @@ area[natural=wetland] {
 /*
  * Other Landscape Features
  */
-area[landuse=farm],area[landuse=farmland],area[landuse=meadow],area[landuse=orchard] {
+area|z13-[landuse=farm],area|z13-[landuse=farmland],area|z13-[landuse=meadow],area|z13-[landuse=orchard] {
 	/* default farmland */
 	fill-color:			cornsilk;
 }
-area[landuse=industrial] {
+area|z13-[landuse=industrial] {
 	fill-color:			gray;
 }
 
