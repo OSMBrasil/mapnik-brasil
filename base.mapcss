@@ -376,20 +376,24 @@ way|z8-[highway][name*="Sem Nome"].highway {
 	font-style:			italic;
 	text-color:			red;
 }
+way|z8-[highway][bridge].highway {
+	/* Name of the bridge instead of name of the highway, if set, to be printed on bridges */
+	text:				any(tag("bridge_name"), tag("official_name"), tag("name:pt"), tag("name"), tag("alt_name"), tag("loc_name"), tag("old_name"));
+}
 /* Creating shields */
 way[highway][ref].highway, relation[type=route][route=road][ref] > way[highway].highway {
 	/* Default shield (Municipal highways) */
-	shield-text:		ref;
+	shield-text:		any(tag(ref), parent_tag(ref));
 	shield-image:		"icons/shield-default.svg";
 }
 way[highway][ref].rodovia_estadual, relation[type=route][route=road][ref] > way[highway].rodovia_estadual {
 	/* State Highway Shields */
-	shield-text:		ref;
+	shield-text:		any(tag(ref), parent_tag(ref));
 	shield-image:		"icons/shield-state.svg";
 }
 way[highway][ref].rodivia_federal, relation[type=route][route=road][ref] > way[highway].rodoovia_federal {
 	/* Federal Highway Shields */
-	shield-text:		ref;
+	shield-text:		any(tag(ref), parent_tag(ref));
 	shield-image:		"icons/shield-br.svg";
 }
 
@@ -416,6 +420,7 @@ node|z6-[barrier=toll_booth] {
 		icon-image:			"icons/void.svg";
 		icon-width:			0;
 		icon-height:		0;
+		icon-opacity:		0.0;
 	}
 }
 
@@ -430,6 +435,7 @@ node|z10-[highway=traffic_signals] {
 		icon-image:			"icons/void.svg";
 		icon-width:			0;
 		icon-height:		0;
+		icon-opacity:		0.0;
 	}
 }
 
