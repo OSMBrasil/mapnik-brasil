@@ -88,6 +88,9 @@ relation[type=route][route=road][network=BR] > way.rodovia_estadual, relation[ty
  */
 @media (user-agent: pgmapcss) {
 	/* highway=road to be treated as unclassified */
+	way[highway] {
+		set "DNIT:Class"=unknown;
+	}
 	way[highway=road] {
 		set highway=unclassified;
 	}
@@ -155,6 +158,48 @@ relation[type=route][route=road][network=BR] > way.rodovia_estadual, relation[ty
 	}
 	way[highway=service][!maxspeed] {
 		set maxspeed=20;
+	}
+	way[highway][surface=unpaved],way[highway][surface=ground],way[highway][surface=compacted],way[highway][surface=dirt],
+	way[highway][surface=fine_gravel],way[highway][surface=gravel],way[highway][surface=mud],way[highway][surface=clay],
+	way[highway][surface=pebbles],way[highway][surface=sand],way[highway][surface=scree] {
+		set "DNIT:Surface"=unpaved;
+	}
+	way[highway][surface=paved],way[highway][surface=sett],way[highway][surface=grass_paver],way[highway][surface=metal],
+	way[highway][surface=paving_stones],way[highway][surface=pebblestone],way[highway][surface=wood],way[highway][surface=cobblestone],
+	way[highway][surface=asphalt],way[highway][surface=asfalt],way[highway][surface=concrete],way[highway][surface=tarmac] {
+		set "DNIT:Surface"=paved;
+	}
+	way["DNIT:Surface"=unpaved][highway] {
+		set "DNIT:Class"=IMP; /* Implantada */
+	}
+	way["DNIT:Surface"=unpaved][highway=unclassified],
+	way["DNIT:Surface"=unpaved][highway=track] {
+		set "DNIT:Class"=LEN; /* Leitão Natural */
+	}
+	way["DNIT:Surface"=paved][highway=track],
+	way["DNIT:Surface"=paved][highway=unclassified],
+	way["DNIT:Surface"=paved][highway=tertiary],
+	way["DNIT:Surface"=paved][highway=tertiary_link] {
+		set "DNIT:Class"=EOP; /* Em Pivementação */
+	}
+	way["DNIT:Surface"=paved][highway=secondary],
+	way["DNIT:Surface"=paved][highway=secondary_link],
+	way["DNIT:Surface"=paved][highway=primary],
+	way["DNIT:Surface"=paved][highway=primary_link],
+	way["DNIT:Surface"=paved][highway=trunk][oneway?!],
+	way["DNIT:Surface"=paved][highway=trunk_link][oneway?!],
+	way["DNIT:Surface"=paved][highway=motorway][oneway?!],
+	way["DNIT:Surface"=paved][highway=motorway_link][oneway?!] {
+		set "DNIT:Class"=PAV; /* Pimementada */
+	}
+	way["DNIT:Surface"=paved][highway=trunk][oneway?],
+	way["DNIT:Surface"=paved][highway=trunk_link][oneway?],
+	way["DNIT:Surface"=paved][highway=motorway][oneway?],
+	way["DNIT:Surface"=paved][highway=motorway_link][oneway?] {
+		set "DNIT:Class"=DUP; /* Duplicada */
+	}
+	way[highway=planned] {
+		set "DNIT:Class"=PLA; /* Planejado */
 	}
 }
 
