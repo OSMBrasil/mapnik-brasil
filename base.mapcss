@@ -7,7 +7,7 @@ meta {
 	version:			"0.1";
 	author:				"Aun Johnsen";
 	description: 		"Mapnik for Brazil";
-	min-pgmapcss-version: 0.1;
+	min-pgmapcss-version: 0.8;
 	min-josm-version:	7000;
 }
  
@@ -17,6 +17,7 @@ meta {
 canvas {
 	fill-color:			lightblue;
 	antialiasing:		full;
+	fill-opacity:		0.1; /* Neutrilizes background in JOSM */
 }
  
 /*
@@ -32,7 +33,8 @@ area[natural=coastline], relation[natural=coastline] {
 way[highway] {
 	color:				darkgray;
 	casing-color:		darkgray;
-	casing-width:		4;
+	width:				1;
+	casing-width:		2;
 	set .highway;
 }
  
@@ -65,21 +67,22 @@ way[highway][network="BR:SE"], relation[type=route][route=road][network="BR:SE"]
 way[highway][network="BR:TO"], relation[type=route][route=road][network="BR:TO"] > way[highway], way[highway][ref^=TO-], relation[type=route][route=road][ref^=TO-] > way[highway] {
 	color:				darkgreen; /* State Highway */
 	casing-color:		darkgreen;
-	casing-width:		4;
+	casing-width:		2;
 	set .rodovia_estadual;
 	set .highway;
 }
 way[highway][network=BR], relation[type=route][route=road][network=BR] > way[highway], relation[type=route][route=road][ref^=BR-] > way[highway], way[highway][ref^=BR-] {
 	color:				darkred; /* Federal Highway */
 	casing-color:		darkred;
-	casing-width:		4;
+	casing-width:		2;
 	set .rodovia_federal;
 	set .highway;
 }
 relation[type=route][route=road][network=BR] > way.rodovia_estadual, relation[type=route][route=road][ref^=BR-] > way.rodovia_estadual {
 	color:				darkred;
+	dashes-background-color: darkred;
 	casing-color:		darkgreen;
-	casing-width:		4;
+	casing-width:		2;
 	set .highway;
 }
 
@@ -225,6 +228,7 @@ way|z-10[highway][surface=sand].highway,
 way|z-10[highway][surface=scree].highway,
 way|z-10[highway][surface=unpaved].highway {
 	color:				white;
+	dashes:				5,2;
 	set	.highway;
 }
 way|z10-[highway][surface=ground].highway,
@@ -239,6 +243,7 @@ way|z10-[highway][surface=sand].highway,
 way|z10-[highway][surface=scree].highway,
 way|z10-[highway][surface=unpaved].highway {
 	color:				lightgray;
+	dashes:				5,2;
 	set .highway;
 }
 way|z10-[highway][surface=sett].highway,
@@ -249,6 +254,7 @@ way|z10-[highway][surface=pebblestone].highway,
 way|z10-[highway][surface=wood].highway,
 way|z10-[highway][surface=cobblestone].highway {
 	color:				brown;
+	dashes:				5,2;
 	set	.highway;
 }
 
@@ -262,22 +268,23 @@ way|z10-[highway][surface=cobblestone].highway {
 
 way|z10-[highway=planned].highway {
 	color:				white;
-	width:				3;
+	width:				1;
 	dashes:				20,20,10,20;
 	casing-dashes:		20,20,10,20;
 }
 
 way|z8-[highway=construction].highway {
 	color:				white;
-	width:				5;
+	width:				2;
 	dashes:				20,20;
 	casing-dashes:		20,20;
 }
-
-way|z8-[highway=road].highway {
-	width:				6;
-	dashes:				20,20;
-	dashes-background-color:	red; /* This is JOSM syntax, dont know how this will work */
+@media (user-agent: josm) {
+	way|z8-[highway=road].highway { 
+		width:				2;
+		dashes:				20,20;
+		dashes-background-color:	red;
+	}
 }
 
 way|z14-[highway=path].highway {
@@ -297,7 +304,7 @@ way|z12-[highway=cycleway].highway {
 	casing-width:		2;
 }
 way|z12-[highway=track].highway {
-	casing-width:		2;
+	casing-width:		1;
 	casing-color:		brown;
 }
 way|z12-[highway=track][tracktype=grade1].highway {
@@ -318,49 +325,49 @@ way|z12-[highway=track][tracktype=grade5].highway {
 
 way|z10-[highway=service].highway,
 way|z10-[highway=residential].highway {
-	width:				5;
+	width:				2;
 }
 
 way|z10-[highway=unclassified].highway {
-	width:				4;
+	width:				2;
 }
 
 way|z8-[highway=tertiary_link].highway {
-	width:				6;
+	width:				3;
 }
 way|z6-[highway=tertiary].highway {
-	width:				6;
+	width:				3;
 }
 
 way|z7-[highway=secondary_link].highway {
-	width:				8;
+	width:				4;
 }
 way|z6-[highway=secondary].highway {
-	width:				8;
+	width:				4;
 }
 
 way|z6-[highway=primary_link].highway {
-	width:				10;
+	width:				5;
 }
 way|z4-[highway=primary].highway {
-	width:				10;
+	width:				5;
 }
 
 way|z4-[highway=trunk_link].highway {
-	width:				12;
+	width:				3;
 }
 way|z3-[highway=trunk].highway {
-	width:				4;
-	casing-width:		8;
+	width:				3;
+	casing-width:		3;
 	color:				white;
 }
 
 way|z4-[highway=motorway_link].highway {
-	width:				14;
+	width:				3;
 }
 way|z2-[highway=motorway].highway {
-	width:				4;
-	casing-width:		10;
+	width:				3;
+	casing-width:		4;
 	color:				white;
 }
 
@@ -421,9 +428,13 @@ way|z8-[highway][name*="Sem Nome"].highway {
 	font-style:			italic;
 	text-color:			red;
 }
-way|z8-[highway][bridge].highway {
+way|z8-[highway][!bridge?!].highway { /* tag bridge set, but not bridge=no */
 	/* Name of the bridge instead of name of the highway, if set, to be printed on bridges */
-	text:				any(tag("bridge_name"), tag("official_name"), tag("name:pt"), tag("name"), tag("alt_name"), tag("loc_name"), tag("old_name"));
+	text:				any(tag("bridge_name:pt"), tag("bridge_name"), tag("official_name"), tag("name:pt"), tag("name"), tag("alt_name"), tag("loc_name"), tag("old_name"));
+}
+way|z8-[highway][!tunnel?!].highway { /* tag tunnel set, but not tunnel=no */
+	/* Name of the tunnel instead of name of the highway, if set, to be printed on tunnels */
+	text:				any(tag("tunnel_name:pt"), tag("tunnel_name"), tag("official_name"), tag("name:pt"), tag("name"), tag("alt_name"), tag("loc_name"), tag("old_name"));
 }
 /* Creating shields */
 way[highway][ref].highway, relation[type=route][route=road][ref] > way[highway].highway {
@@ -487,7 +498,10 @@ node|z10-[highway=traffic_signals] {
 /*
  * Waterways and water-cover
  */
-*[waterway] {
+*[waterway],
+*[natural=water],
+*[landuse=reservoir],
+*[landuse=basin] {
 	color:				darkblue;
 	width:				4;
 	set .waterway;
@@ -508,10 +522,11 @@ way|z13-[waterway=drain].waterway {
 	width:				2;
 }
 
-area[natural=water],
-area[waterway=riverbank],
-area[landuse=reservoir],
-area[waterway=canal] {
+area[natural=water]:closed,
+area[waterway=riverbank]:closed,
+area[landuse=reservoir]:closed,
+area[landuse=basin]:closed,
+area[waterway=canal]:closed {
 	fill-color:			skyblue;
 }
 /*
