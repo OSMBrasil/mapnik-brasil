@@ -359,7 +359,6 @@ way|z4-[highway=trunk_link].highway {
 way|z3-[highway=trunk].highway {
 	width:				3;
 	casing-width:		3;
-	color:				white;
 }
 
 way|z4-[highway=motorway_link].highway {
@@ -368,7 +367,18 @@ way|z4-[highway=motorway_link].highway {
 way|z2-[highway=motorway].highway {
 	width:				3;
 	casing-width:		4;
-	color:				white;
+/*	color:				white; */
+}
+
+relation[type=route][route=road] >[role=forward] way[highway][oneway?][!junction].highway {
+	left-casing-color:	white;
+	left-casing-width:	5;
+	left-casing-opacity: 0.9
+}
+relation[type=route][route=road] >[role=backward] way[highway][oneway?][!junction].highway {
+	right-casing-color:	white;
+	right-casing-width:	5;
+	right-casing-opacity: 0.9;
 }
 
 /* High zoom levels should render the true width of the road */
