@@ -91,11 +91,17 @@ relation[type=route][route=road][network=BR] > way.rodovia_estadual, relation[ty
  */
 @media (user-agent: pgmapcss) {
 	/* highway=road to be treated as unclassified */
-	way[highway] {
+	way[highway][!"DNIT:Class"] {
 		set "DNIT:Class"=unknown;
 	}
 	way[highway=road] {
 		set highway=unclassified;
+	}
+	way[highway=motorway][oneway?!] {
+		set highway=primary;
+	}
+	way[highway=motorway][maxspeed<80] {
+		set highway=trunk;
 	}
 	/* Default surface */
 	way[highway=tertiary][!surface], way[highway=tertiary_link][!surface], 
