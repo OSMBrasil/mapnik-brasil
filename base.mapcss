@@ -195,10 +195,12 @@ relation[type=route][route=road][network=BR] > way.rodovia_estadual, relation[ty
 	way["DNIT:Surface"=paved][highway=motorway_link][oneway?!] {
 		set "DNIT:Class"=PAV; /* Pimementada */
 	}
-	way["DNIT:Surface"=paved][highway=trunk][oneway?],
-	way["DNIT:Surface"=paved][highway=trunk_link][oneway?],
-	way["DNIT:Surface"=paved][highway=motorway][oneway?],
-	way["DNIT:Surface"=paved][highway=motorway_link][oneway?] {
+	relation[route=road] >[role=forward] way[oneway?][!junction],
+	relation[route=road] >[role=backward] way[oneway=-1][!junction],
+	way["DNIT:Surface"=paved][highway=trunk][oneway?][!junction],
+	way["DNIT:Surface"=paved][highway=trunk_link][oneway?][!junction],
+	way["DNIT:Surface"=paved][highway=motorway][oneway?][!junction],
+	way["DNIT:Surface"=paved][highway=motorway_link][oneway?][!junction] {
 		set "DNIT:Class"=DUP; /* Duplicada */
 	}
 	way[highway=planned] {
