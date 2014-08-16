@@ -375,7 +375,7 @@ relation[type=route][route=road] >[role=forward] way[highway][oneway?][!junction
 	left-casing-width:	5;
 	left-casing-opacity: 0.9
 }
-relation[type=route][route=road] >[role=backward] way[highway][oneway?][!junction].highway {
+relation[type=route][route=road] >[role=backward] way[highway][oneway=-1][!junction].highway {
 	right-casing-color:	white;
 	right-casing-width:	5;
 	right-casing-opacity: 0.9;
@@ -414,6 +414,13 @@ way|z8-[highway][noname?].highway, way[highway][unsigned?].highway, way[highway]
 relation[type=route][route=road] > way,
 relation[type=route][route=street] > way {
 	/* If unnamed way is part of a named road/street relation, take name from relation */
+	text:				any(parent_tag("name:pt"), parent_tag("name"), parent_tag("official_name"), parent_tag("alt_name"), parent_tag("loc_name"), parent_tag("old_name"));
+	text-color:			black;
+	text-halo-radius:	1;
+	text-halo-color:	white;
+}
+relation[type=associatedStreet] >[role=street] way {
+	/* If unnamed way is part of a named associatedStreet relation, take name from relation */
 	text:				any(parent_tag("name:pt"), parent_tag("name"), parent_tag("official_name"), parent_tag("alt_name"), parent_tag("loc_name"), parent_tag("old_name"));
 	text-color:			black;
 	text-halo-radius:	1;
