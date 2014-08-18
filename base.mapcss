@@ -56,6 +56,7 @@ way[highway]["IBGE:cd_adminis"=municipal] {
 	set .highway;
 }
  
+way[highway]["IBGE:CD_ADMINIS"=estadual], way[highway]["IBGE:cd_adminis"=estadual],
 way[highway][network="BR:AC"], relation[type=route][route=road][network="BR:AC"] > way[highway], way[highway][ref^=AC-], relation[type=route][route=road][ref^=AC-] > way[highway],
 way[highway][network="BR:AL"], relation[type=route][route=road][network="BR:AL"] > way[highway], way[highway][ref^=AL-], relation[type=route][route=road][ref^=AL-] > way[highway],
 way[highway][network="BR:AP"], relation[type=route][route=road][network="BR:AP"] > way[highway], way[highway][ref^=AP-], relation[type=route][route=road][ref^=AP-] > way[highway],
@@ -89,6 +90,8 @@ way[highway][network="BR:TO"], relation[type=route][route=road][network="BR:TO"]
 	set .rodovia_estadual;
 	set .highway;
 }
+
+way[highway]["IBGE:CD_ADMINIS"=federal], way[highway]["IBGE:cd_adminis"=federal],
 way[highway][network=BR], relation[type=route][route=road][network=BR] > way[highway], relation[type=route][route=road][ref^=BR-] > way[highway], way[highway][ref^=BR-] {
 	color:				darkred; /* Federal Highway */
 	casing-color:		darkred;
@@ -96,9 +99,13 @@ way[highway][network=BR], relation[type=route][route=road][network=BR] > way[hig
 	set .rodovia_federal;
 	set .highway;
 }
+
+/*
+ * Where federal and state highway co-exists on the same way, combine the colors.
+ */
 relation[type=route][route=road][network=BR] > way.rodovia_estadual, relation[type=route][route=road][ref^=BR-] > way.rodovia_estadual {
 	color:				darkred;
-	dashes-background-color: darkred;
+	dashes-background-color: darkred; /* For JOSM */
 	casing-color:		darkgreen;
 	casing-width:		2;
 	set .highway;
