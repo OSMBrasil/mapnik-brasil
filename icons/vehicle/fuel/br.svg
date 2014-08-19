@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   id="Layer_1"
+   width="12"
+   height="12"
+   viewBox="0 0 11.469 12.5"
+   overflow="visible"
+   xml:space="preserve"
+   sodipodi:version="0.32"
+   inkscape:version="0.48.1 "
+   sodipodi:docname="AB-Tank.svg"><metadata
+   id="metadata1520"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs1518">
+	
+	
+
+		
+		
+	</defs><sodipodi:namedview
+   inkscape:window-height="968"
+   inkscape:window-width="1280"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0.0"
+   borderopacity="1.0"
+   bordercolor="#666666"
+   pagecolor="#ffffff"
+   id="base"
+   inkscape:zoom="66.666667"
+   inkscape:cx="5.988143"
+   inkscape:cy="5.9593348"
+   inkscape:window-x="-4"
+   inkscape:window-y="-4"
+   inkscape:current-layer="Layer_1"
+   showgrid="false"
+   inkscape:window-maximized="1" />
+
+<g
+   id="g2997"
+   transform="matrix(0.05246533,0,0,0.05246533,5.2304871,0.7714647)"><rect
+     style="fill:#008542"
+     id="rect4"
+     height="60.5"
+     width="95.5"
+     y="34.799999"
+     x="0.19999847" /><rect
+     style="fill:#fdc82f"
+     id="rect6"
+     height="23.200001"
+     width="95.5"
+     y="0"
+     x="0.19999847" /><path
+     style="fill:#ffffff"
+     inkscape:connector-curvature="0"
+     d="m 95.5,34.799999 0,-11.6 -95.5,0 0,11.6 18.4,0 -10.3,35.2 20.9,0 c 9,0 10.6,-2.1 12.5,-3.6 2.4,-2.1 3.7,-7 2.6,-10.4 -0.7,-2.4 -3,-3.8 -3.2,-3.8 2.7,-1.4 4.3,-4.3 4.6,-4.7 1,-2.2 1.9,-6.1 -0.8,-9.3 -2.1,-2.7 -6.3,-3.4 -9.3,-3.4 l 22.2,0 -10.2,35.4 10.3,0 3.8,-13.5 6,0 c 4.2,0 3.9,2.7 4,3.8 l 0.4,9.9 9.5,0 c 0,0 -0.4,-11.1 -0.4,-11.9 -0.1,-2.8 -2,-4.1 -3.6,-4.1 3,-0.9 5.7,-3.6 6.7,-5.4 1.3,-2.1 2.3,-5.4 1,-8.6 -1.7,-4.8 -6.4,-5.6 -9.5,-5.6 l 19.9,0 z m -29.8,7.1 7.5,0 c 3.5,0 3.7,2.4 3.7,3.1 0,1.7 -1.4,4.8 -5.8,4.8 l -7.6,0 c 0,0 2.1,-7.8 2.2,-7.9 z m -43,13.3 6.9,0 c 3.4,0 3.5,0.8 4,1.7 0.5,0.8 0.2,2.4 0,3 -0.5,0.6 -1.1,2.9 -5.5,2.9 l -7.6,0 c 0,0 2.2,-7.6 2.2,-7.6 z m 3.8,-13.3 8,0 c 1.5,0 3,1 3,2.6 0,2.3 -1.9,3.9 -4.4,3.9 l -8.5,0 1.9,-6.5 z"
+     id="BR" /></g><g
+   id="XMLID_4_">
+	<g
+   id="g1479">
+		<path
+   d="M 5.15625 0.28125 C 4.8631001 0.29681143 4.63814 0.51493258 4.59375 0.78125 L 4.5625 0.78125 L 4.5625 1.3125 C 2.9004798 1.3395749 3.5769112 3.5831378 3.40625 4.3125 C 3.21521 5.12466 -1.4608279 11.723755 1.96875 11.6875 C 5.4753211 11.650431 4.09375 6.9470801 4.09375 5.125 C 4.09375 4.6681434 3.9101148 3.7015355 4.5625 3.8125 L 4.5625 11.09375 C 4.5606954 11.100916 4.5625 11.117659 4.5625 11.125 C 4.5625 11.247792 4.8308694 11.336875 5.15625 11.34375 L 5.15625 11.8125 L 10.59375 11.8125 L 10.59375 11.34375 C 10.616981 11.344734 10.632312 11.34375 10.65625 11.34375 C 10.998225 11.34375 11.25 11.252246 11.25 11.125 C 11.25 11.115456 11.253029 11.102989 11.25 11.09375 L 11.25 0.875 C 11.25 0.5552934 10.998225 0.28125 10.65625 0.28125 C 10.635205 0.28125 10.614255 0.27933332 10.59375 0.28125 L 5.1875 0.28125 L 5.15625 0.28125 z M 6.0625 1.4375 L 9.78125 1.4375 C 10.05483 1.4375 10.28125 1.5898502 10.28125 1.78125 L 10.28125 4.5625 C 10.28125 4.75443 10.05483 4.90625 9.78125 4.90625 L 6.0625 4.90625 C 5.7889203 4.90625 5.5625 4.75443 5.5625 4.5625 L 5.5625 1.78125 C 5.5625 1.5898502 5.7889203 1.4375 6.0625 1.4375 z M 3.59375 4.875 C 3.8517249 6.3476257 4.9968179 11.312227 2 11.34375 C -0.60146664 11.370777 2.8659446 6.1838168 3.59375 4.875 z "
+   transform="matrix(1.0416667,0,0,1.0416667,-0.5155,0)"
+   id="path1481" />
+	</g>
+	<g
+   id="g1483">
+	</g>
+</g><g
+   id="g1491"
+   transform="translate(-2.523708e-6,0.04235957)">
+			
+			
+			
+			
+			
+		</g><g
+   id="g1503"
+   transform="translate(-2.523708e-6,0.04235957)">
+			
+			
+			
+			
+			
+			
+		</g>
+</svg>

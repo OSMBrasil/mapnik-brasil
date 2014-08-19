@@ -299,6 +299,7 @@ way|z10-[highway][surface=cobblestone].highway {
 	}
 }
 
+way|z10-[highway=proposed].highway,
 way|z10-[highway=planned].highway {
 	color:				white;
 	width:				1;
@@ -490,22 +491,22 @@ way|z8-[highway][!tunnel?!].highway { /* tag tunnel set, but not tunnel=no */
 way[highway][ref].highway, relation[type=route][route=road][ref] > way[highway].highway {
 	/* Default shield (Municipal highways) */
 	shield-text:		any(tag(ref), parent_tag(ref));
-	shield-image:		"icons/shield-default.svg";
+	shield-image:		"icons/rendering/shield/default.svg";
 }
 way[highway][ref].rodovia_estadual, relation[type=route][route=road][ref] > way[highway].rodovia_estadual {
 	/* State Highway Shields */
 	shield-text:		any(tag(ref), parent_tag(ref));
-	shield-image:		"icons/shield-state.svg";
+	shield-image:		"icons/rendering/shield/state.svg";
 }
 way[highway][ref].rodivia_federal, relation[type=route][route=road][ref] > way[highway].rodoovia_federal {
 	/* Federal Highway Shields */
 	shield-text:		any(tag(ref), parent_tag(ref));
-	shield-image:		"icons/shield-br.svg";
+	shield-image:		"icons/rendering/shield/br.svg";
 }
 
 relation[type=enfocement][enforcement=maxweight] >[role=device] * {
 	/* Weighing Station */
-	icon-image:			"icons/pesagem.svg";
+	icon-image:			"icons/vehicle/restriction/pesagem.svg";
 	icon-width:			12;
 }
 
@@ -517,7 +518,7 @@ node[amenity=police][name="~/.*rodoviaria*/i"] {
 
 node|z6-[barrier=toll_booth] {
 	/* Toll booth (pedagio) */
-	icon-image:			"icons/pedagio.svg";
+	icon-image:			"icons/vehicle/pedagio.svg";
 	icon-width:			12;
 }
 @media (user-agent: pgmapcss) { 
@@ -532,7 +533,7 @@ node|z6-[barrier=toll_booth] {
 
 node|z10-[highway=traffic_signals] {
 	/* Traffic signal */
-	icon-image:			"icons/semaforo.svg";
+	icon-image:			"icons/vehicle/semaforo.svg";
 	icon-width:			12;
 }
 @media (user-agent: pgmapcss) {
@@ -543,6 +544,45 @@ node|z10-[highway=traffic_signals] {
 		icon-height:		0;
 		icon-opacity:		0.0;
 	}
+}
+
+node|z12-[maxspeed] {
+	icon-image:				eval(concat("icons/vehicle/restriction/speed/", tag(maxspeed), ".svg"));
+}
+node|z10-[highway=stop] {
+	icon-image:				"icons/vehicle/restriction/pare.svg";
+	icon-height:			12;
+}
+node|z10-[highway=give_way] {
+	icon-image:				"icons/vehicle/restriction/yeld.svg";
+	icon-height:			12;
+}
+node|z10-[noexit=yes] >way[highway] {
+	icon-image:				"icons/vehicle/restriction/sem_saida.svg";
+	icon-height:			12;
+}
+
+/*
+ * Railways
+ */
+*[railway] {
+	width:				2;
+	casing-width:		1;
+	color:				darkslategray;
+	casing-color:		darkslategray;
+	dashes:				4,6;
+	dashes-background-color: white; /* For JOSM */
+	icon-height:		12; /* default icon size */
+	set .railway;
+}
+@media (user-agent: pgmapcss) {
+	*[railway].railway::dashes_background {
+		dashes:			0,6,4;
+		color:			white;
+	}
+}
+node|z9-[railway=level_crossing].railway {
+	icon-image			"icons/vehicle/level_crossing.svg";
 }
 
 /*
@@ -584,7 +624,7 @@ area[waterway=canal]:closed {
  */
 area|z4-[natural=wetland] {
 	/* Default fill */
-	fill-image:			"icons/fill/alogado.svg";
+	fill-image:			"icons/rendering/natural/alogado.svg";
 }
 /*
  * Woodland
@@ -619,4 +659,36 @@ area|z13-[landuse=residential] {
 }
 area|z8-[building] {
 	fill-color:			orange;
+}
+
+/*
+ * Amenities
+ */
+node|z8-[amenity=fuel], area|z8-[amenity=fuel]:closed {
+	icon-image:			"icons/vehicle/fuel/fuel.svg";
+	icon-height:		12;
+	set .fuel;
+}
+*[brand=petrobras].fuel {
+	icon-image:			"icons/vehicle/fuel/br.svg";
+}
+*[brand=ale].fuel {
+	icon-image:			"icons/vehicle/fuel/ale.svg";
+}
+*[brand=shell].fuel {
+	icon-image:			"icons/vehicle/fuel/shell.svg";
+}
+*[brand=esso].fuel {
+	icon-image:			"icons/vehicle/fuel/esso.svg";
+}
+*[brand=texaco].fuel {
+	icon-image:			"icons/vehicle/fuel/texaco.svg";
+}
+*[brand=ipiranga].fuel {
+	icon-image:			"icons/vehicle/fuel/ipiranga.svg";
+}
+
+node|z15-[amenity=love_hotel], area|z15-[amenity=love_hotel]:closed {
+	icon-image:			"icons/accommodation/love_hotel.svg";
+	icon-height:		12;
 }

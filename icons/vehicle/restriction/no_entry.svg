@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape ("http://www.inkscape.org/") -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="665.38184"
+   id="svg1"
+   inkscape:version="0.46"
+   sodipodi:docbase="C:\tmp\svg\signs\svg\new"
+   sodipodi:docname="no_entry.svg"
+   sodipodi:version="0.32"
+   width="665.38184"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   version="1.0">
+  <metadata
+     id="metadata3">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>SVG Road Signs</dc:title>
+        <dc:description>UK roadsigns</dc:description>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>transport</rdf:li>
+            <rdf:li>roadsign</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://www.openclipart.org">
+            <dc:title>John Cliff</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>John Cliff</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>John Cliff</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:date />
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://web.resource.org/cc/PublicDomain" />
+        <dc:language>en</dc:language>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://web.resource.org/cc/PublicDomain">
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Reproduction" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Distribution" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective16" />
+    <linearGradient
+       id="linearGradient587">
+      <stop
+         id="stop588"
+         offset="0"
+         style="stop-color:#000;stop-opacity:1;" />
+      <stop
+         id="stop589"
+         offset="1"
+         style="stop-color:#fff;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient590"
+       xlink:href="#linearGradient587" />
+    <radialGradient
+       cx="0.5"
+       cy="0.5"
+       fx="0.5"
+       fy="0.5"
+       id="radialGradient598"
+       r="0.5"
+       xlink:href="#linearGradient587" />
+  </defs>
+  <sodipodi:namedview
+     bordercolor="#666666"
+     borderopacity="1.0"
+     id="base"
+     inkscape:cx="351.97387"
+     inkscape:cy="523.16027"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:window-height="721"
+     inkscape:window-width="1024"
+     inkscape:window-x="110"
+     inkscape:window-y="45"
+     inkscape:zoom="0.61399006"
+     pagecolor="#ffffff"
+     showgrid="false"
+     inkscape:current-layer="svg1" />
+  <g
+     id="g1067"
+     transform="translate(-44.018504,-52.663974)">
+    <path
+       d="M 827.75111,586.66223 A 248.32533,248.32533 0 1 1 331.10045,586.66223 A 248.32533,248.32533 0 1 1 827.75111,586.66223 z"
+       id="path586"
+       sodipodi:cx="579.42578"
+       sodipodi:cy="586.66223"
+       sodipodi:rx="248.32533"
+       sodipodi:ry="248.32533"
+       sodipodi:type="arc"
+       style="font-size:12px;fill:#ffffff;fill-rule:evenodd;stroke:#eb161e;stroke-width:5.66193008;stroke-opacity:0.99607999"
+       transform="matrix(1.324637,0,0,1.324637,-390.8194,-391.7596)" />
+    <path
+       d="M 827.75111,586.66223 A 248.32533,248.32533 0 1 1 331.10045,586.66223 A 248.32533,248.32533 0 1 1 827.75111,586.66223 z"
+       id="path591"
+       sodipodi:cx="579.42578"
+       sodipodi:cy="586.66223"
+       sodipodi:rx="248.32533"
+       sodipodi:ry="248.32533"
+       sodipodi:type="arc"
+       style="font-size:12px;fill:#eb161e;fill-opacity:0.99607999;fill-rule:evenodd;stroke:#eb171f;stroke-width:5.66193008;stroke-opacity:1"
+       transform="matrix(1.255072,0,0,1.255072,-350.5116,-350.9484)" />
+    <rect
+       height="133.34906"
+       id="rect1066"
+       rx="19.928314"
+       style="font-size:12px;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke-width:3pt"
+       width="565.97003"
+       x="90.595924"
+       y="318.43338" />
+  </g>
+</svg>
