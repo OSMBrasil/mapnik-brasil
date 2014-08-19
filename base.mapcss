@@ -576,13 +576,13 @@ node|z10-[noexit=yes] >way[highway] {
 	set .railway;
 }
 @media (user-agent: pgmapcss) {
-	*[railway].railway::dashes_background {
+	*[railway].railway::dashes_overlay {
 		dashes:			0,6,4;
 		color:			white;
 	}
 }
 node|z9-[railway=level_crossing].railway {
-	icon-image			"icons/vehicle/level_crossing.svg";
+	icon-image:			"icons/vehicle/level_crossing.svg";
 }
 
 /*
@@ -667,23 +667,32 @@ area|z8-[building] {
 node|z8-[amenity=fuel], area|z8-[amenity=fuel]:closed {
 	icon-image:			"icons/vehicle/fuel/fuel.svg";
 	icon-height:		12;
+	text:				auto;
 	set .fuel;
 }
+*[operador=BR].fuel,
+*[brand=BR].fuel,
+*[operator=petrobras].fuel,
 *[brand=petrobras].fuel {
 	icon-image:			"icons/vehicle/fuel/br.svg";
 }
+*[operator=ale].fuel,
 *[brand=ale].fuel {
 	icon-image:			"icons/vehicle/fuel/ale.svg";
 }
+*[operator=shell].fuel,
 *[brand=shell].fuel {
 	icon-image:			"icons/vehicle/fuel/shell.svg";
 }
+*[operator=esso].fuel,
 *[brand=esso].fuel {
 	icon-image:			"icons/vehicle/fuel/esso.svg";
 }
+*[operator=texaco].fuel,
 *[brand=texaco].fuel {
 	icon-image:			"icons/vehicle/fuel/texaco.svg";
 }
+*[operator=ipiranga].fuel,
 *[brand=ipiranga].fuel {
 	icon-image:			"icons/vehicle/fuel/ipiranga.svg";
 }
