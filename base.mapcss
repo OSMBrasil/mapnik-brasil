@@ -150,6 +150,9 @@ relation[type=route][route=road][network=BR] > way.rodovia_estadual, relation[ty
 		set oneway=no;
 	}
 	/* Default lanes */
+	way[highway][!lanes] {
+		set lanes=2;
+	}
 	way[highway=motorway][oneway?][!lanes],
 	way[highway=trunk][oneway?!][!lanes] {
 		set lanes=3;
@@ -163,13 +166,10 @@ relation[type=route][route=road][network=BR] > way.rodovia_estadual, relation[ty
 	way[highway=track][!lanes],
 	way[highway=footway][!lanes],
 	way[highway=cycleway][!lanes],
-	way[highway=unclassified][oneway?!][!lanes],
-	way[highway=tertiary][oneway?!][!lanes],
-	way[highway=residential][oneway?!][!lanes] {
+	way[highway=unclassified][oneway?][!lanes],
+	way[highway=tertiary][oneway?][!lanes],
+	way[highway=residential][oneway?][!lanes] {
 		set lanes=1;
-	}
-	way[highway][!lanes] {
-		set lanes=2;
 	}
 	/* Default Maxspeed */
 	way[highway=motorway][!maxspeed] {
@@ -228,13 +228,20 @@ relation[type=route][route=road][network=BR] > way.rodovia_estadual, relation[ty
 	}
 	relation[route=road] >[role=forward] way[oneway?][!junction],
 	relation[route=road] >[role=backward] way[oneway=-1][!junction],
-	way["DNIT:Surface"=paved][highway=trunk][oneway?][!junction],
-	way["DNIT:Surface"=paved][highway=trunk_link][oneway?][!junction],
-	way["DNIT:Surface"=paved][highway=motorway][oneway?][!junction],
-	way["DNIT:Surface"=paved][highway=motorway_link][oneway?][!junction] {
+	way["DNIT:Surface"=paved][highway=trunk][!oneway?!][!junction],
+	way["DNIT:Surface"=paved][highway=trunk_link][!oneway?!][!junction],
+	way["DNIT:Surface"=paved][highway=motorway][!oneway?!][!junction],
+	way["DNIT:Surface"=paved][highway=motorway_link][!oneway?!][!junction] {
 		set "DNIT:Class"=DUP; /* Duplicada */
 	}
-	way[highway=planned] {
+	way[highway=construction], way[highway][construction] {
+		set "DNIT:Class"=EOI; /* Em Implatação */
+	}
+	way[highway][construction=primary], way[highway][construction=trunk], way[highway][construction=motorway] {
+		set "DNIT:Class"=EOD; /* Em Duplicação */
+	}
+	way[highway=planned],
+	way[highway=proposed] {
 		set "DNIT:Class"=PLA; /* Planejado */
 	}
 }
@@ -303,15 +310,15 @@ way|z10-[highway=proposed].highway,
 way|z10-[highway=planned].highway {
 	color:				white;
 	width:				1;
-	dashes:				20,20,10,20;
-	casing-dashes:		20,20,10,20;
+	dashes:				30,10,10,10;
+	casing-dashes:		30,10,10,10;
 }
 
 way|z8-[highway=construction].highway {
 	color:				white;
 	width:				2;
-	dashes:				20,20;
-	casing-dashes:		20,20;
+	dashes:				30,10;
+	casing-dashes:		30,10;
 }
 @media (user-agent: josm) {
 	way|z8-[highway=road].highway { 
@@ -546,19 +553,37 @@ node|z10-[highway=traffic_signals] {
 	}
 }
 
-node|z12-[maxspeed] {
+way|Z12-[highway] > node[maxspeed] {
 	icon-image:				eval(concat("icons/vehicle/restriction/speed/", tag(maxspeed), ".svg"));
+	icon-height:			12;
 }
-node|z10-[highway=stop] {
+way|z12-[highway][maxspeed][!oneway=-1] >[index=1] node {
+	icon-image:				eval(concat("icons/vehicle/restriction/speed/", parent_tag(maxspeed), ".svg"));
+	icon-height:			12;
+}
+way|z12-[highway][maxspeed][!oneway?] >[index=-1] node {
+	icon-image:				eval(concat("icons/vehicle/restriction/speed/", parent_tag(maxspeed), ".svg"));
+	icon-height:			12;
+}
+way|z12-[highway]["maxspeed:forward"] >[index=1] node {
+	icon-image:				eval(concat("icons/vehicle/restriction/speed/", parent_tag("maxspeed:forward"), ".svg"));
+	icon-height:			12;
+}
+way|z12-[highway]["maxspeed:backward"] >[index=-1] node {
+	icon-image:				eval(concat("icons/vehicle/restriction/speed/", parent_tag("maxspeed:backward"), ".svg"));
+	icon-height:			12;
+}
+way[highway] > node|z10-[highway=stop] {
 	icon-image:				"icons/vehicle/restriction/pare.svg";
 	icon-height:			12;
 }
-node|z10-[highway=give_way] {
+way[highway] > node|z10-[highway=give_way] {
 	icon-image:				"icons/vehicle/restriction/yeld.svg";
 	icon-height:			12;
 }
-node|z10-[noexit=yes] >way[highway] {
-	icon-image:				"icons/vehicle/restriction/sem_saida.svg";
+/*node|z10-[noexit=yes], should only mark when tagged as the end node of a way */
+way[highway] > node|z10-[noexit=yes]{
+	icon-image:				"icons/vehicle/no_exit.svg";
 	icon-height:			12;
 }
 
@@ -622,17 +647,17 @@ area[waterway=canal]:closed {
 /*
  * Wetland
  */
-area|z4-[natural=wetland] {
+area|z4-[natural=wetland]:closed {
 	/* Default fill */
 	fill-image:			"icons/rendering/natural/alogado.svg";
 }
 /*
- * Woodland
+ * Woodland, bushes, etc.
  */
- area|z8-[natural=wood], area|z8-[landuse=forest] {
+ area|z8-[natural=wood]:closed, area|z8-[landuse=forest]:closed, area|z8-[landcover=trees]:closed {
 	fill-color:			forestgreen;
  }
- area|z13-[natural=scrub] {
+ area|z13-[natural=scrub]:closed {
 	fill-color:			forestgreen;
 	fill-opacity:		0.5;
  }
@@ -640,24 +665,24 @@ area|z4-[natural=wetland] {
 /*
  * Other Landscape Features
  */
-area|z13-[landuse=farm],area|z13-[landuse=farmland],area|z13-[landuse=meadow],area|z13-[landuse=orchard] {
+area|z13-[landuse=farm]:closed,area|z13-[landuse=farmland]:closed,area|z13-[landuse=meadow]:closed,area|z13-[landuse=orchard]:closed {
 	/* default farmland */
 	fill-color:			cornsilk;
 }
-area|z13-[landuse=industrial] {
+area|z13-[landuse=industrial]:closed {
 	fill-color:			gray;
 }
 
 /*
  * Urban features
  */
-area|z2-12[landuse=residential] {
+area|z2-12[landuse=residential]:closed {
 	fill-color:			yellow;
 }
-area|z13-[landuse=residential] {
+area|z13-[landuse=residential]:closed {
 	fill-color:			lightgray;
 }
-area|z8-[building] {
+area|z8-[building]:closed {
 	fill-color:			orange;
 }
 
