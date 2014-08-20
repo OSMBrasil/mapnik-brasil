@@ -666,34 +666,37 @@ area|z8-[building] {
  */
 node|z8-[amenity=fuel], area|z8-[amenity=fuel]:closed {
 	icon-image:			"icons/vehicle/fuel/fuel.svg";
-	icon-height:		12;
+	icon-height:		16;
 	text:				auto;
 	set .fuel;
 }
+/*
+ * Different symbols for the major brands
+ */
 *[operador=BR].fuel,
 *[brand=BR].fuel,
-*[operator=petrobras].fuel,
-*[brand=petrobras].fuel {
+*[operator=Petrobras].fuel,
+*[brand=Petrobras].fuel {
 	icon-image:			"icons/vehicle/fuel/br.svg";
 }
-*[operator=ale].fuel,
-*[brand=ale].fuel {
+*[operator=Ale].fuel,
+*[brand=Ale].fuel {
 	icon-image:			"icons/vehicle/fuel/ale.svg";
 }
-*[operator=shell].fuel,
-*[brand=shell].fuel {
+*[operator=Shell].fuel,
+*[brand=Shell].fuel {
 	icon-image:			"icons/vehicle/fuel/shell.svg";
 }
-*[operator=esso].fuel,
-*[brand=esso].fuel {
+*[operator=Esso].fuel,
+*[brand=Esso].fuel {
 	icon-image:			"icons/vehicle/fuel/esso.svg";
 }
-*[operator=texaco].fuel,
-*[brand=texaco].fuel {
+*[operator=Texaco].fuel,
+*[brand=Texaco].fuel {
 	icon-image:			"icons/vehicle/fuel/texaco.svg";
 }
-*[operator=ipiranga].fuel,
-*[brand=ipiranga].fuel {
+*[operator=Ipiranga].fuel,
+*[brand=Ipiranga].fuel {
 	icon-image:			"icons/vehicle/fuel/ipiranga.svg";
 }
 
