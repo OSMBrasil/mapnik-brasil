@@ -553,7 +553,7 @@ node|z10-[highway=traffic_signals] {
 	}
 }
 
-way|Z12-[highway] > node[maxspeed] {
+way|z12-[highway] > node[maxspeed] {
 	icon-image:				eval(concat("icons/vehicle/restriction/speed/", tag(maxspeed), ".svg"));
 	icon-height:			12;
 }
