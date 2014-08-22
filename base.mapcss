@@ -557,10 +557,12 @@ way|z12-[highway] > node[maxspeed] {
 	icon-image:				eval(concat("icons/vehicle/restriction/speed/", tag(maxspeed), ".svg"));
 	icon-height:			12;
 }
-way|z12-[highway][maxspeed][!oneway="-1"] >[index=1] node {
+way|z12-[highway][maxspeed][!oneway] >[index=1] node,
+way|z12-[highway][maxspeed][oneway][oneway!=-1] >[index=1] node {
 	icon-image:				eval(concat("icons/vehicle/restriction/speed/", parent_tag(maxspeed), ".svg"));
 	icon-height:			12;
 }
+way|z12-[highway][maxspeed][!oneway] >[index=-1] node,
 way|z12-[highway][maxspeed][!oneway?] >[index=-1] node {
 	icon-image:				eval(concat("icons/vehicle/restriction/speed/", parent_tag(maxspeed), ".svg"));
 	icon-height:			12;
