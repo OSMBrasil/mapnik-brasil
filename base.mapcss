@@ -436,7 +436,7 @@ way|z4-[highway][operator].highway::operator, relation[type=route][route=road][o
 	casing-width:		+4;
 	casing-color:		yellow;
 }
-way|z8-[higway][toll].highway::toll, relation[type=route][route=road][toll] > way[highway].highway::operator {
+way|z8-[higway][toll].highway::toll, relation[type=route][route=road][toll] > way[highway].highway::toll {
 	/* Highway with toll fee to be rendered with a green halo on high zoom levels */
 	object-z-index:		-2;
 	casing-width:		+5;
@@ -517,12 +517,13 @@ relation[type=enfocement][enforcement=maxweight] >[role=device] * {
 	icon-width:			12;
 }
 
-node[amenity=police][name="~/.*rodoviaria*/i"] {
+node[amenity=police][name =~ /(?i).*rodoviaria*/] {
 	/* Highway Police */
-	icon-image:			"icons/policia_rodoviaria.svg";
+	icon-image:			"icons/service/policia_rodoviaria.svg";
 	icon-width:			16;
 }
 
+area|z6-[barrier=toll_booth]:closed,
 node|z6-[barrier=toll_booth] {
 	/* Toll booth (pedagio) */
 	icon-image:			"icons/vehicle/pedagio.svg";
@@ -551,6 +552,18 @@ node|z10-[highway=traffic_signals] {
 		icon-height:		0;
 		icon-opacity:		0.0;
 	}
+}
+
+/*
+ * Ferry routes to render differently
+ * Somehow somebody are tagging car ferrys with highway=ferry, IMO this is wrong, but I include it here to avoid
+ * problems with highway rules
+ */
+way[route=ferry], way[highway=ferry], relation[route=ferry] > way {
+	width:					1;
+	casing-width:			0;
+	dashes:					8,6;
+	color:					cornflowerblue;
 }
 
 way|z12-[highway] > node[maxspeed] {
@@ -603,13 +616,28 @@ way[highway] > node|z10-[noexit=yes]{
 	set .railway;
 }
 @media (user-agent: pgmapcss) {
+	*[railway].railway {
+		dashes:			none;
+		set .railway;
+	}
 	*[railway].railway::dashes_overlay {
-		dashes:			0,6,4;
+		dashes:			6,4;
 		color:			white;
 	}
 }
 node|z9-[railway=level_crossing].railway {
 	icon-image:			"icons/vehicle/level_crossing.svg";
+}
+@media (user-agent: pgmapcss) {
+	area[railway@=station;roundhouse]:closed {
+		dashes:				none;
+	}
+} 
+@media (user-agent: josm) {
+	area[railway=station]:closed,
+	area[railway=roundhouse]:closed {
+		dashes:				none;
+	}
 }
 
 /*
@@ -699,31 +727,32 @@ node|z8-[amenity=fuel], area|z8-[amenity=fuel]:closed {
 }
 /*
  * Different symbols for the major brands
+  =~ /(?i).*rodoviaria*/
  */
-*[operador=BR].fuel,
-*[brand=BR].fuel,
-*[operator=Petrobras].fuel,
-*[brand=Petrobras].fuel {
+*[operador=~ /(?i).*BR/].fuel,
+*[brand=~ /(?i).*BR/].fuel,
+*[operator=~ /(?i).*Petrobras/].fuel,
+*[brand=~ /(?i).*Petrobras/].fuel {
 	icon-image:			"icons/vehicle/fuel/br.svg";
 }
-*[operator=Ale].fuel,
-*[brand=Ale].fuel {
+*[operator=~ /(?i).*Al(e|é)/].fuel,
+*[brand=~ /(?i).*Al(e|é)/].fuel {
 	icon-image:			"icons/vehicle/fuel/ale.svg";
 }
-*[operator=Shell].fuel,
-*[brand=Shell].fuel {
+*[operator=~ /(?i).*Shell/].fuel,
+*[brand=~ /(?i).*Shell/].fuel {
 	icon-image:			"icons/vehicle/fuel/shell.svg";
 }
-*[operator=Esso].fuel,
-*[brand=Esso].fuel {
+*[operator=~ /(?i).*Esso/].fuel,
+*[brand=~ /(?i).*Esso/].fuel {
 	icon-image:			"icons/vehicle/fuel/esso.svg";
 }
-*[operator=Texaco].fuel,
-*[brand=Texaco].fuel {
+*[operator=~ /(?i).*Texaco/].fuel,
+*[brand=~ /(?i).*Texaco/].fuel {
 	icon-image:			"icons/vehicle/fuel/texaco.svg";
 }
-*[operator=Ipiranga].fuel,
-*[brand=Ipiranga].fuel {
+*[operator=~ /(?i).*Ipiranga/].fuel,
+*[brand=~ /(?i).*Ipiranga/].fuel {
 	icon-image:			"icons/vehicle/fuel/ipiranga.svg";
 }
 
