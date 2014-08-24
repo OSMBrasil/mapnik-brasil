@@ -368,6 +368,11 @@ way|z10-[highway=service].highway,
 way|z10-[highway=residential].highway {
 	width:				2;
 }
+area|z8-[highway=service][area?].highway:closed {
+    dashes:             none;
+    fill-color:         darkgray;
+    fill-opacity:       0.5;
+}
 
 way|z10-[highway=unclassified].highway {
 	width:				2;
@@ -727,7 +732,7 @@ node|z8-[amenity=fuel], area|z8-[amenity=fuel]:closed {
 }
 /*
  * Different symbols for the major brands
-  =~ /(?i).*rodoviaria*/
+  =~ /(?i).*rodoviaria*
  */
 *[operador=~ /(?i).*BR/].fuel,
 *[brand=~ /(?i).*BR/].fuel,
