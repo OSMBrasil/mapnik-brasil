@@ -427,6 +427,13 @@ relation[type=route][route=road] >[role=backward] way[highway][oneway=-1][!junct
 	right-casing-opacity: 0.9;
 }
 
+way[highway=raceway].highway {
+    width:              2;
+    casing-width:       2;
+    casing-color:       salmon;
+    casing-opacity:     0.75;
+}
+
 /* High zoom levels should render the true width of the road */
 @media (user-agent: pgmapcss) { 
 	way|z18-[highway].highway {
@@ -491,11 +498,11 @@ way|z8-[highway][name*="Sem Nome"].highway {
 	font-style:			italic;
 	text-color:			red;
 }
-way|z8-[highway][!bridge?!].highway { /* tag bridge set, but not bridge=no */
+way|z8-[highway][bridge][!bridge?!].highway { /* tag bridge set, but not bridge=no */
 	/* Name of the bridge instead of name of the highway, if set, to be printed on bridges */
 	text:				any(tag("bridge_name:pt"), tag("bridge_name"), tag("official_name"), tag("name:pt"), tag("name"), tag("alt_name"), tag("loc_name"), tag("old_name"));
 }
-way|z8-[highway][!tunnel?!].highway { /* tag tunnel set, but not tunnel=no */
+way|z8-[highway][tunnel][!tunnel?!].highway { /* tag tunnel set, but not tunnel=no */
 	/* Name of the tunnel instead of name of the highway, if set, to be printed on tunnels */
 	text:				any(tag("tunnel_name:pt"), tag("tunnel_name"), tag("official_name"), tag("name:pt"), tag("name"), tag("alt_name"), tag("loc_name"), tag("old_name"));
 }
@@ -516,10 +523,12 @@ way[highway][ref].rodivia_federal, relation[type=route][route=road][ref] > way[h
 	shield-image:		"icons/rendering/shield/br.svg";
 }
 
-relation[type=enfocement][enforcement=maxweight] >[role=device] * {
+relation[type=enfocement][enforcement=maxweight] >[role=device] node,
+relation[type=enfocement][enforcement=maxweight] >[role=device] way >[index=1] node {
 	/* Weighing Station */
 	icon-image:			"icons/vehicle/restriction/pesagem.svg";
-	icon-width:			12;
+	icon-width:			16;
+    icon-opacity:       1.0;
 }
 
 node[amenity=police][name =~ /(?i).*rodoviaria*/] {
