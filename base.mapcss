@@ -455,7 +455,7 @@ way|z8-[higway][toll].highway::toll, relation[type=route][route=road][toll] > wa
 	casing-color:		limegreen;
 }
 
-way|z8-[highway][noname?].highway, way[highway][unsigned?].highway, way[highway][unnamed?].highway {
+way|z8-[highway][noname?].highway::name, way[highway][unsigned?].highway::name, way[highway][unnamed?].highway::name {
 	/* Unnamed highways render default "Sem Nome" */
 	text:				eval("Sem Nome");
 	text-halo-radius:	1;
@@ -464,15 +464,15 @@ way|z8-[highway][noname?].highway, way[highway][unsigned?].highway, way[highway]
 	text-color:			gray;
 }
 
-relation[type=route][route=road] > way,
-relation[type=route][route=street] > way {
+relation[type=route][route=road] > way::name,
+relation[type=route][route=street] > way::name {
 	/* If unnamed way is part of a named road/street relation, take name from relation */
 	text:				eval(any(parent_tag("name:pt"), parent_tag("name"), parent_tag("official_name"), parent_tag("alt_name"), parent_tag("loc_name"), parent_tag("old_name")));
 	text-color:			black;
 	text-halo-radius:	1;
 	text-halo-color:	white;
 }
-relation[type=associatedStreet] >[role=street] way {
+relation[type=associatedStreet] >[role=street] way::name {
 	/* If unnamed way is part of a named associatedStreet relation, take name from relation */
 	text:				eval(any(parent_tag("name:pt"), parent_tag("name"), parent_tag("official_name"), parent_tag("alt_name"), parent_tag("loc_name"), parent_tag("old_name")));
 	text-color:			black;
@@ -480,7 +480,7 @@ relation[type=associatedStreet] >[role=street] way {
 	text-halo-color:	white;
 }
 
-way[highway].highway {
+way[highway].highway::name {
 	/* Default names for highway is tagged on the way itself */
 	text:				eval(any(tag("name:pt"), tag("name"), tag("official_name"), tag("alt_name"), tag("loc_name"), tag("old_name")));
 	text-color:			black;
@@ -488,9 +488,11 @@ way[highway].highway {
 	text-halo-color:	white;
 }
 /* To force correct use of name, and use of proper tags where the streets have no name */
-way|z8-[highway][name*="Sem Denominacao"].highway,
-way|z8-[highway][name*="Sem Denominação"].highway,
-way|z8-[highway][name*="Sem Nome"].highway {
+way|z8-[highway][name=~/(?i).*rua projetada*/].highway::name,
+way|z8-[highway][name=~/(?i).*sem denomina(c|ç)(a|ã)o*/].highway::name,
+way|z8-[highway][name=~/^(?i)((via de )?acesso|entrada|entroncamento|rampa|retorno|rotat(ó|o)ria|r(ó|o)tula|sa(í|i)da|trevo|estrada( municipal| de terra)?|rua|rodovia|via)( (de acesso|sem nome|projetad(a|o)))?$/].highway::name,
+way|z8-[highway][name=~/(?i)(rua|rodovia|estrada)?(sem nome|sem denomina(c|ç)(a|ã)o|projetad(a|o))$?/],
+way|z8-[highway][name=~/(?i).*sem nome*/].highway::name {
 	/* Any form of "Sem Nome" (un-named) should be overrided and printed in a different color, wrong use of name tag */
 	text:				eval("Sem Nome");
 	text-halo-radius:	1;
