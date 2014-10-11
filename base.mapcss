@@ -645,7 +645,7 @@ node|z9-[railway=level_crossing].railway {
 	icon-image:			"icons/vehicle/level_crossing.svg";
 }
 @media (user-agent: pgmapcss) {
-	area[railway@=station;roundhouse]:closed {
+    area[railway@=station;roundhouse]:closed::dashes_overlay {
 		dashes:				none;
 	}
 } 
@@ -743,7 +743,7 @@ node|z8-[amenity=fuel], area|z8-[amenity=fuel]:closed {
 }
 /*
  * Different symbols for the major brands
-  =~ /(?i).*rodoviaria*
+  =~ /(?i).*Brand*
  */
 *[operador=~ /(?i).*BR/].fuel,
 *[brand=~ /(?i).*BR/].fuel,
