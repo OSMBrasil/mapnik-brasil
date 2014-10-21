@@ -48,7 +48,7 @@ way[highway][network^="BR:"]::highway,
 relation[type=route][route=road][network^="BR:"] > way[highway]::highway,
 way[highway]["IBGE:CD_ADMINIS"=municipal]::highway,
 way[highway]["IBGE:cd_adminis"=municipal]::highway,
-way[highway][ref=~/^[A-Z]{2,4}((\/|-| )[A-Z]{2,4})?-[0-9]{2,4}((\/|-| )[0-9]{2,4})?.*/]::highway {
+way[highway][ref=~/^[A-Za-z]{2,4}((\/|-| )[A-Za-z]{2,4})?-[0-9]{2,4}((\/|-| )[0-9]{2,4})?.*/]::highway {
 	color:				slateblue; /* Municipal Highway */
 	casing-color:		slateblue;
 	width:				1;
@@ -58,33 +58,33 @@ way[highway][ref=~/^[A-Z]{2,4}((\/|-| )[A-Z]{2,4})?-[0-9]{2,4}((\/|-| )[0-9]{2,4
 }
  
 way[highway]["IBGE:CD_ADMINIS"=estadual]::highway, way[highway]["IBGE:cd_adminis"=estadual]::highway,
-way[highway][network="BR:AC"]::highway, relation[type=route][route=road][network="BR:AC"] > way[highway]::highway, way[highway][ref^=AC-]::highway, relation[type=route][route=road][ref^=AC-] > way[highway]::highway,
-way[highway][network="BR:AL"]::highway, relation[type=route][route=road][network="BR:AL"] > way[highway]::highway, way[highway][ref^=AL-]::highway, relation[type=route][route=road][ref^=AL-] > way[highway]::highway,
-way[highway][network="BR:AP"]::highway, relation[type=route][route=road][network="BR:AP"] > way[highway]::highway, way[highway][ref^=AP-]::highway, relation[type=route][route=road][ref^=AP-] > way[highway]::highway,
-way[highway][network="BR:AM"]::highway, relation[type=route][route=road][network="BR:AM"] > way[highway]::highway, way[highway][ref^=AM-]::highway, relation[type=route][route=road][ref^=AM-] > way[highway]::highway,
-way[highway][network="BR:BA"]::highway, relation[type=route][route=road][network="BR:BA"] > way[highway]::highway, way[highway][ref^=BA-]::highway, relation[type=route][route=road][ref^=BA-] > way[highway]::highway,
-way[highway][network="BR:CE"]::highway, relation[type=route][route=road][network="BR:CE"] > way[highway]::highway, way[highway][ref^=CE-]::highway, relation[type=route][route=road][ref^=CE-] > way[highway]::highway,
-way[highway][network="BR:DF"]::highway, relation[type=route][route=road][network="BR:DF"] > way[highway]::highway, way[highway][ref^=DF-]::highway, relation[type=route][route=road][ref^=DF-] > way[highway]::highway,
-way[highway][network="BR:ES"]::highway, relation[type=route][route=road][network="BR:ES"] > way[highway]::highway, way[highway][ref^=ES-]::highway, relation[type=route][route=road][ref^=ES-] > way[highway]::highway,
-way[highway][network="BR:GO"]::highway, relation[type=route][route=road][network="BR:GO"] > way[highway]::highway, way[highway][ref^=GO-]::highway, relation[type=route][route=road][ref^=GO-] > way[highway]::highway,
-way[highway][network="BR:MA"]::highway, relation[type=route][route=road][network="BR:MA"] > way[highway]::highway, way[highway][ref^=MA-]::highway, relation[type=route][route=road][ref^=MA-] > way[highway]::highway,
-way[highway][network="BR:MT"]::highway, relation[type=route][route=road][network="BR:MT"] > way[highway]::highway, way[highway][ref^=MT-]::highway, relation[type=route][route=road][ref^=MT-] > way[highway]::highway,
-way[highway][network="BR:MS"]::highway, relation[type=route][route=road][network="BR:MS"] > way[highway]::highway, way[highway][ref^=MS-]::highway, relation[type=route][route=road][ref^=MS-] > way[highway]::highway,
-way[highway][network="BR:MG"]::highway, relation[type=route][route=road][network="BR:MG"] > way[highway]::highway, way[highway][ref=~/^(A|L)?MG-.*/]::highway, relation[type=route][route=road][ref=~/^(A|L)?MG-.*/] > way[highway]::highway,
-way[highway][network="BR:PA"]::highway, relation[type=route][route=road][network="BR:PA"] > way[highway]::highway, way[highway][ref^=PA-]::highway, relation[type=route][route=road][ref^=PA-] > way[highway]::highway,
-way[highway][network="BR:PB"]::highway, relation[type=route][route=road][network="BR:PB"] > way[highway]::highway, way[highway][ref^=PB-]::highway, relation[type=route][route=road][ref^=PB-] > way[highway]::highway,
-way[highway][network="BR:PR"]::highway, relation[type=route][route=road][network="BR:PR"] > way[highway]::highway, way[highway][ref^=PR-]::highway, relation[type=route][route=road][ref^=PR-] > way[highway]::highway,
-way[highway][network="BR:PE"]::highway, relation[type=route][route=road][network="BR:PE"] > way[highway]::highway, way[highway][ref^=PE-]::highway, relation[type=route][route=road][ref^=PE-] > way[highway]::highway,
-way[highway][network="BR:PI"]::highway, relation[type=route][route=road][network="BR:PI"] > way[highway]::highway, way[highway][ref^=PI-]::highway, relation[type=route][route=road][ref^=PI-] > way[highway]::highway,
-way[highway][network="BR:RJ"]::highway, relation[type=route][route=road][network="BR:RJ"] > way[highway]::highway, way[highway][ref^=RJ-]::highway, relation[type=route][route=road][ref^=RJ-] > way[highway]::highway,
-way[highway][network="BR:RN"]::highway, relation[type=route][route=road][network="BR:RN"] > way[highway]::highway, way[highway][ref^=RN-]::highway, relation[type=route][route=road][ref^=RN-] > way[highway]::highway,
+way[highway][network="BR:AC"]::highway, relation[type=route][route=road][network="BR:AC"] > way[highway]::highway, way[highway][ref=~/^AC(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^AC(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:AL"]::highway, relation[type=route][route=road][network="BR:AL"] > way[highway]::highway, way[highway][ref=~/^AL(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^AL(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:AP"]::highway, relation[type=route][route=road][network="BR:AP"] > way[highway]::highway, way[highway][ref=~/^AP(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^AP(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:AM"]::highway, relation[type=route][route=road][network="BR:AM"] > way[highway]::highway, way[highway][ref=~/^AM(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^AM(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:BA"]::highway, relation[type=route][route=road][network="BR:BA"] > way[highway]::highway, way[highway][ref=~/^BA(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^BA(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:CE"]::highway, relation[type=route][route=road][network="BR:CE"] > way[highway]::highway, way[highway][ref=~/^CE(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^CE(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:DF"]::highway, relation[type=route][route=road][network="BR:DF"] > way[highway]::highway, way[highway][ref=~/^DF(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^DF(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:ES"]::highway, relation[type=route][route=road][network="BR:ES"] > way[highway]::highway, way[highway][ref=~/^ES(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^ES(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:GO"]::highway, relation[type=route][route=road][network="BR:GO"] > way[highway]::highway, way[highway][ref=~/^GO(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^GO(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:MA"]::highway, relation[type=route][route=road][network="BR:MA"] > way[highway]::highway, way[highway][ref=~/^MA(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^MA(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:MT"]::highway, relation[type=route][route=road][network="BR:MT"] > way[highway]::highway, way[highway][ref=~/^MT(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^MT(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:MS"]::highway, relation[type=route][route=road][network="BR:MS"] > way[highway]::highway, way[highway][ref=~/^MS(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^MS(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:MG"]::highway, relation[type=route][route=road][network="BR:MG"] > way[highway]::highway, way[highway][ref=~/^(A|L)?MG(-| )[0-9]{3,4}$/]::highway, relation[type=route][route=road][ref=~/^(A|L)?MG(-| )[0-9]{3,4}$/] > way[highway]::highway,
+way[highway][network="BR:PA"]::highway, relation[type=route][route=road][network="BR:PA"] > way[highway]::highway, way[highway][ref=~/^PA(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^PA(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:PB"]::highway, relation[type=route][route=road][network="BR:PB"] > way[highway]::highway, way[highway][ref=~/^PB(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^PB(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:PR"]::highway, relation[type=route][route=road][network="BR:PR"] > way[highway]::highway, way[highway][ref=~/^PR(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^PR(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:PE"]::highway, relation[type=route][route=road][network="BR:PE"] > way[highway]::highway, way[highway][ref=~/^PE(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^PE(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:PI"]::highway, relation[type=route][route=road][network="BR:PI"] > way[highway]::highway, way[highway][ref=~/^PI(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^PI(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:RJ"]::highway, relation[type=route][route=road][network="BR:RJ"] > way[highway]::highway, way[highway][ref=~/^RJ(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^RJ(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:RN"]::highway, relation[type=route][route=road][network="BR:RN"] > way[highway]::highway, way[highway][ref=~/^RN(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^RN(-| )[0-9]{3}$/] > way[highway]::highway,
 way[highway][network="BR:RS"]::highway, relation[type=route][route=road][network="BR:RS"] > way[highway]::highway, way[highway][ref=~/^(E|V)?RS-.*/]::highway, relation[type=route][route=road][ref=~/^(E|V)?RS-.*/] > way[highway]::highway,
-way[highway][network="BR:RO"]::highway, relation[type=route][route=road][network="BR:RO"] > way[highway]::highway, way[highway][ref^=RO-]::highway, relation[type=route][route=road][ref^=RO-] > way[highway]::highway,
-way[highway][network="BR:RR"]::highway, relation[type=route][route=road][network="BR:RR"] > way[highway]::highway, way[highway][ref^=RR-]::highway, relation[type=route][route=road][ref^=RR-] > way[highway]::highway,
-way[highway][network="BR:SC"]::highway, relation[type=route][route=road][network="BR:SC"] > way[highway]::highway, way[highway][ref^=SC-]::highway, relation[type=route][route=road][ref^=SC-] > way[highway]::highway,
-way[highway][network="BR:SP"]::highway, relation[type=route][route=road][network="BR:SP"] > way[highway]::highway, way[highway][ref=~/^SP(M|A|D|I)?-.*/]::highway, relation[type=route][route=road][ref=~/^SP(M|A|D|I)?-.*/] > way[highway]::highway,
-way[highway][network="BR:SE"]::highway, relation[type=route][route=road][network="BR:SE"] > way[highway]::highway, way[highway][ref^=SE-]::highway, relation[type=route][route=road][ref^=SE-] > way[highway]::highway,
-way[highway][network="BR:TO"]::highway, relation[type=route][route=road][network="BR:TO"] > way[highway]::highway, way[highway][ref^=TO-]::highway, relation[type=route][route=road][ref^=TO-] > way[highway]::highway {
+way[highway][network="BR:RO"]::highway, relation[type=route][route=road][network="BR:RO"] > way[highway]::highway, way[highway][ref=~/^RO(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^RO(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:RR"]::highway, relation[type=route][route=road][network="BR:RR"] > way[highway]::highway, way[highway][ref=~/^RR(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^RR(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:SC"]::highway, relation[type=route][route=road][network="BR:SC"] > way[highway]::highway, way[highway][ref=~/^SC(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^SC(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:SP"]::highway, relation[type=route][route=road][network="BR:SP"] > way[highway]::highway, way[highway][ref=~/^SP(M|A|D|I)?(-| )[0-9]{3}(\/[0-9]{3})? ?(D|E)?$/]::highway, relation[type=route][route=road][ref=~/^SP(M|A|D|I)?(-| )[0-9]{3}(\/[0-9]{3})? ?(D|E)?$/] > way[highway]::highway,
+way[highway][network="BR:SE"]::highway, relation[type=route][route=road][network="BR:SE"] > way[highway]::highway, way[highway][ref=~/^SE(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^SE(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:TO"]::highway, relation[type=route][route=road][network="BR:TO"] > way[highway]::highway, way[highway][ref=~/^TO(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^TO(-| )[0-9]{3}$/] > way[highway]::highway {
 	color:				darkgreen; /* State Highway */
 	casing-color:		darkgreen;
 	casing-width:		2;
@@ -93,7 +93,7 @@ way[highway][network="BR:TO"]::highway, relation[type=route][route=road][network
 }
 
 way[highway]["IBGE:CD_ADMINIS"=federal]::highway, way[highway]["IBGE:cd_adminis"=federal]::highway,
-way[highway][network=BR]::highway, relation[type=route][route=road][network=BR] > way[highway]::highway, relation[type=route][route=road][ref^=BR-] > way[highway]::highway, way[highway][ref^=BR-]::highway {
+way[highway][network=BR]::highway, relation[type=route][route=road][network=BR] > way[highway]::highway, relation[type=route][route=road][ref=~/^BR(-| )[0-9]{3}$/] > way[highway]::highway, way[highway][ref^=BR-]::highway {
 	color:				darkred; /* Federal Highway */
 	casing-color:		darkred;
 	casing-width:		2;
@@ -104,7 +104,8 @@ way[highway][network=BR]::highway, relation[type=route][route=road][network=BR] 
 /*
  * Where federal and state highway co-exists on the same way, combine the colors.
  */
-relation[type=route][route=road][network=BR] > way.rodovia_estadual::highway, relation[type=route][route=road][ref^=BR-] > way.rodovia_estadual::highway {
+way.rodovia_federal.rodovia_estadual::highway {
+/*relation[type=route][route=road][network=BR] > way.rodovia_estadual::highway, relation[type=route][route=road][ref=~/^BR(-| )[0-9]{3}$/] > way.rodovia_estadual::highway { */
 	color:				darkred;
 	dashes-background-color: darkred; /* For JOSM */
 	casing-color:		darkgreen;
@@ -699,6 +700,7 @@ area[waterway=canal]:closed {
 area|z4-[natural=wetland]:closed {
 	/* Default fill */
 	fill-image:			"icons/rendering/natural/alogado.svg";
+    fill-image-height:  12; /* Does not work in JOSM */
 }
 /*
  * Woodland, bushes, etc.
