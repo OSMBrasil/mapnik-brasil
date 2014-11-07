@@ -477,21 +477,31 @@ way[highway=raceway].highway::highway {
 /* High zoom levels should render the true width of the road */
 @media (user-agent: pgmapcss) { 
 	way|z18-[highway].highway::highway {
-		width:				eval(any(tag(width), set_width_in_meters(3 * tag(lanes))));
+		width:				eval(any(tag(width), set_width_in_meters(3 * tag(lanes)), 5));
 		casing-width:		3;
 	}
 }
 
+way|z6-[highway][bridge][!bridge?!].highway::bridge {
+    width:              5;
+    casing-width:       5;
+    casing-color:       black;
+}
+way|z6-[highway][tunnel][!tunnel?!].highway::tunnel {
+    width:              5
+    casing-width:       5;
+    casing-color:       darkgray;
+}
 way|z4-[highway][operator].highway::operator, relation[type=route][route=road][operator] > way[highway].highway::operator {
 	/* Highway have concecionario, need to add a yellow halo to the road, in addition to the casing */
-	object-z-index:		-1;
-	casing-width:		+4;
+/*	object-z-index:		-1; */
+	casing-width:		6;
 	casing-color:		yellow;
 }
 way|z8-[higway][toll].highway::toll, relation[type=route][route=road][toll] > way[highway].highway::toll {
 	/* Highway with toll fee to be rendered with a green halo on high zoom levels */
-	object-z-index:		-2;
-	casing-width:		+5;
+/*	object-z-index:		-2; */
+	casing-width:		8;
 	casing-color:		limegreen;
 }
 
@@ -768,6 +778,12 @@ area|z2-12[landuse=residential]:closed {
 }
 area|z13-[landuse=residential]:closed {
 	fill-color:			lightgray;
+}
+area|z14-[landuse=comercial]:closed {
+    fill-color:         slategray;
+}
+area|z13-[landuse=retail]:closed {
+    fill-color:         lightslategray;
 }
 area|z8-[building]:closed {
 	fill-color:			orange;
