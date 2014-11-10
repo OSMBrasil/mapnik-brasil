@@ -488,7 +488,7 @@ way|z6-[highway][bridge][!bridge?!].highway::bridge {
     casing-color:       black;
 }
 way|z6-[highway][tunnel][!tunnel?!].highway::tunnel {
-    width:              5
+    width:              5;
     casing-width:       5;
     casing-color:       darkgray;
 }
