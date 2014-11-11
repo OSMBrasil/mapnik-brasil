@@ -828,12 +828,35 @@ node|z8-[amenity=fuel], area|z8-[amenity=fuel]:closed {
 *[brand=~ /(?i).*Ipiranga/].fuel {
 	icon-image:			"icons/vehicle/fuel/ipiranga.svg";
 }
-*[operator=~ /(?i).*Esso/].fuel,
-*[brand=~ /(?i).*Esso/].fuel {
-    icon-image:         "icons/vehicle/fiel/esso.svg";
+*[operator=~ /(?i).*Atl(a|â)ntico/].fuel,
+*[brand=~ /(?i).*Atl(a|â)ntico/].fuel {
+    icon-image:         "icons/vehicle/fiel/atlantico.svg";
 }
 
+/* Motel */
 node|z15-[amenity=love_hotel], area|z15-[amenity=love_hotel]:closed {
 	icon-image:			"icons/accommodation/love_hotel.svg";
 	icon-height:		12;
 }
+/* Pousada */
+node|z15-[tourism=guest_house], area|z15-[tourism=guest_house]:closed,
+node|z15-[tourism=hostel], area|z15-[tourism=hostel]:closed,
+node|z15-[tourism=chalet], area|z15-[tourism=chalet]:closed,
+node|z15-[tourism=apartment], area|z15-[tourism=apartment]:closed,
+node|z15-[tourism=bed_and_breakfast], area|z15-[tourism=bed_and_breakfast]:closed,
+node|z15-[tourism=motel], area|z15-[tourism=motel]:closed {
+    icon-image:         "icons/accommodation/guest_house.svg";
+    icon-height:        12;
+}
+/* Hotel */
+node|z15-[tourism=hotel], area|z15-[tourism=hotel]:closed {
+    icon-image:         "icons/accommodation/hotel/hotel.svg";
+    icon-height:        12;
+}
+/* Restaurant */
+node|z15-[amenity=fast_food], area|z15-[amenity=fast_food]:closed,
+node|z15-[amenity=restaurant], area|z15-[amenity=restaurant]:closed {
+    icon-image:         "icons/food/restaurant.svg";
+    icon-height:        12;
+}
+
