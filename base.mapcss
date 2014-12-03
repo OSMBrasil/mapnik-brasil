@@ -786,7 +786,7 @@ area|z13-[landuse=retail]:closed {
     fill-color:         lightslategray;
 }
 area|z8-[building]:closed {
-	fill-color:			orange;
+	fill-color:			darkgoldenrod;
 }
 
 /*
@@ -802,7 +802,7 @@ node|z8-[amenity=fuel], area|z8-[amenity=fuel]:closed {
  * Different symbols for the major brands
   =~ /(?i).*Brand*
  */
-*[operador=~ /(?i).*BR/].fuel,
+*[operator=~ /(?i).*BR/].fuel,
 *[brand=~ /(?i).*BR/].fuel,
 *[operator=~ /(?i).*Petrobras/].fuel,
 *[brand=~ /(?i).*Petrobras/].fuel {
@@ -830,8 +830,27 @@ node|z8-[amenity=fuel], area|z8-[amenity=fuel]:closed {
 }
 *[operator=~ /(?i).*Atl(a|â)ntico/].fuel,
 *[brand=~ /(?i).*Atl(a|â)ntico/].fuel {
-    icon-image:         "icons/vehicle/fiel/atlantico.svg";
+    icon-image:         "icons/vehicle/fuel/atlantico.svg";
 }
+
+node|z15-[amenity=bank], area|z15-[amenity=bank]:closed {
+    icon-image:         "icons/money/bank.svg";
+    icon-height:        16;
+    text:               auto;
+    set .bank;
+}
+/*
+ * Different symbols for the major branches
+ */
+*[operator=~ /(?i).*HSBC/].bank,
+*[brand=~ /(?i).*HSBC/].bank {
+    icon-image:         "icons/money/bank/HSBC.svg";
+}
+*[operator=~ /(?i).*Santander/].bank,
+*[brand=~ /(?i).*Santander/].bank {
+    icon-image:         "icons/money/bank/santander.svg";
+}
+
 
 /* Motel */
 node|z15-[amenity=love_hotel], area|z15-[amenity=love_hotel]:closed {
@@ -854,9 +873,26 @@ node|z15-[tourism=hotel], area|z15-[tourism=hotel]:closed {
     icon-height:        12;
 }
 /* Restaurant */
-node|z15-[amenity=fast_food], area|z15-[amenity=fast_food]:closed,
+node|z15-[amenity=fast_food], area|z15-[amenity=fast_food]:closed {
+    set .fast_food;
+}
 node|z15-[amenity=restaurant], area|z15-[amenity=restaurant]:closed {
+    set .restaurant;
+}
+*.restaurant, *.fast_food {
     icon-image:         "icons/food/restaurant.svg";
     icon-height:        12;
 }
+/* Fastfood by brand */
+*[brand=~ /(?i).*Burger ?King/].fast_food {
+    icon-image:         "icons/food/fastfood/burgerking.svg";
+}
+*[brand=~ /(?i).*McDonald(')?s?/].fast_food {
+    icon-image:         "icons/food/fastfood/mcdonalds.svg";
+}
+*[brand=~ /(?i).*Subway/].fast_food {
+    icon-image:         "icons/food/fastfood/subway.svg";
+}
+
+/* Restaurant by cousine */
 
