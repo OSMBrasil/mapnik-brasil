@@ -808,8 +808,8 @@ node|z8-[amenity=fuel], area|z8-[amenity=fuel]:closed {
 *[brand=~ /(?i).*Petrobras/].fuel {
 	icon-image:			"icons/vehicle/fuel/br.svg";
 }
-*[operator=~ /(?i).*Al(e|é)/].fuel,
-*[brand=~ /(?i).*Al(e|é)/].fuel {
+*[operator=~ /(?i).*Al(e|é|ê)/].fuel,
+*[brand=~ /(?i).*Al(e|é|ê)/].fuel {
 	icon-image:			"icons/vehicle/fuel/ale.svg";
 }
 *[operator=~ /(?i).*Shell/].fuel,
