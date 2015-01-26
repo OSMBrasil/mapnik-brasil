@@ -33,6 +33,7 @@ area[natural=coastline], relation[natural=coastline] {
 way[highway]::highway {
 	color:				darkgray;
 	casing-color:		darkgray;
+    dashes-background-color: darkgray; /* For JOSM */
 	width:				1;
 	casing-width:		2;
 	set .highway;
@@ -54,6 +55,7 @@ relation[type=route][route=road][ref=~ /^[A-Za-z]{2,4}((\/|-| )[A-Za-z]{2,4})?-[
 way[highway][ref=~ /^[A-Za-z]{2,4}((\/|-| )[A-Za-z]{2,4})?-[0-9]{2,4}((\/|-| )[0-9]{2,4})?.*/][ref !~ /^(BR|MGC|RSC|AC|AL|AP|AM|BA|CE|DF|ES|GO|MA|MT|MS|(A|L)?MG|PA|PB|PR|PI|RN|RJ|RO|RR|(E|V)?RS|SC|SP(M|A|D|I)?|SE|TO)(-| )[0-9]{3}.*/]::highway {
 	color:				slateblue; /* Municipal Highway */
 	casing-color:		slateblue;
+    dashes-background-color: slateblue; /* For JOSM */
 	width:				1;
 	casing-width:		2;
 	set .rodovia_municipal;
@@ -90,6 +92,7 @@ way[highway][network="BR:SE"]::highway, relation[type=route][route=road][network
 way[highway][network="BR:TO"]::highway, relation[type=route][route=road][network="BR:TO"] > way[highway]::highway, way[highway][ref=~/^TO(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][ref=~/^TO(-| )[0-9]{3}$/] > way[highway]::highway {
 	color:				darkgreen; /* State Highway */
 	casing-color:		darkgreen;
+    dashes-background-color: darkgreen; /* For JOSM */
     width:				1;
     casing-width:		2;
 	set .rodovia_estadual;
@@ -101,6 +104,7 @@ way[highway][network=BR]::highway, relation[type=route][route=road][network=BR] 
 relation[type=route][route=road][ref=~/^BR(-| )[0-9]{3}$/] > way[highway]::highway, way[highway][ref=~/^(BR|MGC|RSC)(-| )[0-9]{3}$/]::highway {
 	color:				darkred; /* Federal Highway */
 	casing-color:		darkred;
+    dashes-background-color: darkred; /* For JOSM */
     width:				1;
     casing-width:		2;
 	set .rodovia_federal;
@@ -132,7 +136,7 @@ way.rodovia_municipal.rodovia_estadual::highway {
 way.rodovia_federal.rodovia_estadual::highway {
 /*relation[type=route][route=road][network=BR] > way.rodovia_estadual::highway, relation[type=route][route=road][ref=~/^BR(-| )[0-9]{3}$/] > way.rodovia_estadual::highway { */
 	color:				darkred;
-	/* dashes-background-color: darkred; /* For JOSM */
+	dashes-background-color: darkred; /* For JOSM */
 	casing-color:		darkgreen;
     width:				1;
     casing-width:		2;
@@ -296,7 +300,7 @@ way|z-10[highway][surface=sand].highway::highway,
 way|z-10[highway][surface=scree].highway::highway,
 way|z-10[highway][surface=unpaved].highway::highway {
 	color:				white;
-	dashes:				5,2;
+	dashes:				5,4;
 	set	.highway;
 }
 way|z10-[highway][surface=ground].highway::highway,
@@ -311,7 +315,7 @@ way|z10-[highway][surface=sand].highway::highway,
 way|z10-[highway][surface=scree].highway::highway,
 way|z10-[highway][surface=unpaved].highway::highway {
 	color:				lightgray;
-	dashes:				5,2;
+	dashes:				5,4;
 	set .highway;
 }
 way|z10-[highway][surface=sett].highway::highway,
@@ -322,7 +326,7 @@ way|z10-[highway][surface=pebblestone].highway::highway,
 way|z10-[highway][surface=wood].highway::highway,
 way|z10-[highway][surface=cobblestone].highway::highway {
 	color:				brown;
-	dashes:				5,2;
+	dashes:				5,4;
 	set	.highway;
 }
 
@@ -863,7 +867,7 @@ node|z15-[tourism=hostel], area|z15-[tourism=hostel]:closed,
 node|z15-[tourism=chalet], area|z15-[tourism=chalet]:closed,
 node|z15-[tourism=apartment], area|z15-[tourism=apartment]:closed,
 node|z15-[tourism=bed_and_breakfast], area|z15-[tourism=bed_and_breakfast]:closed,
-node|z15-[tourism=motel], area|z15-[tourism=motel]:closed {
+node|z15-[tourism=motel][!amenity=love_hotel], area|z15-[tourism=motel][!amenity=love_hotel]:closed {
     icon-image:         "icons/accommodation/guest_house.svg";
     icon-height:        12;
 }
