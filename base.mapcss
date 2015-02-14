@@ -823,7 +823,9 @@ node|z8-[amenity=fuel], area|z8-[amenity=fuel]:closed {
 	icon-image:			"icons/vehicle/fuel/shell.svg";
 }
 *[operator=~ /(?i).*Esso/].fuel,
-*[brand=~ /(?i).*Esso/].fuel {
+*[brand=~ /(?i).*Esso/].fuel
+*[operator=~ /(?i).*Exxon/].fuel,
+*[brand=~ /(?i).*Exxon/].fuel {
 	icon-image:			"icons/vehicle/fuel/esso.svg";
 }
 *[operator=~ /(?i).*Texaco/].fuel,
@@ -856,20 +858,29 @@ node|z15-[amenity=bank], area|z15-[amenity=bank]:closed {
 *[brand=~ /(?i).*Santander/].bank {
     icon-image:         "icons/money/bank/santander.svg";
 }
-
-
-/* Motel */
-node|z15-[amenity=love_hotel], area|z15-[amenity=love_hotel]:closed {
-	icon-image:			"icons/accommodation/love_hotel.svg";
-	icon-height:		12;
+*[operator=~ /(?i).*Ita(u|ú)/].bank,
+*[brand=~ /(?i).Ita(u|ú)/].bank {
+    icon-image:         "icons/money/bank/Itau.svg";
 }
+*[operator=~ /(?i).*Caixa/].bank,
+*[brand=~ /(?i).Caixa/].bank,
+*[operator=~ /(?i).*CEF/].bank,
+*[brand=~ /(?i).CEF/].bank,
+*[operator=~ /(?i).*Caixa Econ(o|ô)mica/].bank,
+*[brand=~ /(?i).Caixa Econ(o|ô)mica/].bank
+*[operator=~ /(?i).*Caixa Econ(o|ô)mica Federal/].bank,
+*[brand=~ /(?i).Caixa Econ(o|ô)mica Federal/].bank {
+    icon-image:         "icons/money/bank/caixa.svg";
+}
+
+
 /* Pousada */
 node|z15-[tourism=guest_house], area|z15-[tourism=guest_house]:closed,
 node|z15-[tourism=hostel], area|z15-[tourism=hostel]:closed,
 node|z15-[tourism=chalet], area|z15-[tourism=chalet]:closed,
 node|z15-[tourism=apartment], area|z15-[tourism=apartment]:closed,
 node|z15-[tourism=bed_and_breakfast], area|z15-[tourism=bed_and_breakfast]:closed,
-node|z15-[tourism=motel][!amenity=love_hotel], area|z15-[tourism=motel][!amenity=love_hotel]:closed {
+node|z15-[tourism=motel], area|z15-[tourism=motel]:closed {
     icon-image:         "icons/accommodation/guest_house.svg";
     icon-height:        12;
 }
@@ -877,6 +888,11 @@ node|z15-[tourism=motel][!amenity=love_hotel], area|z15-[tourism=motel][!amenity
 node|z15-[tourism=hotel], area|z15-[tourism=hotel]:closed {
     icon-image:         "icons/accommodation/hotel/hotel.svg";
     icon-height:        12;
+}
+/* Motel */
+node|z15-[amenity=love_hotel], area|z15-[amenity=love_hotel]:closed {
+    icon-image:			"icons/accommodation/love_hotel.svg";
+    icon-height:		12;
 }
 /* Restaurant */
 node|z15-[amenity=fast_food], area|z15-[amenity=fast_food]:closed {

@@ -18,67 +18,59 @@
    enable-background="new -0.7 -0.563 175 32"
    xml:space="preserve"
    id="svg2"
-   inkscape:version="0.48.1 "
-   sodipodi:docname="HSBC2.svg"><metadata
-   id="metadata28"><rdf:RDF><cc:Work
-       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><sodipodi:namedview
-   pagecolor="#ffffff"
-   bordercolor="#666666"
-   borderopacity="1"
-   objecttolerance="10"
-   gridtolerance="10"
-   guidetolerance="10"
-   inkscape:pageopacity="0"
-   inkscape:pageshadow="2"
-   inkscape:window-width="1280"
-   inkscape:window-height="968"
-   id="namedview26"
-   showgrid="false"
-   inkscape:snap-bbox="false"
-   inkscape:zoom="4.669489"
-   inkscape:cx="0.95251768"
-   inkscape:cy="-21.12954"
-   inkscape:window-x="-4"
-   inkscape:window-y="-4"
-   inkscape:window-maximized="1"
-   inkscape:current-layer="svg2"
-   fit-margin-top="0"
-   fit-margin-left="0"
-   fit-margin-right="0"
-   fit-margin-bottom="0"
-   borderlayer="false" />
-<defs
-   id="defs4">
-</defs>
-
-
-
-
-
-
-<polyline
-   points="114.713,15.323 129.571,30.181 129.571,0.466 114.713,15.323 "
-   id="polyline18"
-   style="fill:#ee3424"
-   transform="translate(-115.413,-1.0290002)" />
-<polyline
-   points="129.574,30.181 159.287,30.181 144.429,15.323 129.574,30.181 "
-   id="polyline20"
-   style="fill:#ee3424"
-   transform="translate(-115.413,-1.0290002)" />
-<polyline
-   points="144.429,15.323 159.287,0.466 129.574,0.466 144.429,15.323 "
-   id="polyline22"
-   style="fill:#ee3424"
-   transform="translate(-115.413,-1.0290002)" />
-<polyline
-   points="159.287,0.466 159.287,30.181 174.146,15.323 159.287,0.466 "
-   id="polyline24"
-   style="fill:#ee3424"
-   transform="translate(-115.413,-1.0290002)" />
-<path
-   style="fill:#ee3424"
-   d="M 14.14375,-0.56300041 -0.7,14.28075 l 14.84375,14.875 0,-29.71875041 z m 0.03125,0 L 29.01875,14.28075 43.8625,-0.56300041 l -29.6875,0 z m 29.6875,0 0,29.71875041 14.875,-14.875 -14.875,-14.84375041 z m 0,29.71875041 -14.84375,-14.875 -14.84375,14.875 29.6875,0 z"
-   id="polyline18-1"
-   inkscape:connector-curvature="0" /></svg>
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="HSBC.svg"><metadata
+     id="metadata28"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title><cc:license
+           rdf:resource="http://creativecommons.org/licenses/publicdomain/" /></cc:Work><cc:License
+         rdf:about="http://creativecommons.org/licenses/publicdomain/"><cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" /><cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" /><cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" /></cc:License></rdf:RDF></metadata><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1440"
+     inkscape:window-height="830"
+     id="namedview26"
+     showgrid="false"
+     inkscape:snap-bbox="false"
+     inkscape:zoom="4.669489"
+     inkscape:cx="-36.31066"
+     inkscape:cy="-21.12954"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     borderlayer="false" /><defs
+     id="defs4" /><polyline
+     points="114.713,15.323 129.571,30.181 129.571,0.466 114.713,15.323 "
+     id="polyline18"
+     style="fill:#ee3424"
+     transform="translate(-115.413,-1.0290002)" /><polyline
+     points="129.574,30.181 159.287,30.181 144.429,15.323 129.574,30.181 "
+     id="polyline20"
+     style="fill:#ee3424"
+     transform="translate(-115.413,-1.0290002)" /><polyline
+     points="144.429,15.323 159.287,0.466 129.574,0.466 144.429,15.323 "
+     id="polyline22"
+     style="fill:#ee3424"
+     transform="translate(-115.413,-1.0290002)" /><polyline
+     points="159.287,0.466 159.287,30.181 174.146,15.323 159.287,0.466 "
+     id="polyline24"
+     style="fill:#ee3424"
+     transform="translate(-115.413,-1.0290002)" /><path
+     style="fill:#ee3424"
+     d="M 14.14375,-0.56300041 -0.7,14.28075 l 14.84375,14.875 0,-29.71875041 z m 0.03125,0 L 29.01875,14.28075 43.8625,-0.56300041 l -29.6875,0 z m 29.6875,0 0,29.71875041 14.875,-14.875 -14.875,-14.84375041 z m 0,29.71875041 -14.84375,-14.875 -14.84375,14.875 29.6875,0 z"
+     id="polyline18-1"
+     inkscape:connector-curvature="0" /></svg>

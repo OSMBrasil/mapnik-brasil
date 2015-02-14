@@ -14,7 +14,7 @@
    height="580"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.48.2 r9819"
+   inkscape:version="0.48.5 r10040"
    sodipodi:docname="semaforo.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <metadata
@@ -27,7 +27,7 @@
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
         <cc:license
            rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
-        <dc:language>en</dc:language>
+        <dc:language></dc:language>
         <dc:title></dc:title>
       </cc:Work>
       <cc:License
@@ -42,7 +42,7 @@
     </rdf:RDF>
   </metadata>
   <sodipodi:namedview
-     inkscape:window-height="808"
+     inkscape:window-height="830"
      inkscape:window-width="1440"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
@@ -54,7 +54,7 @@
      pagecolor="#ffffff"
      id="base"
      inkscape:zoom="1.3221785"
-     inkscape:cx="156.81285"
+     inkscape:cx="25.21186"
      inkscape:cy="289.56978"
      inkscape:window-x="0"
      inkscape:window-y="0"

@@ -13,8 +13,8 @@
    height="743.47229"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.48.1 "
-   sodipodi:docname="000-30kmh.svg"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="100.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    version="1.0">
   <defs
@@ -38,7 +38,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="245.96578"
+     inkscape:cx="-105.5673"
      inkscape:cy="426.06762"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -57,7 +57,18 @@
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
         <dc:title></dc:title>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
       </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
     </rdf:RDF>
   </metadata>
   <g
@@ -106,5 +117,5 @@
            height="96.97464"
            x="373.75644"
            y="414.16257" /></flowRegion><flowPara
-         id="flowPara2993"></flowPara></flowRoot>  </g>
+         id="flowPara2993" /></flowRoot>  </g>
 </svg>

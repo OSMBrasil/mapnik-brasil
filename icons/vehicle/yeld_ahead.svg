@@ -1,24 +1,105 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
-<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://web.resource.org/cc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="150.2587" height="150.2587" id="svg14350" sodipodi:version="0.32" inkscape:version="0.45.1" version="1.0" sodipodi:docbase="F:\Inkscape drawings\Traffic Signs" sodipodi:docname="TS_22.svg" inkscape:output_extension="org.inkscape.output.svg.inkscape">
-  <defs id="defs3"/>
-  <sodipodi:namedview inkscape:document-units="mm" id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="0.35" inkscape:cx="350" inkscape:cy="520" inkscape:current-layer="layer1" inkscape:window-width="1280" inkscape:window-height="968" inkscape:window-x="-4" inkscape:window-y="-4"/>
-  <metadata id="metadata4">
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="150.2587"
+   height="150.2587"
+   id="svg14350"
+   sodipodi:version="0.32"
+   inkscape:version="0.48.5 r10040"
+   version="1.0"
+   sodipodi:docname="yeld_ahead.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs3" />
+  <sodipodi:namedview
+     inkscape:document-units="mm"
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="-147.14286"
+     inkscape:cy="520"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="1280"
+     inkscape:window-height="855"
+     inkscape:window-x="-4"
+     inkscape:window-y="0"
+     showgrid="false"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata4">
     <rdf:RDF>
-      <cc:Work rdf:about="">
+      <cc:Work
+         rdf:about="">
         <dc:format>image/svg+xml</dc:format>
-        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
       </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
     </rdf:RDF>
   </metadata>
-  <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(-274.871, -457.233)">
-    <g id="g3674" transform="translate(182.331, -113.777)">
-      <rect style="fill: rgb(255, 255, 0); fill-opacity: 1; stroke: rgb(0, 0, 0); stroke-width: 3.7488; stroke-miterlimit: 4; stroke-dasharray: none; stroke-opacity: 1;" id="rect10767" width="106.67611" height="106.67611" x="522.11176" y="284.99161" ry="5.2659869" transform="matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0)"/>
-      <path sodipodi:nodetypes="cccc" id="path11133" d="M 144.36117,650.89251 L 167.01287,690.89444 L 191.3514,650.65153 L 144.36117,650.89251 z " style="fill: rgb(255, 255, 255); fill-rule: evenodd; stroke: none; stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1;"/>
-      <g transform="matrix(0.667955, 0, 0, 0.667955, 82.7104, 114.775)" id="g11123">
-        <path sodipodi:nodetypes="csssssssccsssss" id="path11127" d="M 124.43974,873.6059 C 123.68043,872.3684 119.43508,865.0559 115.00563,857.3559 C 88.283913,810.90381 80.774197,797.49895 80.774197,796.25273 C 80.774197,795.07723 88.053482,794.8559 126.71518,794.8559 C 151.98272,794.8559 172.89017,795.23452 173.17617,795.69728 C 173.46217,796.16005 169.07787,804.59755 163.43328,814.44728 C 157.78868,824.29702 147.56874,842.13735 140.72229,854.09247 C 133.87584,866.04758 127.72207,875.83508 127.04725,875.84247 C 126.37243,875.84985 125.19905,874.8434 124.43974,873.6059 z M 143.7742,833.17257 C 152.8492,817.94995 160.4197,804.90127 160.59752,804.17549 C 160.86043,803.10249 154.64717,802.8559 127.34752,802.8559 C 108.88219,802.8559 93.774197,803.15577 93.774197,803.52229 C 93.774197,804.50241 126.7742,860.81523 126.7742,860.81523 C 126.7742,860.81523 134.6992,848.39518 143.7742,833.17257 z " style="fill: rgb(220, 36, 40);"/>
-        <path sodipodi:nodetypes="csscccsccccccc" id="path11125" d="M 118.7742,764.3559 C 118.7742,752.39323 119.32782,752.93339 109.44913,755.25769 C 104.8244,756.34581 103.52519,756.37058 103.14426,755.37787 C 102.70018,754.22063 105.7774,751.04033 121.0242,736.89891 L 126.7742,731.56579 L 132.5242,736.89891 C 146.85588,750.19155 150.7742,754.09399 150.7742,755.07494 C 150.7742,756.08967 148.25218,755.91793 138.5242,754.24075 L 134.7742,753.59422 L 134.7742,764.22506 L 134.7742,774.8559 L 126.7742,774.8559 L 118.7742,774.8559 L 118.7742,764.3559 z " style="fill: rgb(24, 16, 2);"/>
-        <path style="fill: rgb(220, 36, 40);" d="M 124.43974,873.6059 C 123.68043,872.3684 119.43508,865.0559 115.00563,857.3559 C 88.283913,810.90381 80.774197,797.49895 80.774197,796.25273 C 80.774197,795.07723 88.053482,794.8559 126.71518,794.8559 C 151.98272,794.8559 172.89017,795.23452 173.17617,795.69728 C 173.46217,796.16005 169.07787,804.59755 163.43328,814.44728 C 157.78868,824.29702 147.56874,842.13735 140.72229,854.09247 C 133.87584,866.04758 127.72207,875.83508 127.04725,875.84247 C 126.37243,875.84985 125.19905,874.8434 124.43974,873.6059 z M 143.7742,833.17257 C 152.8492,817.94995 160.4197,804.90127 160.59752,804.17549 C 160.86043,803.10249 154.64717,802.8559 127.34752,802.8559 C 108.88219,802.8559 93.774197,803.15577 93.774197,803.52229 C 93.774197,804.50241 126.7742,860.81523 126.7742,860.81523 C 126.7742,860.81523 134.6992,848.39518 143.7742,833.17257 z " id="path11131" sodipodi:nodetypes="csssssssccsssss"/>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-274.871, -457.233)">
+    <g
+       id="g3674"
+       transform="translate(182.331, -113.777)">
+      <rect
+         style="fill: rgb(255, 255, 0); fill-opacity: 1; stroke: rgb(0, 0, 0); stroke-width: 3.7488; stroke-miterlimit: 4; stroke-dasharray: none; stroke-opacity: 1;"
+         id="rect10767"
+         width="106.67611"
+         height="106.67611"
+         x="522.11176"
+         y="284.99161"
+         ry="5.2659869"
+         transform="matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0)" />
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path11133"
+         d="M 144.36117,650.89251 L 167.01287,690.89444 L 191.3514,650.65153 L 144.36117,650.89251 z "
+         style="fill: rgb(255, 255, 255); fill-rule: evenodd; stroke: none; stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1;" />
+      <g
+         transform="matrix(0.667955, 0, 0, 0.667955, 82.7104, 114.775)"
+         id="g11123">
+        <path
+           sodipodi:nodetypes="csssssssccsssss"
+           id="path11127"
+           d="M 124.43974,873.6059 C 123.68043,872.3684 119.43508,865.0559 115.00563,857.3559 C 88.283913,810.90381 80.774197,797.49895 80.774197,796.25273 C 80.774197,795.07723 88.053482,794.8559 126.71518,794.8559 C 151.98272,794.8559 172.89017,795.23452 173.17617,795.69728 C 173.46217,796.16005 169.07787,804.59755 163.43328,814.44728 C 157.78868,824.29702 147.56874,842.13735 140.72229,854.09247 C 133.87584,866.04758 127.72207,875.83508 127.04725,875.84247 C 126.37243,875.84985 125.19905,874.8434 124.43974,873.6059 z M 143.7742,833.17257 C 152.8492,817.94995 160.4197,804.90127 160.59752,804.17549 C 160.86043,803.10249 154.64717,802.8559 127.34752,802.8559 C 108.88219,802.8559 93.774197,803.15577 93.774197,803.52229 C 93.774197,804.50241 126.7742,860.81523 126.7742,860.81523 C 126.7742,860.81523 134.6992,848.39518 143.7742,833.17257 z "
+           style="fill: rgb(220, 36, 40);" />
+        <path
+           sodipodi:nodetypes="csscccsccccccc"
+           id="path11125"
+           d="M 118.7742,764.3559 C 118.7742,752.39323 119.32782,752.93339 109.44913,755.25769 C 104.8244,756.34581 103.52519,756.37058 103.14426,755.37787 C 102.70018,754.22063 105.7774,751.04033 121.0242,736.89891 L 126.7742,731.56579 L 132.5242,736.89891 C 146.85588,750.19155 150.7742,754.09399 150.7742,755.07494 C 150.7742,756.08967 148.25218,755.91793 138.5242,754.24075 L 134.7742,753.59422 L 134.7742,764.22506 L 134.7742,774.8559 L 126.7742,774.8559 L 118.7742,774.8559 L 118.7742,764.3559 z "
+           style="fill: rgb(24, 16, 2);" />
+        <path
+           style="fill: rgb(220, 36, 40);"
+           d="M 124.43974,873.6059 C 123.68043,872.3684 119.43508,865.0559 115.00563,857.3559 C 88.283913,810.90381 80.774197,797.49895 80.774197,796.25273 C 80.774197,795.07723 88.053482,794.8559 126.71518,794.8559 C 151.98272,794.8559 172.89017,795.23452 173.17617,795.69728 C 173.46217,796.16005 169.07787,804.59755 163.43328,814.44728 C 157.78868,824.29702 147.56874,842.13735 140.72229,854.09247 C 133.87584,866.04758 127.72207,875.83508 127.04725,875.84247 C 126.37243,875.84985 125.19905,874.8434 124.43974,873.6059 z M 143.7742,833.17257 C 152.8492,817.94995 160.4197,804.90127 160.59752,804.17549 C 160.86043,803.10249 154.64717,802.8559 127.34752,802.8559 C 108.88219,802.8559 93.774197,803.15577 93.774197,803.52229 C 93.774197,804.50241 126.7742,860.81523 126.7742,860.81523 C 126.7742,860.81523 134.6992,848.39518 143.7742,833.17257 z "
+           id="path11131"
+           sodipodi:nodetypes="csssssssccsssss" />
       </g>
     </g>
   </g>

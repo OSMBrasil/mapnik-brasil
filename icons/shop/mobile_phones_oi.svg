@@ -11,7 +11,7 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    id="svg9569"
    sodipodi:version="0.32"
-   inkscape:version="0.48.1 "
+   inkscape:version="0.48.5 r10040"
    width="112"
    height="197"
    version="1.0"
@@ -25,8 +25,19 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
       </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
     </rdf:RDF>
   </metadata>
   <defs
@@ -40,7 +51,7 @@
        id="perspective2511" />
   </defs>
   <sodipodi:namedview
-     inkscape:window-height="930"
+     inkscape:window-height="855"
      inkscape:window-width="1280"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
@@ -52,7 +63,7 @@
      pagecolor="#ffffff"
      id="base"
      inkscape:zoom="3.9697844"
-     inkscape:cx="56"
+     inkscape:cx="12.168904"
      inkscape:cy="97.532914"
      inkscape:window-x="0"
      inkscape:window-y="0"

@@ -14,7 +14,7 @@
    height="120.46899"
    id="svg2"
    inkscape:version="0.48.5 r10040"
-   sodipodi:docname="Caixa_Econômica_Federal.svg">
+   sodipodi:docname="caixa.svg">
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -33,7 +33,7 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:zoom="0.58374832"
-     inkscape:cx="-4.2883069"
+     inkscape:cx="-302.36197"
      inkscape:cy="60.446192"
      inkscape:window-x="0"
      inkscape:window-y="0"
@@ -54,7 +54,18 @@
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
         <dc:title></dc:title>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
       </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
     </rdf:RDF>
   </metadata>
   <g
