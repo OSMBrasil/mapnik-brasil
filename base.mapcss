@@ -806,7 +806,6 @@ node|z8-[amenity=fuel], area|z8-[amenity=fuel]:closed {
 }
 /*
  * Different symbols for the major brands
-  =~ /(?i).*Brand*
  */
 *[operator=~ /(?i).*BR/].fuel,
 *[brand=~ /(?i).*BR/].fuel,
@@ -859,20 +858,25 @@ node|z15-[amenity=bank], area|z15-[amenity=bank]:closed {
     icon-image:         "icons/money/bank/santander.svg";
 }
 *[operator=~ /(?i).*Ita(u|ú)/].bank,
-*[brand=~ /(?i).Ita(u|ú)/].bank {
+*[brand=~ /(?i).*Ita(u|ú)/].bank {
     icon-image:         "icons/money/bank/Itau.svg";
 }
-*[operator=~ /(?i).*Caixa/].bank,
-*[brand=~ /(?i).Caixa/].bank,
 *[operator=~ /(?i).*CEF/].bank,
 *[brand=~ /(?i).CEF/].bank,
-*[operator=~ /(?i).*Caixa Econ(o|ô)mica/].bank,
-*[brand=~ /(?i).Caixa Econ(o|ô)mica/].bank
-*[operator=~ /(?i).*Caixa Econ(o|ô)mica Federal/].bank,
-*[brand=~ /(?i).Caixa Econ(o|ô)mica Federal/].bank {
+*[operator=~ /(?i).*Caixa ?(Econ(o|ô)mica)? ?(Federal)?/].bank,
+*[brand=~ /(?i).*Caixa ?(Econ(o|ô)mica)? ?(Federal)?/].bank {
     icon-image:         "icons/money/bank/caixa.svg";
 }
-
+*[operator=~ (?i).*Citi ?(group|bank)?/].bank,
+*[brand=~ (?i).*Citi ?(group|bank)?/].bank {
+    icon-image:         "icons/money/bank/Citibank.svg";
+}
+*[operator=~ (?i).*BASA/].bank,
+*[brand=~ (?i).*BASA/].bank,
+*[operator=~ (?i).*Banco ?da ?Amaz(o|ô)nia/],
+*[brand=~ (?i).*Banco ?da ?Amaz(o|ô)nia/] {
+    icon-image:         "icons/money/bank/BASA.svg";
+}
 
 /* Pousada */
 node|z15-[tourism=guest_house], area|z15-[tourism=guest_house]:closed,

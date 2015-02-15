@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="119.54421"
+   height="77.120346"
+   id="svg4965"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="Citibank.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1408"
+     inkscape:window-height="669"
+     id="namedview13"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="4.3277027"
+     inkscape:cx="107.79391"
+     inkscape:cy="38.503203"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg4965" />
+  <defs
+     id="defs4967" />
+  <metadata
+     id="metadata4970">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <path
+     d="m 36.400446,62.21484 -0.213828,0.206921 c -3.446638,3.511502 -7.435859,5.372563 -11.546423,5.372563 -8.580217,0 -14.8085823,-6.436766 -14.8085823,-15.318118 0,-8.86532 6.2283653,-15.311212 14.8085823,-15.311212 4.110564,0 8.099785,1.868707 11.546423,5.38958 l 0.213828,0.213088 5.518073,-6.672297 -0.147484,-0.181026 c -4.589023,-5.422875 -10.095258,-8.06279 -16.86448,-8.06279 -6.792652,0 -13.002027,2.286003 -17.4771075,6.408651 C 2.5671597,38.724675 0,45.020863 0,52.476206 c 0,7.451645 2.5671597,13.76337 7.4294475,18.229079 4.4750805,4.141638 10.6844555,6.415063 17.4771075,6.415063 6.769222,0 12.275457,-2.638436 16.86448,-8.063531 l 0.147484,-0.168447 -5.518073,-6.67353 z"
+     id="path1274"
+     style="fill:#003b70;fill-opacity:1;fill-rule:nonzero;stroke:none"
+     inkscape:connector-curvature="0" />
+  <path
+     d="m 47.494551,76.21226 9.748252,0 0,-47.58753 -9.748252,0 0,47.58753 z"
+     id="path1276"
+     style="fill:#003b70;fill-opacity:1;fill-rule:nonzero;stroke:none"
+     inkscape:connector-curvature="0" />
+  <path
+     d="m 95.427361,65.8647 c -2.600701,1.583604 -5.021116,2.379722 -7.194656,2.379722 -3.149451,0 -4.572746,-1.662278 -4.572746,-5.364917 l 0,-25.250109 9.928044,0 0,-8.961259 -9.928044,0 0,-14.807103 -9.554648,5.113356 0,9.693747 -8.242583,0 0,8.961259 8.242583,0 0,26.860842 c 0,7.318218 4.334995,12.317631 10.806043,12.447604 4.393939,0.08607 7.042733,-1.222785 8.651493,-2.179705 l 0.09421,-0.07004 2.346921,-9.17558 -0.576619,0.352186 z"
+     id="path1278"
+     style="fill:#003b70;fill-opacity:1;fill-rule:nonzero;stroke:none"
+     inkscape:connector-curvature="0" />
+  <path
+     d="m 103.50125,76.21226 9.75466,0 0,-47.58753 -9.75466,0 0,47.58753 z"
+     id="path1280"
+     style="fill:#003b70;fill-opacity:1;fill-rule:nonzero;stroke:none"
+     inkscape:connector-curvature="0" />
+  <path
+     d="M 119.09485,20.180898 C 110.17132,7.5411703 95.351893,0 80.274238,0 65.202749,0 50.380355,7.5411703 41.471628,20.180898 l -0.457003,0.650361 11.235917,0 0.124547,-0.134906 c 7.647468,-7.89311 17.63051,-12.0673026 27.899149,-12.0673026 10.269872,0 20.250942,4.1741926 27.913202,12.0673026 l 0.1243,0.134906 11.23247,0 -0.44936,-0.650361 z"
+     id="path1284"
+     style="fill:#d9261c;fill-opacity:1;fill-rule:evenodd;stroke:none"
+     inkscape:connector-curvature="0" />
+</svg>
