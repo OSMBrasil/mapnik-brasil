@@ -716,15 +716,15 @@ node|z9-[railway=level_crossing].railway {
  * Boundaries
  */
 /* Admin Level 8, municipio */
-relation[type=boundary][boundary=administrative][admin_level=8] >[role=label] node,
-relation[type=multipolygon][boundary=administrative][admin_level=8] >[role=label] node {
+relation[type=boundary][boundary=administrative][admin_level=8] >[role=label] node::BOUNDARY,
+relation[type=multipolygon][boundary=administrative][admin_level=8] >[role=label] node::BOUNDARY {
     text:                   eval(any(parent_tag("official_name"), parent_tag("pt:name"), parent_tag("name"), parent_tag("short_name")));
     text-color:             purple;
     font-size:              10;
     font-family:            "Serif";
 }
-relation[type=boundary][boundary=administrative][admin_level=8] > way,
-relation[type=multipolygon][boundary=administrative][admin_level=8] > way {
+relation[type=boundary][boundary=administrative][admin_level=8] > way::BOUNDARY,
+relation[type=multipolygon][boundary=administrative][admin_level=8] > way::BOUNDARY {
     color:                  purple;
     width:                  2;
     dashes:                 4,8;
@@ -736,15 +736,15 @@ relation[type=multipolygon][boundary=administrative][admin_level=8] > way {
     text:                   eval(any(parent_tag("pt:name"), parent_tag("name")));
 }
 /* Admin Level 4, estado */
-relation[type=boundary][boundary=administrative][admin_level=4] >[role=label] node,
-relation[type=multipolygon][boundary=administrative][admin_level=4] >[role=label] node {
+relation[type=boundary][boundary=administrative][admin_level=4] >[role=label] node::BOUNDARY,
+relation[type=multipolygon][boundary=administrative][admin_level=4] >[role=label] node::BOUNDARY {
     text:                   eval(any(parent_tag("official_name"), parent_tag("pt:name"), parent_tag("name"), parent_tag("short_name")));
     text-color:             purple;
     font-size:              14;
     font-family:            "Serif";
 }
-relation[type=boundary][boundary=administrative][admin_level=4] > way,
-relation[type=multipolygon][boundary=administrative][admin_level=4] > way {
+relation[type=boundary][boundary=administrative][admin_level=4] > way::BOUNDARY,
+relation[type=multipolygon][boundary=administrative][admin_level=4] > way::BOUNDARY {
     color:                  purple;
     width:                  2;
     dashes:                 4,4;
@@ -756,8 +756,8 @@ relation[type=multipolygon][boundary=administrative][admin_level=4] > way {
     text:                   eval(any(parent_tag("pt:name"), parent_tag("name")));
 }
 /* Admin Level 3, region */
-relation[type=boundary][boundary=administrative][admin_level=3] > way,
-relation[type=multipolygon][boundary=administrative][admin_level=3] > way {
+relation[type=boundary][boundary=administrative][admin_level=3] > way::BOUNDARY,
+relation[type=multipolygon][boundary=administrative][admin_level=3] > way::BOUNDARY {
     color:                  purple;
     width:                  2;
     dashes:                 4,3;
@@ -770,15 +770,15 @@ relation[type=multipolygon][boundary=administrative][admin_level=3] > way {
 }
 
 /* Admin Level 2, nation */
-relation[type=boundary][boundary=administrative][admin_level=4] >[role=label] node,
-relation[type=multipolygon][boundary=administrative][admin_level=4] >[role=label] node {
+relation[type=boundary][boundary=administrative][admin_level=4] >[role=label] node::BOUNDARY,
+relation[type=multipolygon][boundary=administrative][admin_level=4] >[role=label] node::BOUNDARY {
     text:                   eval(any(parent_tag("official_name"), parent_tag("pt:name"), parent_tag("name"), parent_tag("short_name")));
     text-color:             purple;
     font-size:              16;
     font-family:            "Serif";
 }
-relation[type=boundary][boundary=administrative][admin_level=4] > way,
-relation[type=multipolygon][boundary=administrative][admin_level=4] > way {
+relation[type=boundary][boundary=administrative][admin_level=4] > way::BOUNDARY,
+relation[type=multipolygon][boundary=administrative][admin_level=4] > way::BOUNDARY {
     color:                  purple;
     width:                  2;
     dashes:                 4,2;
@@ -794,41 +794,41 @@ relation[type=multipolygon][boundary=administrative][admin_level=4] > way {
 /*
  * Waterways and water-cover
  */
-*[waterway],
-*[natural=water],
-*[landuse=reservoir],
-*[landuse=basin] {
+*[waterway]::WATERWAYS,
+*[natural=water]::WATERWAYS,
+*[landuse=reservoir]::WATERWAYS,
+*[landuse=basin]::WATERWAYS {
 	color:				darkblue;
 	width:				4;
 	set .waterway;
 }
-way|z4-[waterway=river].waterway {
+way|z4-[waterway=river].waterway::WATERWAYS {
 	width:				8;
 }
-way|z6-[waterway=canal].waterway {
+way|z6-[waterway=canal].waterway::WATERWAYS {
 	width:				6;
 }
-way|z8-[waterway=stream].waterway {
+way|z8-[waterway=stream].waterway::WATERWAYS {
 	width:				4;
 }
-way|z10-[waterway=ditch].waterway {
+way|z10-[waterway=ditch].waterway::WATERWAYS {
 	width:				3;
 }
-way|z13-[waterway=drain].waterway {
+way|z13-[waterway=drain].waterway::WATERWAYS {
 	width:				2;
 }
 
-area[natural=water]:closed,
-area[waterway=riverbank]:closed,
-area[landuse=reservoir]:closed,
-area[landuse=basin]:closed,
-area[waterway=canal]:closed {
+area[natural=water]:closed::WATERWAYS,
+area[waterway=riverbank]:closed::WATERWAYS,
+area[landuse=reservoir]:closed::WATERWAYS,
+area[landuse=basin]:closed::WATERWAYS,
+area[waterway=canal]:closed::WATERWAYS {
 	fill-color:			skyblue;
 }
 /*
  * Wetland
  */
-area|z4-[natural=wetland]:closed {
+area|z4-[natural=wetland]:closed::landcover {
 	/* Default fill */
 	fill-image:			"icons/rendering/natural/alogado.svg";
     fill-image-height:  12; /* Does not work in JOSM */
@@ -836,48 +836,54 @@ area|z4-[natural=wetland]:closed {
 /*
  * Woodland, bushes, etc.
  */
- area|z8-[natural=wood]:closed, area|z8-[landuse=forest]:closed, area|z8-[landcover=trees]:closed {
+area|z8-[natural=wood]:closed::landcover,
+area|z8-[landuse=forest]:closed::landcover,
+area|z8-[landcover=trees]:closed::landcover {
 	fill-color:			forestgreen;
- }
- area|z13-[natural=scrub]:closed {
+}
+area|z13-[natural=scrub]:closed::landcover {
 	fill-color:			forestgreen;
 	fill-opacity:		0.5;
- }
+}
  
 /*
  * Other Landscape Features
  */
-area|z13-[landuse=farm]:closed,area|z13-[landuse=farmland]:closed,area|z13-[landuse=meadow]:closed,area|z13-[landuse=orchard]:closed {
+area|z13-[landuse=farm]:closed::landcover,
+area|z13-[landuse=farmland]:closed::landcover,
+area|z13-[landuse=meadow]:closed::landcover,
+area|z13-[landuse=orchard]:closed::landcover {
 	/* default farmland */
 	fill-color:			cornsilk;
 }
-area|z13-[landuse=industrial]:closed {
+area|z13-[landuse=industrial]:closed::landuse {
 	fill-color:			gray;
 }
 
 /*
  * Urban features
  */
-area|z2-12[landuse=residential]:closed {
+area|z2-12[landuse=residential]:closed::urban {
 	fill-color:			yellow;
 }
-area|z13-[landuse=residential]:closed {
+area|z13-[landuse=residential]:closed::urban {
 	fill-color:			lightgray;
 }
-area|z14-[landuse=comercial]:closed {
+area|z14-[landuse=comercial]:closed::urban {
     fill-color:         slategray;
 }
-area|z13-[landuse=retail]:closed {
+area|z13-[landuse=retail]:closed::urban {
     fill-color:         lightslategray;
 }
-area|z8-[building]:closed {
+area|z8-[building]:closed::urban {
 	fill-color:			darkgoldenrod;
 }
 
 /*
  * Amenities
  */
-node|z8-[amenity=fuel], area|z8-[amenity=fuel]:closed {
+node|z8-[amenity=fuel],
+area|z8-[amenity=fuel]:closed {
 	icon-image:			"icons/vehicle/fuel/fuel.svg";
 	icon-height:		16;
 	text:				auto;
@@ -919,7 +925,8 @@ node|z8-[amenity=fuel], area|z8-[amenity=fuel]:closed {
     icon-image:         "icons/vehicle/fuel/atlantico.svg";
 }
 
-node|z15-[amenity=bank], area|z15-[amenity=bank]:closed {
+node|z15-[amenity=bank],
+area|z15-[amenity=bank]:closed {
     icon-image:         "icons/money/bank.svg";
     icon-height:        16;
     text:               auto;
@@ -958,30 +965,40 @@ node|z15-[amenity=bank], area|z15-[amenity=bank]:closed {
 }
 
 /* Pousada */
-node|z15-[tourism=guest_house], area|z15-[tourism=guest_house]:closed,
-node|z15-[tourism=hostel], area|z15-[tourism=hostel]:closed,
-node|z15-[tourism=chalet], area|z15-[tourism=chalet]:closed,
-node|z15-[tourism=apartment], area|z15-[tourism=apartment]:closed,
-node|z15-[tourism=bed_and_breakfast], area|z15-[tourism=bed_and_breakfast]:closed,
-node|z15-[tourism=motel], area|z15-[tourism=motel]:closed {
+node|z15-[tourism=guest_house],
+area|z15-[tourism=guest_house]:closed,
+node|z15-[tourism=hostel],
+area|z15-[tourism=hostel]:closed,
+node|z15-[tourism=chalet],
+area|z15-[tourism=chalet]:closed,
+node|z15-[tourism=apartment],
+area|z15-[tourism=apartment]:closed,
+node|z15-[tourism=bed_and_breakfast],
+area|z15-[tourism=bed_and_breakfast]:closed,
+node|z15-[tourism=motel],
+area|z15-[tourism=motel]:closed {
     icon-image:         "icons/accommodation/guest_house.svg";
     icon-height:        12;
 }
 /* Hotel */
-node|z15-[tourism=hotel], area|z15-[tourism=hotel]:closed {
+node|z15-[tourism=hotel],
+area|z15-[tourism=hotel]:closed {
     icon-image:         "icons/accommodation/hotel/hotel.svg";
     icon-height:        12;
 }
 /* Motel */
-node|z15-[amenity=love_hotel], area|z15-[amenity=love_hotel]:closed {
+node|z15-[amenity=love_hotel],
+area|z15-[amenity=love_hotel]:closed {
     icon-image:			"icons/accommodation/love_hotel.svg";
     icon-height:		12;
 }
 /* Restaurant */
-node|z15-[amenity=fast_food], area|z15-[amenity=fast_food]:closed {
+node|z15-[amenity=fast_food],
+area|z15-[amenity=fast_food]:closed {
     set .fast_food;
 }
-node|z15-[amenity=restaurant], area|z15-[amenity=restaurant]:closed {
+node|z15-[amenity=restaurant],
+area|z15-[amenity=restaurant]:closed {
     set .restaurant;
 }
 *.restaurant, *.fast_food {
