@@ -935,16 +935,16 @@ area|z15-[amenity=bank]:closed {
 /*
  * Different symbols for the major branches
  */
-*[operator=~ /(?i).*HSBC/].bank,
-*[brand=~ /(?i).*HSBC/].bank {
+*[operator=~ /(?i).*(Banco )?HSBC/].bank,
+*[brand=~ /(?i).*(Banco )?HSBC/].bank {
     icon-image:         "icons/money/bank/HSBC.svg";
 }
-*[operator=~ /(?i).*Santander/].bank,
-*[brand=~ /(?i).*Santander/].bank {
+*[operator=~ /(?i).*(Banco )?Santander/].bank,
+*[brand=~ /(?i).*(Banco )?Santander/].bank {
     icon-image:         "icons/money/bank/santander.svg";
 }
-*[operator=~ /(?i).*Ita(u|ú)/].bank,
-*[brand=~ /(?i).*Ita(u|ú)/].bank {
+*[operator=~ /(?i).*(Banco )?Ita(u|ú)/].bank,
+*[brand=~ /(?i).*(Banco )?Ita(u|ú)/].bank {
     icon-image:         "icons/money/bank/Itau.svg";
 }
 *[operator=~ /(?i).*CEF/].bank,
