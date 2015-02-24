@@ -558,11 +558,11 @@ way|z8-[highway][name=~/(?i).*sem nome*/].highway::name {
 }
 way|z8-[bridge][!bridge?!] { /* tag bridge set, but not bridge=no */
 	/* Name of the bridge instead of name of the highway, if set, to be printed on bridges */
-	text:				eval(any(tag("bridge_name:pt"), tag("bridge_name"), tag("official_name"), tag("name:pt"), tag("name"), tag("alt_name"), tag("loc_name"), tag("old_name")));
+	text:				eval(any(tag("bridge:name:pt"), tag("bridge_name:pt"), tag("bridge:name"), tag("bridge_name"), tag("bridge:official_name"), tag("bridge:alt_name"), tag("bridge:loc_name"), tag("bridge:old_name"), tag("official_name"), tag("name:pt"), tag("name"), tag("alt_name"), tag("loc_name"), tag("old_name")));
 }
 way|z8-[tunnel][!tunnel?!] { /* tag tunnel set, but not tunnel=no */
 	/* Name of the tunnel instead of name of the highway, if set, to be printed on tunnels */
-	text:				eval(any(tag("tunnel_name:pt"), tag("tunnel_name"), tag("official_name"), tag("name:pt"), tag("name"), tag("alt_name"), tag("loc_name"), tag("old_name")));
+	text:				eval(any(tag("tunnel:name:pt"), tag("tunnel_name:pt"), tag("tunnel:name"), tag("tunnel_name"), tag("tunnel:official_name"), tag("tunnel:alt_name"), tag("tunnel:loc_name"), tag("tunnel:old_name"), tag("official_name"), tag("name:pt"), tag("name"), tag("alt_name"), tag("loc_name"), tag("old_name")));
 }
 /* Creating shields */
 way[highway][ref].highway, relation[type=route][route=road][ref] > way[highway].highway {
