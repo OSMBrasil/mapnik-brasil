@@ -960,8 +960,12 @@ area|z15-[amenity=bank]:closed {
 *[brand=~ /(?i).*Bradesco/].bank {
     icon-image:         "icons/money/bank/Bradesco.svg";
 }
+*[operator=~ /(?i).*Sicoob/].bank,
+*[brand=~ /(?i).*Sicoob/].bank {
+    icon-image:         "icons/money/bank/sicoob.svg";
+}
 *[operator=~ /(?i).*Banestes/].bank,
-*[brand=~ /(?i).Banestes/].bank {
+*[brand=~ /(?i).*Banestes/].bank {
     icon-image:         "icons/money/bank/Banestes.svg";
 }
 *[operator=~ /(?i).*(Banco )?Ita(u|ú)/].bank,
