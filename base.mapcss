@@ -956,11 +956,11 @@ area|z15-[amenity=bank]:closed {
 *[brand=~ /(?i).*(Banco )?Santander/].bank {
     icon-image:         "icons/money/bank/santander.svg";
 }
-*[operator=~ /(?i).*(Bradesco/].bank,
+*[operator=~ /(?i).*Bradesco/].bank,
 *[brand=~ /(?i).*Bradesco/].bank {
     icon-image:         "icons/money/bank/Bradesco.svg";
 }
-*[operator=~ /(?i).*(Banestes/].bank,
+*[operator=~ /(?i).*Banestes/].bank,
 *[brand=~ /(?i).Banestes/].bank {
     icon-image:         "icons/money/bank/Banestes.svg";
 }
