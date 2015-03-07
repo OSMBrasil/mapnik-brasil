@@ -344,7 +344,7 @@ way|z10-[highway][surface=metal].highway::highway {
     set	.highway;
 }
 
-@media (user-agent: josm) {
+@supports (user-agent: josm) {
 	way|z12-[highway][!surface].highway::highway {
 		color:				lightgray;
 		dashes:				3,2;
@@ -366,7 +366,7 @@ way|z8-[highway=construction].highway::highway {
 	dashes:				30,10;
 	casing-dashes:		30,10;
 }
-@media (user-agent: josm) {
+@supports (user-agent: josm) {
 	way|z8-[highway=road].highway::highway { 
 		width:				2;
 		dashes:				20,20;
@@ -713,12 +713,13 @@ node|z9-[railway=level_crossing].railway {
 	icon-image:			"icons/vehicle/level_crossing.svg";
 }
 @media (user-agent: pgmapcss) {
-    area[railway@=station;roundhouse]:closed::dashes_overlay {
+    area[railway@=station;roundhouse;platform]:closed::dashes_overlay {
 		dashes:				none;
 	}
 } 
-@media (user-agent: josm) {
+@supports (user-agent: josm) {
 	area[railway=station]:closed,
+    area[railway=platform]:closed,
 	area[railway=roundhouse]:closed {
 		dashes:				none;
 	}
@@ -931,11 +932,11 @@ area|z8-[amenity=fuel]:closed {
 *[operator=~ /(?i).*Ipiranga/].fuel,
 *[brand=~ /(?i).*Ipiranga/].fuel {
 	icon-image:			"icons/vehicle/fuel/ipiranga.svg";
-}
+} /*
 *[operator=~ /(?i).*Atl(a|â)ntico/].fuel,
 *[brand=~ /(?i).*Atl(a|â)ntico/].fuel {
     icon-image:         "icons/vehicle/fuel/atlantico.svg";
-}
+} */
 
 node|z15-[amenity=bank],
 area|z15-[amenity=bank]:closed {
@@ -955,6 +956,14 @@ area|z15-[amenity=bank]:closed {
 *[brand=~ /(?i).*(Banco )?Santander/].bank {
     icon-image:         "icons/money/bank/santander.svg";
 }
+*[operator=~ /(?i).*(Bradesco/].bank,
+*[brand=~ /(?i).*Bradesco/].bank {
+    icon-image:         "icons/money/bank/Bradesco.svg";
+}
+*[operator=~ /(?i).*(Banestes/].bank,
+*[brand=~ /(?i).Banestes/].bank {
+    icon-image:         "icons/money/bank/Banestes.svg";
+}
 *[operator=~ /(?i).*(Banco )?Ita(u|ú)/].bank,
 *[brand=~ /(?i).*(Banco )?Ita(u|ú)/].bank {
     icon-image:         "icons/money/bank/Itau.svg";
@@ -968,6 +977,10 @@ area|z15-[amenity=bank]:closed {
 *[operator=~ /(?i).*Citi ?(group|bank)?/].bank,
 *[brand=~ /(?i).*Citi ?(group|bank)?/].bank {
     icon-image:         "icons/money/bank/Citibank.svg";
+}
+*[operator=~ /(?i).*Banco do Brasil/].bank,
+*[brand=~ /(?i).*Banco do Brasil/].bank {
+    icon-image:         "icons/money/bank/BB.svg";
 }
 *[operator=~ /(?i).*BASA/].bank,
 *[brand=~ /(?i).*BASA/].bank,
