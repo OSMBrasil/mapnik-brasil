@@ -14,7 +14,7 @@
    id="svg2"
    sodipodi:version="0.32"
    inkscape:version="0.48.5 r10040"
-   sodipodi:docname="no_right.svg"
+   sodipodi:docname="only_right.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    version="1.0">
   <defs
@@ -38,7 +38,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="330.54707"
+     inkscape:cx="-20.986013"
      inkscape:cy="124.32418"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -56,7 +56,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
         <cc:license
            rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
       </cc:Work>
@@ -102,13 +102,5 @@
        id="rect3169"
        sodipodi:nodetypes="cccccsccccsccc"
        inkscape:connector-curvature="0" />
-    <rect
-       style="opacity: 1; fill: rgb(224, 0, 0); fill-opacity: 1; fill-rule: evenodd; stroke: none; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round; marker: none; stroke-miterlimit: 4; stroke-dasharray: none; stroke-dashoffset: 0pt; stroke-opacity: 1; visibility: visible; display: inline; overflow: visible;"
-       id="rect2391"
-       width="76.771591"
-       height="614.17273"
-       x="-256.80396"
-       y="437.04608"
-       transform="matrix(0.707107, -0.707107, 0.707107, 0.707107, 0, 0)" />
   </g>
 </svg>
