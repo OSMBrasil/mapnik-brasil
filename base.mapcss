@@ -387,7 +387,7 @@ way|z14-[highway=footway].highway::highway {
 	casing-color:		limegreen;
 	casing-width:		2;
 }
-way|z14-[highway][footway?].highway::highway {
+way|z14-[highway][highway!=footway][footway?][!footway?!].highway::highway {
     dashes-background-color:    limegreen;
     dashes:             10,2;
 }
@@ -396,7 +396,7 @@ way|z12-[highway=cycleway].highway::highway {
 	casing-color:		violet;
 	casing-width:		2;
 }
-way|z12-[highway][cycleway][!cycleway?!].highway::highway {
+way|z12-[highway][highway!=cycleway][cycleway][!cycleway?!].highway::highway {
     dashes-background-color:    violet;
     dashes:             8,3;
 }
@@ -783,15 +783,15 @@ relation[type=multipolygon][boundary=administrative][admin_level=3] > way::BOUND
 }
 
 /* Admin Level 2, nation */
-relation[type=boundary][boundary=administrative][admin_level=4] >[role=label] node::BOUNDARY,
-relation[type=multipolygon][boundary=administrative][admin_level=4] >[role=label] node::BOUNDARY {
+relation[type=boundary][boundary=administrative][admin_level=2] >[role=label] node::BOUNDARY,
+relation[type=multipolygon][boundary=administrative][admin_level=2] >[role=label] node::BOUNDARY {
     text:                   eval(any(parent_tag("official_name"), parent_tag("pt:name"), parent_tag("name"), parent_tag("short_name")));
     text-color:             purple;
     font-size:              16;
     font-family:            "Serif";
 }
-relation[type=boundary][boundary=administrative][admin_level=4] > way::BOUNDARY,
-relation[type=multipolygon][boundary=administrative][admin_level=4] > way::BOUNDARY {
+relation[type=boundary][boundary=administrative][admin_level=2] > way::BOUNDARY,
+relation[type=multipolygon][boundary=administrative][admin_level=2] > way::BOUNDARY {
     color:                  purple;
     width:                  2;
     dashes:                 4,2;
@@ -814,6 +814,10 @@ relation[type=multipolygon][boundary=administrative][admin_level=4] > way::BOUND
 	color:				darkblue;
 	width:				4;
 	set .waterway;
+}
+way[tunnel=culvert].waterway::WATERWAYS {
+    opacity:            0.3;
+    set .waterway;
 }
 way|z4-[waterway=river].waterway::WATERWAYS {
 	width:				8;
@@ -844,7 +848,7 @@ area[waterway=canal]:closed::WATERWAYS {
 area|z4-[natural=wetland]:closed::landcover {
 	/* Default fill */
 	fill-image:			"icons/rendering/natural/alogado.svg";
-    fill-image-height:  12; /* Does not work in JOSM */
+    fill-image-height:  16; /* Does not work in JOSM */
 }
 /*
  * Woodland, bushes, etc.
