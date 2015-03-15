@@ -568,11 +568,11 @@ way|z8-[highway][name=~/(?i).*sem nome*/].highway::name {
 	font-style:			italic;
 	text-color:			red;
 }
-way|z8-[bridge][!bridge?!] { /* tag bridge set, but not bridge=no */
+way|z8-[bridge][!bridge?!]::name { /* tag bridge set, but not bridge=no */
 	/* Name of the bridge instead of name of the highway, if set, to be printed on bridges */
 	text:				eval(any(tag("bridge:name:pt"), tag("bridge_name:pt"), tag("bridge:name"), tag("bridge_name"), tag("bridge:official_name"), tag("bridge:alt_name"), tag("bridge:loc_name"), tag("bridge:old_name"), tag("official_name"), tag("name:pt"), tag("name"), tag("alt_name"), tag("loc_name"), tag("old_name")));
 }
-way|z8-[tunnel][!tunnel?!] { /* tag tunnel set, but not tunnel=no */
+way|z8-[tunnel][!tunnel?!]::name { /* tag tunnel set, but not tunnel=no */
 	/* Name of the tunnel instead of name of the highway, if set, to be printed on tunnels */
 	text:				eval(any(tag("tunnel:name:pt"), tag("tunnel_name:pt"), tag("tunnel:name"), tag("tunnel_name"), tag("tunnel:official_name"), tag("tunnel:alt_name"), tag("tunnel:loc_name"), tag("tunnel:old_name"), tag("official_name"), tag("name:pt"), tag("name"), tag("alt_name"), tag("loc_name"), tag("old_name")));
 }
@@ -724,6 +724,64 @@ node|z9-[railway=level_crossing].railway {
 		dashes:				none;
 	}
 }
+
+/*
+ * Pipelines
+ */
+way[man_made=pipeline]::man_made {
+    set .pipeline;
+}
+*[location=underground].pipeline::man_made {
+    color:          brown;
+    opacity:        0.2;
+    casing-opacity: 0.2;
+    width:          2;
+    set .pipeline;
+}
+*[location=overground].pipeline::man_made {
+    color:          brown;
+    opacity:        0.8;
+    casing-opacity: 0.8;
+    width:          2;
+    set .pipeline;
+}
+*[location=overhead].pipeline::man_made {
+    color:          brown;
+    dashes:         5,2;
+    opacity:        1;
+    casing-opacity: 1;
+    width:          2;
+    set .pipeline;
+}
+*[location=underwater].pipeline::man_made {
+    color:          brown;
+    dashes:         5,2;
+    opacity:        0.2;
+    casing-opacity: 0.2;
+    width:          2;
+    set .pipeline;
+}
+*[type=gas].pipeline::man_made,
+*[substance=gas].pipeline::man_made {
+    casing-color:       darkgray;
+    casing-width:       1;
+}
+*[type=oil].pipeline::man_made,
+*[substance=oil].pipeline::man_made {
+    casing-color:       black;
+    casing-width:       1;
+}
+*[type=water].pipeline::man_made,
+*[substance=water].pipeline::man_made {
+    casing-color:       blue;
+    casing-width:       1;
+}
+*[type=sewer].pipeline::man_made,
+*[substance=sewer].pipeline::man_made {
+    casing-color:       brown;
+    casing-width:       1;
+}
+
 
 /*
  * Boundaries
@@ -894,6 +952,13 @@ area|z13-[landuse=retail]:closed::urban {
 }
 area|z8-[building]:closed::urban {
 	fill-color:			darkgoldenrod;
+    text:               eval(any(tag("addr:housename"), tag("addr:housenumber"), "S/N"));
+    text-color:         gray;
+    set .building;
+}
+*[!"addr:housename"][!"addr:housenumber"].building::urban {
+    text-color:         red;
+    text-halo-color:    white;
 }
 
 /*
@@ -1028,26 +1093,31 @@ area|z15-[amenity=love_hotel]:closed {
 /* Restaurant */
 node|z15-[amenity=fast_food],
 area|z15-[amenity=fast_food]:closed {
+    text:           auto;
+    text-color:     black;
     set .fast_food;
 }
 node|z15-[amenity=restaurant],
 area|z15-[amenity=restaurant]:closed {
+    text:           auto;
+    text-color:     black;
     set .restaurant;
 }
 *.restaurant, *.fast_food {
     icon-image:         "icons/food/restaurant.svg";
     icon-height:        12;
 }
+/* Restaurant by cousine */
+
 /* Fastfood by brand */
 *[brand=~ /(?i).*Burger ?King/].fast_food {
     icon-image:         "icons/food/fastfood/burgerking.svg";
 }
-*[brand=~ /(?i).*McDonald(')?s?/].fast_food {
+*[brand=~ /(?i).*McDonald('| )?s?/].fast_food {
     icon-image:         "icons/food/fastfood/mcdonalds.svg";
 }
 *[brand=~ /(?i).*Subway/].fast_food {
     icon-image:         "icons/food/fastfood/subway.svg";
 }
 
-/* Restaurant by cousine */
 
