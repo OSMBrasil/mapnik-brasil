@@ -1121,3 +1121,13 @@ area|z15-[amenity=restaurant]:closed {
 }
 
 
+/* hazards for test (might become a popup) */
+node[hazard]::hazard {
+    symbol-shape:     circle;
+    symbol-size:    10;
+    symbol-color:   red;
+    color:      red;
+    text:       eval("!");
+    text-color: red;
+    font-size:  12;
+}
