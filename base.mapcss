@@ -974,36 +974,36 @@ area|z8-[amenity=fuel]:closed {
 /*
  * Different symbols for the major brands
  */
-*[operator=~ /(?i).*BR/].fuel,
-*[brand=~ /(?i).*BR/].fuel,
-*[operator=~ /(?i).*Petrobras/].fuel,
-*[brand=~ /(?i).*Petrobras/].fuel {
+*[operator=~ /(?i).*BR$/].fuel,
+*[brand=~ /(?i).*BR$/].fuel,
+*[operator=~ /(?i).*Petrobras$/].fuel,
+*[brand=~ /(?i).*Petrobras$/].fuel {
 	icon-image:			"icons/vehicle/fuel/br.svg";
 }
-*[operator=~ /(?i).*Al(e|é|ê)/].fuel,
-*[brand=~ /(?i).*Al(e|é|ê)/].fuel {
+*[operator=~ /(?i).*Al(e|é|ê)$/].fuel,
+*[brand=~ /(?i).*Al(e|é|ê)$/].fuel {
 	icon-image:			"icons/vehicle/fuel/ale.svg";
 }
-*[operator=~ /(?i).*Shell/].fuel,
-*[brand=~ /(?i).*Shell/].fuel {
+*[operator=~ /(?i).*Shell$/].fuel,
+*[brand=~ /(?i).*Shell$/].fuel {
 	icon-image:			"icons/vehicle/fuel/shell.svg";
 }
-*[operator=~ /(?i).*Esso/].fuel,
-*[brand=~ /(?i).*Esso/].fuel
-*[operator=~ /(?i).*Exxon/].fuel,
-*[brand=~ /(?i).*Exxon/].fuel {
+*[operator=~ /(?i).*Esso$/].fuel,
+*[brand=~ /(?i).*Esso$/].fuel
+*[operator=~ /(?i).*Exxon$/].fuel,
+*[brand=~ /(?i).*Exxon$/].fuel {
 	icon-image:			"icons/vehicle/fuel/esso.svg";
 }
-*[operator=~ /(?i).*Texaco/].fuel,
-*[brand=~ /(?i).*Texaco/].fuel {
+*[operator=~ /(?i).*Texaco$/].fuel,
+*[brand=~ /(?i).*Texaco$/].fuel {
 	icon-image:			"icons/vehicle/fuel/texaco.svg";
 }
-*[operator=~ /(?i).*Ipiranga/].fuel,
-*[brand=~ /(?i).*Ipiranga/].fuel {
+*[operator=~ /(?i).*Ipiranga$/].fuel,
+*[brand=~ /(?i).*Ipiranga$/].fuel {
 	icon-image:			"icons/vehicle/fuel/ipiranga.svg";
 } /*
-*[operator=~ /(?i).*Atl(a|â)ntico/].fuel,
-*[brand=~ /(?i).*Atl(a|â)ntico/].fuel {
+*[operator=~ /(?i).*Atl(a|â)ntico$/].fuel,
+*[brand=~ /(?i).*Atl(a|â)ntico$/].fuel {
     icon-image:         "icons/vehicle/fuel/atlantico.svg";
 } */
 
@@ -1017,48 +1017,48 @@ area|z15-[amenity=bank]:closed {
 /*
  * Different symbols for the major branches
  */
-*[operator=~ /(?i).*(Banco )?HSBC/].bank,
-*[brand=~ /(?i).*(Banco )?HSBC/].bank {
+*[operator=~ /(?i).*(Banco )?HSBC$/].bank,
+*[brand=~ /(?i).*(Banco )?HSBC$/].bank {
     icon-image:         "icons/money/bank/HSBC.svg";
 }
-*[operator=~ /(?i).*(Banco )?Santander/].bank,
-*[brand=~ /(?i).*(Banco )?Santander/].bank {
+*[operator=~ /(?i).*(Banco )?Santander$/].bank,
+*[brand=~ /(?i).*(Banco )?Santander$/].bank {
     icon-image:         "icons/money/bank/santander.svg";
 }
-*[operator=~ /(?i).*Bradesco/].bank,
-*[brand=~ /(?i).*Bradesco/].bank {
+*[operator=~ /(?i).*Bradesco$/].bank,
+*[brand=~ /(?i).*Bradesco$/].bank {
     icon-image:         "icons/money/bank/Bradesco.svg";
 }
-*[operator=~ /(?i).*Sicoob/].bank,
-*[brand=~ /(?i).*Sicoob/].bank {
+*[operator=~ /(?i).*Sicoob$/].bank,
+*[brand=~ /(?i).*Sicoob$/].bank {
     icon-image:         "icons/money/bank/sicoob.svg";
 }
-*[operator=~ /(?i).*Banestes/].bank,
-*[brand=~ /(?i).*Banestes/].bank {
+*[operator=~ /(?i).*Banestes$/].bank,
+*[brand=~ /(?i).*Banestes$/].bank {
     icon-image:         "icons/money/bank/Banestes.svg";
 }
-*[operator=~ /(?i).*(Banco )?Ita(u|ú)/].bank,
-*[brand=~ /(?i).*(Banco )?Ita(u|ú)/].bank {
+*[operator=~ /(?i).*(Banco )?Ita(u|ú)$/].bank,
+*[brand=~ /(?i).*(Banco )?Ita(u|ú)$/].bank {
     icon-image:         "icons/money/bank/Itau.svg";
 }
-*[operator=~ /(?i).*CEF/].bank,
-*[brand=~ /(?i).CEF/].bank,
-*[operator=~ /(?i).*Caixa ?(Econ(o|ô)mica)? ?(Federal)?/].bank,
-*[brand=~ /(?i).*Caixa ?(Econ(o|ô)mica)? ?(Federal)?/].bank {
+*[operator=~ /(?i).*CEF$/].bank,
+*[brand=~ /(?i).CEF$/].bank,
+*[operator=~ /(?i).*Caixa ?(Econ(o|ô)mica)? ?(Federal)?$/].bank,
+*[brand=~ /(?i).*Caixa ?(Econ(o|ô)mica)? ?(Federal)?$/].bank {
     icon-image:         "icons/money/bank/caixa.svg";
 }
-*[operator=~ /(?i).*Citi ?(group|bank)?/].bank,
-*[brand=~ /(?i).*Citi ?(group|bank)?/].bank {
+*[operator=~ /(?i).*Citi ?(group|bank)?$/].bank,
+*[brand=~ /(?i).*Citi ?(group|bank)?$/].bank {
     icon-image:         "icons/money/bank/Citibank.svg";
 }
-*[operator=~ /(?i).*Banco do Brasil/].bank,
-*[brand=~ /(?i).*Banco do Brasil/].bank {
+*[operator=~ /(?i).*Banco do Brasil$/].bank,
+*[brand=~ /(?i).*Banco do Brasil$/].bank {
     icon-image:         "icons/money/bank/BB.svg";
 }
-*[operator=~ /(?i).*BASA/].bank,
-*[brand=~ /(?i).*BASA/].bank,
-*[operator=~ /(?i).*Banco ?da ?Amaz(o|ô)nia/],
-*[brand=~ /(?i).*Banco ?da ?Amaz(o|ô)nia/] {
+*[operator=~ /(?i).*BASA$/].bank,
+*[brand=~ /(?i).*BASA$/].bank,
+*[operator=~ /(?i).*Banco ?da ?Amaz(o|ô)nia$/],
+*[brand=~ /(?i).*Banco ?da ?Amaz(o|ô)nia$/] {
     icon-image:         "icons/money/bank/BASA.svg";
 }
 
@@ -1110,13 +1110,13 @@ area|z15-[amenity=restaurant]:closed {
 /* Restaurant by cousine */
 
 /* Fastfood by brand */
-*[brand=~ /(?i).*Burger ?King/].fast_food {
+*[brand=~ /(?i).*Burger ?King$/].fast_food {
     icon-image:         "icons/food/fastfood/burgerking.svg";
 }
-*[brand=~ /(?i).*McDonald('| )?s?/].fast_food {
+*[brand=~ /(?i).*McDonald('| )?s?$/].fast_food {
     icon-image:         "icons/food/fastfood/mcdonalds.svg";
 }
-*[brand=~ /(?i).*Subway/].fast_food {
+*[brand=~ /(?i).*Subway(s)?$/].fast_food {
     icon-image:         "icons/food/fastfood/subway.svg";
 }
 
