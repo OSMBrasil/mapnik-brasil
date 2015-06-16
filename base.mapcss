@@ -610,6 +610,7 @@ node[amenity=police][name =~ /(?i).*rodoviaria*/] {
 area|z6-[barrier=toll_booth]:closed,
 node|z6-[barrier=toll_booth] {
 	/* Toll booth (pedagio) */
+    z-index:            100;
 	icon-image:			"icons/vehicle/pedagio.svg";
 	icon-width:			12;
 }
@@ -621,6 +622,12 @@ node|z6-[barrier=toll_booth] {
 		icon-height:		0;
 		icon-opacity:		0.0;
 	}
+}
+way[highway][toll=yes] {
+    z-index:            -5;
+    casing-width:       10;
+    casing-color:       yellow;
+    casing-opacity:     0.75;
 }
 
 node|z10-[highway=traffic_signals] {
@@ -658,19 +665,23 @@ way|z12-[highway][maxspeed][!oneway] >[index=1] node,
 way|z12-[highway][maxspeed][oneway][oneway!=-1] >[index=1] node {
 	icon-image:				eval(concat("icons/vehicle/restriction/speed/", parent_tag(maxspeed), ".svg"));
 	icon-height:			12;
+    z-index:                10;
 }
 way|z12-[highway][maxspeed][!oneway] >[index=-1] node,
 way|z12-[highway][maxspeed][!oneway?] >[index=-1] node {
 	icon-image:				eval(concat("icons/vehicle/restriction/speed/", parent_tag(maxspeed), ".svg"));
 	icon-height:			12;
+    z-index:                10;
 }
 way|z12-[highway]["maxspeed:forward"] >[index=1] node {
 	icon-image:				eval(concat("icons/vehicle/restriction/speed/", parent_tag("maxspeed:forward"), ".svg"));
 	icon-height:			12;
+    z-index:                10;
 }
 way|z12-[highway]["maxspeed:backward"] >[index=-1] node {
 	icon-image:				eval(concat("icons/vehicle/restriction/speed/", parent_tag("maxspeed:backward"), ".svg"));
 	icon-height:			12;
+    z-index:                10;
 }
 way[highway] > node|z10-[highway=stop] {
 	icon-image:				"icons/vehicle/restriction/pare.svg";
