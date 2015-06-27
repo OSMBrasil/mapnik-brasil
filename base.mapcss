@@ -111,6 +111,9 @@ relation[type=route][route=road][ref=~/^BR(-| )[0-9]{3}$/] > way[highway]::highw
 	set .highway;
 }
 
+/*
+* Where federal and state highway co-exists on the same way, combine the colors.
+*/
 way.rodovia_municipal.rodovia_federal::highway {
     color:              darkred;
     dashes-background-color:    slateblue; /* For JOSM */
@@ -129,10 +132,6 @@ way.rodovia_municipal.rodovia_estadual::highway {
     casing-width:		2;
     set .highway;
 }
-
-/*
- * Where federal and state highway co-exists on the same way, combine the colors.
- */
 way.rodovia_federal.rodovia_estadual::highway {
 /*relation[type=route][route=road][network=BR] > way.rodovia_estadual::highway, relation[type=route][route=road][ref=~/^BR(-| )[0-9]{3}$/] > way.rodovia_estadual::highway { */
 	color:				darkred;
@@ -142,6 +141,15 @@ way.rodovia_federal.rodovia_estadual::highway {
     casing-width:		2;
 	set .highway;
 }
+way.rodovia_federal.rodovia_municipal.rodovia_estadual::highway {
+    color:				darkred;
+    dashes-background-color: slateblue; /* For JOSM */
+    casing-color:		darkgreen;
+    width:				1;
+    casing-width:		2;
+    set .highway;
+}
+
 
 /*
  * Setting default highway values where unset: surface, maxspeed, oneway, lanes
