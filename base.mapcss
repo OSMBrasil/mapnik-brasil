@@ -14,12 +14,20 @@ meta {
 /*
  * Background is sea
  */
-canvas {
-	fill-color:			lightblue;
-	antialiasing:		full;
-	fill-opacity:		0.1; /* Neutrilizes background in JOSM */
+@supports (user-agent: josm) {
+    canvas {
+        fill-color:			black;
+        antialiasing:		full;
+        fill-opacity:		0.1; /* Neutrilizes background in JOSM */
+    }
 }
- 
+@media (user-agent: pgmapcss) {
+    canvas {
+        fill-color:			lightblue;
+        antialiasing:		full;
+    }
+}
+
 /*
  * Fill color for land
  */
