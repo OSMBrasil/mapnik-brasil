@@ -9,3 +9,9 @@ Estilo brasileiro para o OSM com os seguintes objetivos:
 * renderização diferenciada de vias sem pavimentação
 * exibição de POIs importantes ou comuns do país
 * diferenciação de estradas com [pedágio](http://wiki.openstreetmap.org/wiki/Key:toll)
+
+
+JOSM
+============
+
+Se quized usa-lo no JOSM basta copiar [este link](https://github.com/OSMBrasil/mapnik-brasil/archive/master.zip) e colar no endreço dos estilos.
