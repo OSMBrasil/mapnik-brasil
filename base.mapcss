@@ -150,8 +150,8 @@ way.rodovia_federal.rodovia_estadual::highway {
 	set .highway;
 }
 way.rodovia_federal.rodovia_municipal.rodovia_estadual::highway {
-    color:				darkred;
-    dashes-background-color: slateblue; /* For JOSM */
+    color:				slateblue;
+    dashes-background-color: darkred; /* For JOSM */
     casing-color:		darkgreen;
     width:				1;
     casing-width:		2;
