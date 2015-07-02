@@ -1003,8 +1003,8 @@ area|z8-[amenity=fuel]:closed {
  */
 *[operator=~ /(?i).*BR$/].fuel,
 *[brand=~ /(?i).*BR$/].fuel,
-*[operator=~ /(?i).*Petrobras$/].fuel,
-*[brand=~ /(?i).*Petrobras$/].fuel {
+*[operator=~ /(?i).*Petrobr(a|á)s$/].fuel,
+*[brand=~ /(?i).*Petrobr(a|á)s$/].fuel {
 	icon-image:			"icons/vehicle/fuel/br.svg";
 }
 *[operator=~ /(?i).*Al(e|é|ê)$/].fuel,
