@@ -646,21 +646,6 @@ way[highway][toll=yes] {
     casing-opacity:     0.75;
 }
 
-node|z10-[highway=traffic_signals] {
-	/* Traffic signal */
-	icon-image:			"icons/vehicle/semaforo.svg";
-	icon-width:			12;
-}
-@media (user-agent: pgmapcss) {
-	node[highway=traffic_signals] near[distance<20] {
-		/* No render, override second traffic signal if too close to other */
-		icon-image:			"icons/void.svg";
-		icon-width:			0;
-		icon-height:		0;
-		icon-opacity:		0.0;
-	}
-}
-
 /*
  * Ferry routes to render differently
  * Somehow somebody are tagging car ferrys with highway=ferry, IMO this is wrong, but I include it here to avoid
@@ -681,23 +666,23 @@ way|z12-[highway][maxspeed][!oneway] >[index=1] node,
 way|z12-[highway][maxspeed][oneway][oneway!=-1] >[index=1] node {
 	icon-image:				eval(concat("icons/vehicle/restriction/speed/", parent_tag(maxspeed), ".svg"));
 	icon-height:			12;
-    z-index:                10;
+    z-index:                5;
 }
 way|z12-[highway][maxspeed][!oneway] >[index=-1] node,
 way|z12-[highway][maxspeed][!oneway?] >[index=-1] node {
 	icon-image:				eval(concat("icons/vehicle/restriction/speed/", parent_tag(maxspeed), ".svg"));
 	icon-height:			12;
-    z-index:                10;
+    z-index:                5;
 }
 way|z12-[highway]["maxspeed:forward"] >[index=1] node {
 	icon-image:				eval(concat("icons/vehicle/restriction/speed/", parent_tag("maxspeed:forward"), ".svg"));
 	icon-height:			12;
-    z-index:                10;
+    z-index:                5;
 }
 way|z12-[highway]["maxspeed:backward"] >[index=-1] node {
 	icon-image:				eval(concat("icons/vehicle/restriction/speed/", parent_tag("maxspeed:backward"), ".svg"));
 	icon-height:			12;
-    z-index:                10;
+    z-index:                5;
 }
 way[highway] > node|z10-[highway=stop] {
 	icon-image:				"icons/vehicle/restriction/pare.svg";
@@ -708,9 +693,24 @@ way[highway] > node|z10-[highway=give_way] {
 	icon-height:			12;
 }
 /*node|z10-[noexit=yes], should only mark when tagged as the end node of a way */
-way[highway] > node|z10-[noexit=yes]{
+way[highway] > node|z10-[noexit=yes] {
 	icon-image:				"icons/vehicle/no_exit.svg";
 	icon-height:			12;
+}
+node|z10-[highway=traffic_signals] {
+/* Traffic signal */
+icon-image:			"icons/vehicle/semaforo.svg";
+icon-width:			12;
+z-index:            10;
+}
+@media (user-agent: pgmapcss) {
+node[highway=traffic_signals] near[distance<20] {
+/* No render, override second traffic signal if too close to other */
+icon-image:			"icons/void.svg";
+icon-width:			0;
+icon-height:		0;
+icon-opacity:		0.0;
+}
 }
 
 /*
