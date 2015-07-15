@@ -1029,8 +1029,8 @@ area|z8-[amenity=fuel]:closed {
 *[brand=~ /(?i).*Ipiranga$/].fuel {
 	icon-image:			"icons/vehicle/fuel/ipiranga.svg";
 } /*
-*[operator=~ /(?i).*Atl(a|â)ntico$/].fuel,
-*[brand=~ /(?i).*Atl(a|â)ntico$/].fuel {
+*[operator=~ /(?i).*Atl(a|â)ntica$/].fuel,
+*[brand=~ /(?i).*Atl(a|â)ntica$/].fuel {
     icon-image:         "icons/vehicle/fuel/atlantico.svg";
 } */
 
