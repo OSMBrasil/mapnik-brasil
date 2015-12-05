@@ -1064,6 +1064,16 @@ area|z15-[amenity=bank]:closed {
 *[brand=~ /(?i).*Banestes$/].bank {
     icon-image:         "icons/money/bank/Banestes.svg";
 }
+*[operator=~ /(?i).*BanRiSul$/].bank,
+*[brand=~ /(?i).*BanRiSul$/].bank {
+icon-image:         "icons/money/bank/Banrisul.svg";
+}
+*[operator=~ /(?i).*BNB$/].bank,
+*[brand=~ /(?i).*BNB$/].bank,
+*[operator=~ /(?i).*Banco do Nordeste$/].bank,
+*[brand=~ /(?i).*Banco do Nordeste$/].bank {
+icon-image:         "icons/money/bank/BNB.svg";
+}
 *[operator=~ /(?i).*(Banco )?Ita(u|ú)$/].bank,
 *[brand=~ /(?i).*(Banco )?Ita(u|ú)$/].bank {
     icon-image:         "icons/money/bank/Itau.svg";
@@ -1088,6 +1098,19 @@ area|z15-[amenity=bank]:closed {
 *[brand=~ /(?i).*Banco ?da ?Amaz(o|ô)nia$/] {
     icon-image:         "icons/money/bank/BASA.svg";
 }
+*[operator=~ /(?i).*(Banco )?BMG$/].bank,
+*[brand=~ /(?i).*(Banco )?BMG$/].bank {
+icon-image:         "icons/money/bank/BMG.svg";
+}
+*[operator=~ /(?i).*Credit Suisse$/].bank,
+*[brand=~ /(?i).*Credit Suisse$/].bank {
+icon-image:         "icons/money/bank/Credit_Suisse.svg";
+}
+*[operator=~ /(?i).*Deutsche Bank$/].bank,
+*[brand=~ /(?i).*Deutsche Bank$/].bank {
+icon-image:         "icons/money/bank/Deutsche_Bank.svg";
+}
+
 
 /* Pousada */
 node|z15-[tourism=guest_house],
