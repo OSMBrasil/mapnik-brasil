@@ -242,7 +242,7 @@ way.rodovia_federal.rodovia_municipal.rodovia_estadual::highway {
 		set maxspeed=20;
 	}
 	way[highway][surface=unpaved],way[highway][surface=ground],way[highway][surface=compacted],way[highway][surface=dirt],
-	way[highway][surface=fine_gravel],way[highway][surface=gravel],way[highway][surface=mud],way[highway][surface=clay],
+	way[highway][surface=fine_gravel],way[highway][surface=gravel],way[highway][surface=mud],way[highway][surface=clay],way[highway][surface=grass],
 	way[highway][surface=pebbles],way[highway][surface=sand],way[highway][surface=scree] {
 		set "DNIT:Surface"=unpaved;
 	}
@@ -311,6 +311,7 @@ way|z-10[highway][surface=fine_gravel].highway::highway,
 way|z-10[highway][surface=gravel].highway::highway,
 way|z-10[highway][surface=earth].highway::highway,
 way|z-10[highway][surface=mud].highway::highway,
+way|z-10[highway][surface=grass].highway::highway,
 way|z-10[highway][surface=clay].highway::highway,
 way|z-10[highway][surface=pebbles].highway::highway,
 way|z-10[highway][surface=sand].highway::highway,
@@ -349,6 +350,7 @@ way|z10-[highway][surface=wood].highway::highway {
     dashes:				5,4;
     set	.highway;
 }
+way|z10-[highway][surface=grass].highway::highway,
 way|z10-[highway][surface=grass_paver].highway::highway {
     color:				green;
     dashes:				5,4;
