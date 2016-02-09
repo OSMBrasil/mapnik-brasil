@@ -1,0 +1,612 @@
+/*
+* Different base color for Federal and State highways
+*/
+way[highway]::highway {
+color:				darkgray;
+casing-color:		darkgray;
+dashes-background-color: darkgray; /* For JOSM */
+width:				1;
+casing-width:		2;
+set .highway;
+}
+
+/* Municipal highways can be part of network=BR:XX:* where XX is 2-letter code for state and * is any letter-combination to identify specific municipality
+* Also can use the same letter-combination in ref=, but creating a rule to capture this is complicated, as it can be any except BR or the 2-letter state
+* codes.
+*
+* Municipal highways should be overrided by state and federal highway, but have a different color than highways not fitting to any category.
+*/
+way[highway][network=~ /^BR:(AC|AL|AP|AM|BA|CE|DF|ES|GO|MA|MT|MS|MG|PA|PB|PE|PR|PI|RN|RJ|RO|RR|RS|SC|SP|SE|TO):.*/]::highway,
+relation[type=route][route=road][network=~ /^BR:(AC|AL|AP|AM|BA|CE|DF|ES|GO|MA|MT|MS|MG|PA|PB|PE|PR|PI|RN|RJ|RO|RR|RS|SC|SP|SE|TO):.*/] > way[highway]::highway,
+way[highway]["IBGE:CD_ADMINIS"=municipal]::highway,
+way[highway]["IBGE:cd_adminis"=municipal]::highway,
+relation[type=route][route=road]["IBGE:CD_ADMINIS"=municipal] > way[highway]::highway,
+relation[type=route][route=road]["IBGE:cd_adminis"=municipal] > way[highway]::highway,
+relation[type=route][route=road][ref=~ /^[A-Za-z]{2,4}((\/|-| )[A-Za-z]{2,4})?(-| )[0-9]{2,4}((\/|-| )[0-9]{2,4})?.*/][ref !~ /^(BR|MGC|RSC|AC|AL|AP|AM|BA|CE|DF|ES|GO|MA|MT|MS|(A|L)?MG|PA|PB|PE|PR(T)?|PI|RN|RJ|RO|RR|(E|V)?RS|SC|SP(M|A|D|I)?|SE|TO)(-| )[0-9]{3}.*/] > way[highway]::highway,
+way[highway][ref=~ /^[A-Za-z]{2,4}((\/|-| )[A-Za-z]{2,4})?(-| )[0-9]{2,4}((\/|-| )[0-9]{2,4})?.*/][ref !~ /^(BR|MGC|RSC|AC|AL|AP|AM|BA|CE|DF|ES|GO|MA|MT|MS|(A|L)?MG|PA|PB|PE|PR(T)?|PI|RN|RJ|RO|RR|(E|V)?RS|SC|SP(M|A|D|I)?|SE|TO)(-| )[0-9]{3}.*/]::highway {
+color:				slateblue; /* Municipal Highway */
+casing-color:		slateblue;
+dashes-background-color: slateblue; /* For JOSM */
+width:				1;
+casing-width:		2;
+set .rodovia_municipal;
+set .highway;
+}
+
+way[highway]["IBGE:CD_ADMINIS"=estadual]::highway, way[highway]["IBGE:cd_adminis"=estadual]::highway,
+way[highway][network="BR:AC"]::highway, relation[type=route][route=road][network="BR:AC"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^AC(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^AC(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:AL"]::highway, relation[type=route][route=road][network="BR:AL"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^AL(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^AL(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:AP"]::highway, relation[type=route][route=road][network="BR:AP"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^AP(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^AP(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:AM"]::highway, relation[type=route][route=road][network="BR:AM"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^AM(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^AM(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:BA"]::highway, relation[type=route][route=road][network="BR:BA"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^BA(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^BA(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:CE"]::highway, relation[type=route][route=road][network="BR:CE"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^CE(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^CE(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:DF"]::highway, relation[type=route][route=road][network="BR:DF"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^DF(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^DF(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:ES"]::highway, relation[type=route][route=road][network="BR:ES"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^ES(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^ES(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:GO"]::highway, relation[type=route][route=road][network="BR:GO"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^GO(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^GO(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:MA"]::highway, relation[type=route][route=road][network="BR:MA"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^MA(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^MA(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:MT"]::highway, relation[type=route][route=road][network="BR:MT"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^MT(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^MT(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:MS"]::highway, relation[type=route][route=road][network="BR:MS"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^MS(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^MS(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:MG"]::highway, relation[type=route][route=road][network="BR:MG"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^(A|L)?MG(C)?(-| )[0-9]{3,4}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^(A|L)?MG(C)?(-| )[0-9]{3,4}$/] > way[highway]::highway,
+way[highway][network="BR:PA"]::highway, relation[type=route][route=road][network="BR:PA"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^PA(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^PA(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:PB"]::highway, relation[type=route][route=road][network="BR:PB"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^PB(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^PB(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:PR"]::highway, relation[type=route][route=road][network="BR:PR"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^PR(T)?(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^PR(T)?(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:PE"]::highway, relation[type=route][route=road][network="BR:PE"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^PE(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^PE(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:PI"]::highway, relation[type=route][route=road][network="BR:PI"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^PI(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^PI(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:RJ"]::highway, relation[type=route][route=road][network="BR:RJ"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^RJ(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^RJ(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:RN"]::highway, relation[type=route][route=road][network="BR:RN"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^RN(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^RN(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:RS"]::highway, relation[type=route][route=road][network="BR:RS"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^(E|V)?RS(C)?-.*/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^(E|V)?RS(C)?-.*/] > way[highway]::highway,
+way[highway][network="BR:RO"]::highway, relation[type=route][route=road][network="BR:RO"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^RO(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^RO(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:RR"]::highway, relation[type=route][route=road][network="BR:RR"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^RR(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^RR(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:SC"]::highway, relation[type=route][route=road][network="BR:SC"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^SC(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^SC(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:SP"]::highway, relation[type=route][route=road][network="BR:SP"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^SP(M|A|D|I)?(-| )[0-9]{3}(\/[0-9]{3})? ?(D|E)?$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^SP(M|A|D|I)?(-| )[0-9]{3}(\/[0-9]{3})? ?(D|E)?$/] > way[highway]::highway,
+way[highway][network="BR:SE"]::highway, relation[type=route][route=road][network="BR:SE"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^SE(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^SE(-| )[0-9]{3}$/] > way[highway]::highway,
+way[highway][network="BR:TO"]::highway, relation[type=route][route=road][network="BR:TO"] > way[highway]::highway, way[highway][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^TO(-| )[0-9]{3}$/]::highway, relation[type=route][route=road][!"IBGE:CD_ADMINIS"][!"IBGE:cd_adminis"][ref=~/^TO(-| )[0-9]{3}$/] > way[highway]::highway {
+color:				darkgreen; /* State Highway */
+casing-color:		darkgreen;
+dashes-background-color: darkgreen; /* For JOSM */
+width:				1;
+casing-width:		2;
+set .rodovia_estadual;
+set .highway;
+}
+
+way[highway]["IBGE:CD_ADMINIS"=federal]::highway, way[highway]["IBGE:cd_adminis"=federal]::highway,
+way[highway][network=BR]::highway, relation[type=route][route=road][network=BR] > way[highway]::highway,
+relation[type=route][route=road][ref=~/^BR(-| )[0-9]{3}$/] > way[highway]::highway, way[highway][ref=~/^(BR|MGC|RSC)(-| )[0-9]{3}$/]::highway {
+color:				darkred; /* Federal Highway */
+casing-color:		darkred;
+dashes-background-color: darkred; /* For JOSM */
+width:				1;
+casing-width:		2;
+set .rodovia_federal;
+set .highway;
+}
+
+/*
+* Where federal and state highway co-exists on the same way, combine the colors.
+*/
+way.rodovia_municipal.rodovia_federal::highway {
+color:              darkred;
+dashes-background-color:    slateblue; /* For JOSM */
+casing-color:       darkred;
+dashes:             5,5;
+width:				1;
+casing-width:		2;
+set .highway;
+}
+way.rodovia_municipal.rodovia_estadual::highway {
+color:              darkgreen;
+dashes-background-color:    slateblue; /* For JOSM */
+casing-color:       darkgreen;
+dashes:             5,5;
+width:				1;
+casing-width:		2;
+set .highway;
+}
+way.rodovia_federal.rodovia_estadual::highway {
+/*relation[type=route][route=road][network=BR] > way.rodovia_estadual::highway, relation[type=route][route=road][ref=~/^BR(-| )[0-9]{3}$/] > way.rodovia_estadual::highway { */
+color:				darkred;
+dashes-background-color: darkred; /* For JOSM */
+casing-color:		darkgreen;
+width:				1;
+casing-width:		2;
+set .highway;
+}
+way.rodovia_federal.rodovia_municipal.rodovia_estadual::highway {
+color:				slateblue;
+dashes-background-color: darkred; /* For JOSM */
+casing-color:		darkgreen;
+width:				1;
+casing-width:		2;
+set .highway;
+}
+
+
+/*
+* Setting default highway values where unset: surface, maxspeed, oneway, lanes
+*/
+@media (user-agent: pgmapcss) {
+way[highway][!"DNIT:Class"] {
+set "DNIT:Class"=unknown;
+}
+/* highway=road to be treated as unclassified */
+way[highway=road] {
+set highway=unclassified;
+}
+way[highway=motorway][oneway?!] {
+set highway=primary;
+}
+way[highway=motorway][maxspeed<80] {
+set highway=trunk;
+}
+/* Default surface */
+way[highway=tertiary][!surface], way[highway=tertiary_link][!surface],
+way[highway=unclassified][!surface], way[highway=track][!surface] {
+set surface=unpaved;
+}
+way[highway=service][!surface], way[highway=residential][!surface],
+way[highway=secondary][!surface], way[highway=secondary_link][!surface],
+way[highway=primary][!surface], way[highway=primary_link][!surface],
+way[highway=trunk][!surface], way[highway=trunk_link][!surface],
+way[highway=motorway][!surface], way[highway=motorway_link][!surface] {
+set surface=paved;
+}
+/* Default oneway */
+way[highway=motorway][!oneway], way[highway=motorway_link][!oneway],
+way[highway=trunk][!oneway], way[highway=trunk_link][!oneway],
+way[highway=primary_link][!oneway] {
+set oneway=yes;
+}
+way[highway][!oneway] {
+set oneway=no;
+}
+/* Default lanes */
+way[highway=motorway][oneway?][!lanes],
+way[highway=trunk][oneway?!][!lanes] {
+set lanes=3;
+}
+way[highway=motorway][oneway?!][!lanes] {
+set lanes=5;
+}
+way[highway=trunk][oneway?][!lanes] {
+set lanes=2;
+}
+way[highway=track][!lanes],
+way[highway=footway][!lanes],
+way[highway=cycleway][!lanes],
+way[highway=unclassified][oneway?][!lanes],
+way[highway=tertiary][oneway?][!lanes],
+way[highway=residential][oneway?][!lanes] {
+set lanes=1;
+}
+way[highway][!lanes] {
+set lanes=2;
+}
+/* Default Maxspeed */
+way[highway=motorway][!maxspeed] {
+set maxspeed=110;
+}
+way[highway=trunk][!maxspeed], way[highway=primary][!maxspeed] {
+set maxspeed=80;
+}
+way[highway=secondary][!maxspeed], way[highway=tertiary][!maxspeed] {
+set maxspeed=60;
+}
+way[highway=unclassified][!maxspeed] {
+set maxspeed=50;
+}
+way[highway=residential][!maxspeed] {
+set maxspeed=40;
+}
+way[highway=track][!maxspeed] {
+set maxspeed=30;
+}
+way[highway=service][!maxspeed] {
+set maxspeed=20;
+}
+way[highway][surface=unpaved],way[highway][surface=ground],way[highway][surface=compacted],way[highway][surface=dirt],
+way[highway][surface=fine_gravel],way[highway][surface=gravel],way[highway][surface=mud],way[highway][surface=clay],way[highway][surface=grass],
+way[highway][surface=pebbles],way[highway][surface=sand],way[highway][surface=scree] {
+set "DNIT:Surface"=unpaved;
+}
+way[highway][surface=paved],way[highway][surface=sett],way[highway][surface=grass_paver],way[highway][surface=metal],
+way[highway][surface=paving_stones],way[highway][surface=pebblestone],way[highway][surface=wood],way[highway][surface=cobblestone],
+way[highway][surface=asphalt],way[highway][surface=asfalt],way[highway][surface=concrete],way[highway][surface=tarmac] {
+set "DNIT:Surface"=paved;
+}
+way["DNIT:Surface"=unpaved][highway] {
+set "DNIT:Class"=IMP; /* Implantada */
+}
+way["DNIT:Surface"=unpaved][highway=unclassified],
+way["DNIT:Surface"=unpaved][highway=track][tracktype=grade1] {
+set "DNIT:Class"=LEN; /* Leitão Natural */
+}
+way["DNIT:Surface"=paved][highway=track],
+way["DNIT:Surface"=paved][highway=unclassified],
+way["DNIT:Surface"=paved][highway=tertiary],
+way["DNIT:Surface"=paved][highway=tertiary_link] {
+set "DNIT:Class"=EOP; /* Em Pavimentação */
+}
+way["DNIT:Surface"=paved][highway=secondary],
+way["DNIT:Surface"=paved][highway=secondary_link],
+way["DNIT:Surface"=paved][highway=primary],
+way["DNIT:Surface"=paved][highway=primary_link],
+way["DNIT:Surface"=paved][highway=trunk][oneway?!],
+way["DNIT:Surface"=paved][highway=trunk_link][oneway?!],
+way["DNIT:Surface"=paved][highway=motorway][oneway?!],
+way["DNIT:Surface"=paved][highway=motorway_link][oneway?!] {
+set "DNIT:Class"=PAV; /* Pavimentada */
+}
+relation[route=road] >[role=forward] way[oneway?][!junction],
+relation[route=road] >[role=backward] way[oneway=-1][!junction],
+way["DNIT:Surface"=paved][highway=trunk][!oneway?!][!junction],
+way["DNIT:Surface"=paved][highway=trunk_link][!oneway?!][!junction],
+way["DNIT:Surface"=paved][highway=motorway][!oneway?!][!junction],
+way["DNIT:Surface"=paved][highway=motorway_link][!oneway?!][!junction] {
+set "DNIT:Class"=DUP; /* Duplicada */
+}
+way[highway=construction], way[highway][construction] {
+set "DNIT:Class"=EOI; /* Em Implantação */
+}
+way[highway][construction=primary], way[highway][construction=trunk], way[highway][construction=motorway] {
+set "DNIT:Class"=EOD; /* Em Duplicação */
+}
+way[highway=planned],
+way[highway=proposed] {
+set "DNIT:Class"=PLA; /* Planejado */
+}
+}
+
+way|z5[highway][network].highway::highway, relation[route=road][network] > way.highway::highway {
+width:				4;
+}
+way|z3-5[highway].rodovia_estadual {
+width:				4;
+}
+way|z-5[highway].rodovia_federal {
+width:				4;
+}
+
+way|z-10[highway][surface=ground].highway::highway,
+way|z-10[highway][surface=compacted].highway::highway,
+way|z-10[highway][surface=dirt].highway::highway,
+way|z-10[highway][surface=fine_gravel].highway::highway,
+way|z-10[highway][surface=gravel].highway::highway,
+way|z-10[highway][surface=earth].highway::highway,
+way|z-10[highway][surface=mud].highway::highway,
+way|z-10[highway][surface=grass].highway::highway,
+way|z-10[highway][surface=clay].highway::highway,
+way|z-10[highway][surface=pebbles].highway::highway,
+way|z-10[highway][surface=sand].highway::highway,
+way|z-10[highway][surface=scree].highway::highway,
+way|z-10[highway][surface=unpaved].highway::highway {
+color:				white;
+dashes:				5,4;
+set	.highway;
+}
+way|z10-[highway][surface=ground].highway::highway,
+way|z10-[highway][surface=compacted].highway::highway,
+way|z10-[highway][surface=dirt].highway::highway,
+way|z10-[highway][surface=fine_gravel].highway::highway,
+way|z10-[highway][surface=gravel].highway::highway,
+way|z10-[highway][surface=mud].highway::highway,
+way|z10-[highway][surface=clay].highway::highway,
+way|z10-[highway][surface=pebbles].highway::highway,
+way|z10-[highway][surface=earth].highway::highway,
+way|z10-[highway][surface=sand].highway::highway,
+way|z10-[highway][surface=scree].highway::highway,
+way|z10-[highway][surface=unpaved].highway::highway {
+color:				lightgray;
+dashes:				5,4;
+set .highway;
+}
+way|z10-[highway][surface=sett].highway::highway,
+way|z10-[highway][surface=paving_stones].highway::highway,
+way|z10-[highway][surface=pebblestone].highway::highway,
+way|z10-[highway][surface=cobblestone].highway::highway {
+color:				brown;
+dashes:				5,4;
+set	.highway;
+}
+way|z10-[highway][surface=wood].highway::highway {
+color:				sandybrown;
+dashes:				5,4;
+set	.highway;
+}
+way|z10-[highway][surface=grass].highway::highway,
+way|z10-[highway][surface=grass_paver].highway::highway {
+color:				green;
+dashes:				5,4;
+set	.highway;
+}
+way|z10-[highway][surface=metal].highway::highway {
+color:				lightgray;
+dashes:				5,4;
+set	.highway;
+}
+
+@supports (user-agent: josm) {
+way|z12-[highway][!surface].highway::highway {
+color:				lightgray;
+dashes:				3,2;
+dashes-background-color:	pink;
+}
+}
+
+way|z10-[highway=proposed].highway::highway,
+way|z10-[highway=planned].highway::highway {
+color:				white;
+width:				1;
+dashes:				30,10,10,10;
+casing-dashes:		30,10,10,10;
+}
+
+way|z8-[highway=construction].highway::highway {
+color:				white;
+width:				2;
+dashes:				30,10;
+casing-dashes:		30,10;
+}
+@supports (user-agent: josm) {
+way|z8-[highway=road].highway::highway {
+width:				2;
+dashes:				20,20;
+dashes-background-color:	red;
+}
+}
+
+way|z14-[highway=path].highway::highway {
+color:				green;
+casing-width:		1;
+casing-color:		brown;
+dashes:				6,4,4,4;
+}
+way|z14-[highway=steps].highway::highway,
+way|z14-[highway=pedestrian].highway::highway,
+way|z14-[highway=footway].highway::highway {
+color:				limegreen;
+casing-color:		limegreen;
+casing-width:		2;
+}
+way|z14-[highway][highway!=footway][footway?][!footway?!].highway::highway {
+dashes-background-color:    limegreen;
+dashes:             10,2;
+}
+way|z12-[highway=cycleway].highway::highway {
+color:				violet;
+casing-color:		violet;
+casing-width:		2;
+}
+way|z12-[highway][highway!=cycleway][cycleway][!cycleway?!].highway::highway {
+dashes-background-color:    violet;
+dashes:             8,3;
+}
+way|z12-[highway=bridleway].highway::highway,
+way|z12-[highway=track].highway::highway {
+casing-width:		1;
+casing-color:		brown;
+}
+way|z12-[highway=bridleway].highway::highway,
+way|z12-[highway=track][tracktype=grade1].highway::highway {
+dashes:				10,4,8,4;
+}
+way|z12-[highway=track][tracktype=grade2].highway::highway {
+dashes:				10,4,6,4;
+}
+way|z12-[highway=track][tracktype=grade3].highway::highway {
+dashes:				10,4,4,4;
+}
+way|z12-[highway=track][tracktype=grade4].highway::highway {
+dashes:				10,4,2,4;
+}
+way|z12-[highway=track][tracktype=grade5].highway::highway {
+dashes:				10,6,2,6;
+}
+
+way|z10-[highway=service].highway::highway,
+way|z10-[highway=residential].highway::highway {
+width:				2;
+}
+area|z8-[highway=service][area?].highway:closed::highway {
+dashes:             none;
+fill-color:         darkgray;
+fill-opacity:       0.5;
+}
+
+way|z10-[highway=unclassified].highway::highway {
+width:				2;
+}
+
+way|z8-[highway=tertiary_link].highway::highway {
+width:				3;
+}
+way|z6-[highway=tertiary].highway::highway {
+width:				3;
+}
+
+way|z7-[highway=secondary_link].highway::highway {
+width:				4;
+}
+way|z6-[highway=secondary].highway::highway {
+width:				4;
+}
+
+way|z6-[highway=primary_link].highway::highway {
+width:				5;
+}
+way|z4-[highway=primary].highway::highway {
+width:				5;
+}
+
+way|z4-[highway=trunk_link].highway::highway {
+width:				3;
+}
+way|z3-[highway=trunk].highway::highway {
+width:				3;
+casing-width:		3;
+}
+
+way|z4-[highway=motorway_link].highway::highway {
+width:				3;
+}
+way|z2-[highway=motorway].highway::highway {
+width:				3;
+casing-width:		4;
+/*	color:				white; */
+}
+
+relation[type=route][route=road] >[role=forward] way[highway][oneway?][!junction].highway::highway {
+left-casing-color:	white;
+left-casing-width:	5;
+left-casing-opacity: 0.9
+}
+relation[type=route][route=road] >[role=backward] way[highway][oneway=-1][!junction].highway::highway {
+right-casing-color:	white;
+right-casing-width:	5;
+right-casing-opacity: 0.9;
+}
+
+way[highway=raceway].highway::highway {
+width:              2;
+casing-width:       2;
+casing-color:       salmon;
+casing-opacity:     0.75;
+}
+
+/* High zoom levels should render the true width of the road */
+@media (user-agent: pgmapcss) {
+way|z18-[highway].highway::highway {
+width:				eval(any(tag(width), set_width_in_meters(3 * tag(lanes)), 5));
+casing-width:		3;
+}
+}
+
+way|z6-[highway][bridge][!bridge?!].highway::bridge {
+width:              5;
+casing-width:       5;
+casing-color:       black;
+}
+way|z6-[highway][tunnel][!tunnel?!].highway::tunnel {
+width:              5;
+casing-width:       5;
+casing-color:       darkgray;
+}
+way|z4-[highway][operator].highway::operator, relation[type=route][route=road][operator] > way[highway].highway::operator {
+/* Highway have concecionario, need to add a yellow halo to the road, in addition to the casing */
+/*	object-z-index:		-1; */
+casing-width:		6;
+casing-color:		yellow;
+}
+way|z8-[higway][toll].highway::toll, relation[type=route][route=road][toll] > way[highway].highway::toll {
+/* Highway with toll fee to be rendered with a green halo on high zoom levels */
+/*	object-z-index:		-2; */
+casing-width:		8;
+casing-color:		limegreen;
+}
+
+way|z8-[highway][noname?].highway::name, way[highway][unsigned?].highway::name, way[highway][unnamed?].highway::name {
+/* Unnamed highways render default "Sem Nome" */
+text:				eval("Sem Nome");
+text-halo-radius:	1;
+text-halo-color:	white;
+font-style:			italic;
+text-color:			gray;
+}
+
+relation[type=route][route=road] > way::name,
+relation[type=route][route=street] > way::name {
+/* If unnamed way is part of a named road/street relation, take name from relation */
+text:				eval(any(parent_tag("name:pt"), parent_tag("name"), parent_tag("official_name"), parent_tag("alt_name"), parent_tag("loc_name"), parent_tag("old_name")));
+text-color:			black;
+text-halo-radius:	1;
+text-halo-color:	white;
+}
+relation[type=associatedStreet] >[role=street] way::name {
+/* If unnamed way is part of a named associatedStreet relation, take name from relation */
+text:				eval(any(parent_tag("name:pt"), parent_tag("name"), parent_tag("official_name"), parent_tag("alt_name"), parent_tag("loc_name"), parent_tag("old_name")));
+text-color:			black;
+text-halo-radius:	1;
+text-halo-color:	white;
+}
+
+way[highway].highway::name {
+/* Default names for highway is tagged on the way itself */
+text:				eval(any(tag("name:pt"), tag("name"), tag("official_name"), tag("alt_name"), tag("loc_name"), tag("old_name")));
+text-color:			black;
+text-halo-radius:	1;
+text-halo-color:	white;
+}
+/* To force correct use of name, and use of proper tags where the streets have no name */
+way|z8-[highway][name=~/(?i).*rua projetada*/].highway::name,
+way|z8-[highway][name=~/(?i).*sem denomina(c|ç)(a|ã)o*/].highway::name,
+way|z8-[highway][name=~/^(?i)((via de )?acesso|entrada|entroncamento|rampa|retorno|rotat(ó|o)ria|r(ó|o)tula|sa(í|i)da|trevo|estrada( municipal| de terra)?|rua|rodovia|via)( (de acesso|sem nome|projetad(a|o)))?$/].highway::name,
+way|z8-[highway][name=~/(?i)(rua|rodovia|estrada)?(sem nome|sem denomina(c|ç)(a|ã)o|projetad(a|o))$?/],
+way|z8-[highway][name=~/(?i).*sem nome*/].highway::name {
+/* Any form of "Sem Nome" (un-named) should be overrided and printed in a different color, wrong use of name tag */
+text:				eval("Sem Nome");
+text-halo-radius:	1;
+text-halo-color:	white;
+font-style:			italic;
+text-color:			red;
+}
+way|z8-[bridge][!bridge?!]::name { /* tag bridge set, but not bridge=no */
+/* Name of the bridge instead of name of the highway, if set, to be printed on bridges */
+text:				eval(any(tag("bridge:name:pt"), tag("bridge_name:pt"), tag("bridge:name"), tag("bridge_name"), tag("bridge:official_name"), tag("bridge:alt_name"), tag("bridge:loc_name"), tag("bridge:old_name"), tag("official_name"), tag("name:pt"), tag("name"), tag("alt_name"), tag("loc_name"), tag("old_name")));
+}
+way|z8-[tunnel][!tunnel?!]::name { /* tag tunnel set, but not tunnel=no */
+/* Name of the tunnel instead of name of the highway, if set, to be printed on tunnels */
+text:				eval(any(tag("tunnel:name:pt"), tag("tunnel_name:pt"), tag("tunnel:name"), tag("tunnel_name"), tag("tunnel:official_name"), tag("tunnel:alt_name"), tag("tunnel:loc_name"), tag("tunnel:old_name"), tag("official_name"), tag("name:pt"), tag("name"), tag("alt_name"), tag("loc_name"), tag("old_name")));
+}
+/* Creating shields */
+way[highway][ref].highway, relation[type=route][route=road][ref] > way[highway].highway {
+/* Default shield (Municipal highways) */
+shield-text:		eval(any(tag(ref), parent_tag(ref)));
+shield-image:		"icons/rendering/shield/default.svg";
+}
+way[highway][ref].rodovia_estadual, relation[type=route][route=road][ref] > way[highway].rodovia_estadual {
+/* State Highway Shields */
+shield-text:		eval(any(tag(ref), parent_tag(ref)));
+shield-image:		"icons/rendering/shield/state.svg";
+}
+way[highway][ref].rodivia_federal, relation[type=route][route=road][ref] > way[highway].rodoovia_federal {
+/* Federal Highway Shields */
+shield-text:		eval(any(tag(ref), parent_tag(ref)));
+shield-image:		"icons/rendering/shield/br.svg";
+}
+
+
+relation[type=enforcement][enforcement=maxweight] >[role=device] node {
+/* Weighing Station */
+icon-image:			"icons/vehicle/restriction/pesagem.svg";
+icon-width:			16;
+icon-opacity:       1.0;
+}
+
+node[amenity=police][name =~ /(?i).*rodoviaria*/] {
+/* Highway Police */
+icon-image:			"icons/service/policia_rodoviaria.svg";
+icon-width:			16;
+}
+
+area|z6-[barrier=toll_booth]:closed,
+node|z6-[barrier=toll_booth] {
+/* Toll booth (pedagio) */
+z-index:            100;
+icon-image:			"icons/vehicle/pedagio.svg";
+icon-width:			12;
+}
+@media (user-agent: pgmapcss) {
+node[barrier=toll_booth] near[distance<100] {
+/* No render, override second booth if too close to other */
+icon-image:			"icons/void.svg";
+icon-width:			0;
+icon-height:		0;
+icon-opacity:		0.0;
+}
+}
+way[highway][toll=yes] {
+z-index:            -5;
+casing-width:       10;
+casing-color:       yellow;
+casing-opacity:     0.75;
+}
