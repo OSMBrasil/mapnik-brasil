@@ -1,0 +1,57 @@
+
+/*
+* Pipelines
+*/
+way[man_made=pipeline]::man_made {
+    set .pipeline;
+}
+*[location=underground].pipeline::man_made {
+    color:          brown;
+    opacity:        0.2;
+    casing-opacity: 0.2;
+    width:          2;
+    set .pipeline;
+}
+*[location=overground].pipeline::man_made {
+    color:          brown;
+    opacity:        0.8;
+    casing-opacity: 0.8;
+    width:          2;
+    set .pipeline;
+}
+*[location=overhead].pipeline::man_made {
+    color:          brown;
+    dashes:         5,2;
+    opacity:        1;
+    casing-opacity: 1;
+    width:          2;
+    set .pipeline;
+}
+*[location=underwater].pipeline::man_made {
+    color:          brown;
+    dashes:         5,2;
+    opacity:        0.2;
+    casing-opacity: 0.2;
+    width:          2;
+    set .pipeline;
+}
+*[type=gas].pipeline::man_made,
+*[substance=gas].pipeline::man_made {
+    casing-color:       darkgray;
+    casing-width:       1;
+}
+*[type=oil].pipeline::man_made,
+*[substance=oil].pipeline::man_made {
+    casing-color:       black;
+    casing-width:       1;
+}
+*[type=water].pipeline::man_made,
+*[substance=water].pipeline::man_made {
+    casing-color:       blue;
+    casing-width:       1;
+}
+*[type=sewer].pipeline::man_made,
+*[substance=sewer].pipeline::man_made {
+    casing-color:       brown;
+    casing-width:       1;
+}

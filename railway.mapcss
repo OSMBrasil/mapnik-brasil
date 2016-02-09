@@ -1,0 +1,38 @@
+/*
+ * Railways
+ */
+*[railway] {
+    width:				2;
+    casing-width:		1;
+    color:				darkslategray;
+    casing-color:		darkslategray;
+    dashes:				4,6;
+    dashes-background-color: white; /* For JOSM */
+    icon-height:		12; /* default icon size */
+    set .railway;
+}
+@media (user-agent: pgmapcss) {
+    *[railway].railway {
+        dashes:			none;
+        set .railway;
+    }
+    *[railway].railway::dashes_overlay {
+        dashes:			6,4;
+        color:			white;
+    }
+}
+node|z9-[railway=level_crossing].railway {
+    icon-image:			"icons/vehicle/level_crossing.svg";
+}
+@media (user-agent: pgmapcss) {
+    area[railway@=station;roundhouse;platform]:closed::dashes_overlay {
+        dashes:				none;
+    }
+}
+@supports (user-agent: josm) {
+    area[railway=station]:closed,
+    area[railway=platform]:closed,
+    area[railway=roundhouse]:closed {
+        dashes:				none;
+    }
+}

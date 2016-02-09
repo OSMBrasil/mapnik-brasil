@@ -1,0 +1,207 @@
+/*
+ * Urban features
+ */
+area|z2-12[landuse=residential]:closed::urban {
+    fill-color:			yellow;
+}
+area|z13-[landuse=residential]:closed::urban {
+    fill-color:			lightgray;
+}
+area|z14-[landuse=comercial]:closed::urban {
+    fill-color:         slategray;
+}
+area|z13-[landuse=retail]:closed::urban {
+    fill-color:         lightslategray;
+}
+area|z8-[building]:closed::urban {
+    fill-color:			darkgoldenrod;
+    text:               eval(any(tag("addr:housename"), tag("addr:housenumber"), "S/N"));
+    text-color:         gray;
+    set .building;
+}
+*[!"addr:housename"][!"addr:housenumber"].building::urban {
+    text-color:         red;
+    text-halo-color:    white;
+}
+
+/*
+ * Amenities
+ */
+node|z8-[amenity=fuel],
+area|z8-[amenity=fuel]:closed {
+    icon-image:			"icons/vehicle/fuel/fuel.svg";
+    icon-height:		16;
+    text:				auto;
+    set .fuel;
+}
+/*
+ * Different symbols for the major brands
+ */
+*[operator=~ /(?i).*BR$/].fuel,
+*[brand=~ /(?i).*BR$/].fuel,
+*[operator=~ /(?i).*Petrobr(a|á)s$/].fuel,
+*[brand=~ /(?i).*Petrobr(a|á)s$/].fuel {
+    icon-image:			"icons/vehicle/fuel/br.svg";
+}
+*[operator=~ /(?i).*Al(e|é|ê)$/].fuel,
+*[brand=~ /(?i).*Al(e|é|ê)$/].fuel {
+    icon-image:			"icons/vehicle/fuel/ale.svg";
+}
+*[operator=~ /(?i).*Shell$/].fuel,
+*[brand=~ /(?i).*Shell$/].fuel {
+    icon-image:			"icons/vehicle/fuel/shell.svg";
+}
+*[operator=~ /(?i).*Esso$/].fuel,
+*[brand=~ /(?i).*Esso$/].fuel
+*[operator=~ /(?i).*Exxon$/].fuel,
+*[brand=~ /(?i).*Exxon$/].fuel {
+    icon-image:			"icons/vehicle/fuel/esso.svg";
+}
+*[operator=~ /(?i).*Texaco$/].fuel,
+*[brand=~ /(?i).*Texaco$/].fuel {
+    icon-image:			"icons/vehicle/fuel/texaco.svg";
+}
+*[operator=~ /(?i).*Ipiranga$/].fuel,
+*[brand=~ /(?i).*Ipiranga$/].fuel {
+    icon-image:			"icons/vehicle/fuel/ipiranga.svg";
+} /*
+*[operator=~ /(?i).*Atl(a|â)ntica$/].fuel,
+*[brand=~ /(?i).*Atl(a|â)ntica$/].fuel {
+icon-image:         "icons/vehicle/fuel/atlantico.svg";
+} */
+
+node|z15-[amenity=bank],
+area|z15-[amenity=bank]:closed {
+    icon-image:         "icons/money/bank.svg";
+    icon-height:        16;
+    text:               auto;
+    set .bank;
+}
+/*
+* Different symbols for the major branches
+*/
+*[operator=~ /(?i).*(Banco )?HSBC$/].bank,
+*[brand=~ /(?i).*(Banco )?HSBC$/].bank {
+    icon-image:         "icons/money/bank/HSBC.svg";
+}
+*[operator=~ /(?i).*(Banco )?Santander$/].bank,
+*[brand=~ /(?i).*(Banco )?Santander$/].bank {
+    icon-image:         "icons/money/bank/santander.svg";
+}
+*[operator=~ /(?i).*Bradesco$/].bank,
+*[brand=~ /(?i).*Bradesco$/].bank {
+    icon-image:         "icons/money/bank/Bradesco.svg";
+}
+*[operator=~ /(?i).*Sicoob$/].bank,
+*[brand=~ /(?i).*Sicoob$/].bank {
+    icon-image:         "icons/money/bank/sicoob.svg";
+}
+*[operator=~ /(?i).*Banestes$/].bank,
+*[brand=~ /(?i).*Banestes$/].bank {
+    icon-image:         "icons/money/bank/Banestes.svg";
+}
+*[operator=~ /(?i).*BanRiSul$/].bank,
+*[brand=~ /(?i).*BanRiSul$/].bank {
+    icon-image:         "icons/money/bank/Banrisul.svg";
+}
+*[operator=~ /(?i).*BNB$/].bank,
+*[brand=~ /(?i).*BNB$/].bank,
+*[operator=~ /(?i).*Banco do Nordeste$/].bank,
+*[brand=~ /(?i).*Banco do Nordeste$/].bank {
+    icon-image:         "icons/money/bank/BNB.svg";
+}
+*[operator=~ /(?i).*(Banco )?Ita(u|ú)$/].bank,
+*[brand=~ /(?i).*(Banco )?Ita(u|ú)$/].bank {
+    icon-image:         "icons/money/bank/Itau.svg";
+}
+*[operator=~ /(?i).*CEF$/].bank,
+*[brand=~ /(?i).CEF$/].bank,
+*[operator=~ /(?i).*Caixa ?(Econ(o|ô)mica)? ?(Federal)?$/].bank,
+*[brand=~ /(?i).*Caixa ?(Econ(o|ô)mica)? ?(Federal)?$/].bank {
+    icon-image:         "icons/money/bank/caixa.svg";
+}
+*[operator=~ /(?i).*Citi ?(group|bank)?$/].bank,
+*[brand=~ /(?i).*Citi ?(group|bank)?$/].bank {
+    icon-image:         "icons/money/bank/Citibank.svg";
+}
+*[operator=~ /(?i).*Banco do Brasil$/].bank,
+*[brand=~ /(?i).*Banco do Brasil$/].bank {
+    icon-image:         "icons/money/bank/BB.svg";
+}
+*[operator=~ /(?i).*BASA$/].bank,
+*[brand=~ /(?i).*BASA$/].bank,
+*[operator=~ /(?i).*Banco ?da ?Amaz(o|ô)nia$/],
+*[brand=~ /(?i).*Banco ?da ?Amaz(o|ô)nia$/] {
+    icon-image:         "icons/money/bank/BASA.svg";
+}
+*[operator=~ /(?i).*(Banco )?BMG$/].bank,
+*[brand=~ /(?i).*(Banco )?BMG$/].bank {
+    icon-image:         "icons/money/bank/BMG.svg";
+}
+*[operator=~ /(?i).*Credit Suisse$/].bank,
+*[brand=~ /(?i).*Credit Suisse$/].bank {
+    icon-image:         "icons/money/bank/Credit_Suisse.svg";
+}
+*[operator=~ /(?i).*Deutsche Bank$/].bank,
+*[brand=~ /(?i).*Deutsche Bank$/].bank {
+    icon-image:         "icons/money/bank/Deutsche_Bank.svg";
+}
+
+
+/* Pousada */
+node|z15-[tourism=guest_house],
+area|z15-[tourism=guest_house]:closed,
+node|z15-[tourism=hostel],
+area|z15-[tourism=hostel]:closed,
+node|z15-[tourism=chalet],
+area|z15-[tourism=chalet]:closed,
+node|z15-[tourism=apartment],
+area|z15-[tourism=apartment]:closed,
+node|z15-[tourism=bed_and_breakfast],
+area|z15-[tourism=bed_and_breakfast]:closed,
+node|z15-[tourism=motel],
+area|z15-[tourism=motel]:closed {
+    icon-image:         "icons/accommodation/guest_house.svg";
+    icon-height:        12;
+}
+/* Hotel */
+node|z15-[tourism=hotel],
+area|z15-[tourism=hotel]:closed {
+    icon-image:         "icons/accommodation/hotel/hotel.svg";
+    icon-height:        12;
+}
+/* Motel */
+node|z15-[amenity=love_hotel],
+area|z15-[amenity=love_hotel]:closed {
+    icon-image:			"icons/accommodation/love_hotel.svg";
+    icon-height:		12;
+}
+/* Restaurant */
+node|z15-[amenity=fast_food],
+area|z15-[amenity=fast_food]:closed {
+    text:           auto;
+    text-color:     black;
+    set .fast_food;
+}
+node|z15-[amenity=restaurant],
+area|z15-[amenity=restaurant]:closed {
+    text:           auto;
+    text-color:     black;
+    set .restaurant;
+}
+*.restaurant, *.fast_food {
+    icon-image:         "icons/food/restaurant.svg";
+    icon-height:        12;
+}
+/* Restaurant by cousine */
+
+/* Fastfood by brand */
+*[brand=~ /(?i).*Burger ?King$/].fast_food {
+    icon-image:         "icons/food/fastfood/burgerking.svg";
+}
+*[brand=~ /(?i).*McDonald('| )?s?$/].fast_food {
+    icon-image:         "icons/food/fastfood/mcdonalds.svg";
+}
+*[brand=~ /(?i).*Subway(s)?$/].fast_food {
+    icon-image:         "icons/food/fastfood/subway.svg";
+}

@@ -20,12 +20,13 @@
 
 <!-- MapCSS style definition -->
     <style type='text/mapcss'>
-
 @import highway.mapcss
-
-
-
-
+@import railway.mapcss
+@import pipeline.mapcss
+@import boundary.mapcss
+@import waterway.mapcss
+@import nature.mapcss
+@import urban.mapcss
 
     </style>
 </Map>

@@ -1,0 +1,38 @@
+/*
+* Waterways and water-cover
+*/
+*[waterway]::WATERWAYS,
+*[natural=water]::WATERWAYS,
+*[landuse=reservoir]::WATERWAYS,
+*[landuse=basin]::WATERWAYS {
+    color:				darkblue;
+    width:				4;
+    set .waterway;
+}
+way[tunnel=culvert].waterway::WATERWAYS {
+    opacity:            0.3;
+    set .waterway;
+}
+way|z4-[waterway=river].waterway::WATERWAYS {
+    width:				8;
+}
+way|z6-[waterway=canal].waterway::WATERWAYS {
+    width:				6;
+}
+way|z8-[waterway=stream].waterway::WATERWAYS {
+    width:				4;
+}
+way|z10-[waterway=ditch].waterway::WATERWAYS {
+    width:				3;
+}
+way|z13-[waterway=drain].waterway::WATERWAYS {
+    width:				2;
+}
+
+area[natural=water]:closed::WATERWAYS,
+area[waterway=riverbank]:closed::WATERWAYS,
+area[landuse=reservoir]:closed::WATERWAYS,
+area[landuse=basin]:closed::WATERWAYS,
+area[waterway=canal]:closed::WATERWAYS {
+    fill-color:			skyblue;
+}

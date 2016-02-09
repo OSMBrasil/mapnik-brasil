@@ -1,0 +1,34 @@
+/*
+ * Wetland
+ */
+area|z4-[natural=wetland]:closed::landcover {
+/* Default fill */
+    fill-image:			"icons/rendering/natural/alogado.svg";
+    fill-image-height:  16; /* Does not work in JOSM */
+}
+/*
+ * Woodland, bushes, etc.
+ */
+area|z8-[natural=wood]:closed::landcover,
+area|z8-[landuse=forest]:closed::landcover,
+area|z8-[landcover=trees]:closed::landcover {
+    fill-color:			forestgreen;
+}
+area|z13-[natural=scrub]:closed::landcover {
+    fill-color:			forestgreen;
+    fill-opacity:		0.5;
+}
+
+/*
+ * Other Landscape Features
+ */
+area|z13-[landuse=farm]:closed::landcover,
+area|z13-[landuse=farmland]:closed::landcover,
+area|z13-[landuse=meadow]:closed::landcover,
+area|z13-[landuse=orchard]:closed::landcover {
+/* default farmland */
+    fill-color:			cornsilk;
+}
+area|z13-[landuse=industrial]:closed::landuse {
+    fill-color:			gray;
+}
