@@ -21,12 +21,6 @@ meta {
         fill-opacity:		0.1; /* Neutrilizes background in JOSM */
     }
 }
-@media (user-agent: pgmapcss) {
-    canvas {
-        fill-color:			lightblue;
-        antialiasing:		full;
-    }
-}
 
 /*
  * Fill color for land
@@ -156,142 +150,6 @@ way.rodovia_federal.rodovia_municipal.rodovia_estadual::highway {
     width:				1;
     casing-width:		2;
     set .highway;
-}
-
-
-/*
- * Setting default highway values where unset: surface, maxspeed, oneway, lanes
- */
-@media (user-agent: pgmapcss) {
-	way[highway][!"DNIT:Class"] {
-		set "DNIT:Class"=unknown;
-	}
-    /* highway=road to be treated as unclassified */
-	way[highway=road] {
-		set highway=unclassified;
-	}
-	way[highway=motorway][oneway?!] {
-		set highway=primary;
-	}
-	way[highway=motorway][maxspeed<80] {
-		set highway=trunk;
-	}
-	/* Default surface */
-	way[highway=tertiary][!surface], way[highway=tertiary_link][!surface], 
-	way[highway=unclassified][!surface], way[highway=track][!surface] {
-		set surface=unpaved;
-	}
-	way[highway=service][!surface], way[highway=residential][!surface],
-	way[highway=secondary][!surface], way[highway=secondary_link][!surface],
-	way[highway=primary][!surface], way[highway=primary_link][!surface],
-	way[highway=trunk][!surface], way[highway=trunk_link][!surface],
-	way[highway=motorway][!surface], way[highway=motorway_link][!surface] {
-		set surface=paved;
-	}
-	/* Default oneway */
-	way[highway=motorway][!oneway], way[highway=motorway_link][!oneway],
-	way[highway=trunk][!oneway], way[highway=trunk_link][!oneway],
-	way[highway=primary_link][!oneway] {
-		set oneway=yes;
-	}
-	way[highway][!oneway] {
-		set oneway=no;
-	}
-	/* Default lanes */
-	way[highway=motorway][oneway?][!lanes],
-	way[highway=trunk][oneway?!][!lanes] {
-		set lanes=3;
-	}
-	way[highway=motorway][oneway?!][!lanes] {
-		set lanes=5;
-	}
-	way[highway=trunk][oneway?][!lanes] {
-		set lanes=2;
-	}
-	way[highway=track][!lanes],
-	way[highway=footway][!lanes],
-	way[highway=cycleway][!lanes],
-	way[highway=unclassified][oneway?][!lanes],
-	way[highway=tertiary][oneway?][!lanes],
-	way[highway=residential][oneway?][!lanes] {
-		set lanes=1;
-	}
-    way[highway][!lanes] {
-        set lanes=2;
-    }
-	/* Default Maxspeed */
-	way[highway=motorway][!maxspeed] {
-		set maxspeed=110;
-	}
-	way[highway=trunk][!maxspeed], way[highway=primary][!maxspeed] {
-		set maxspeed=80;
-	}
-	way[highway=secondary][!maxspeed], way[highway=tertiary][!maxspeed] {
-		set maxspeed=60;
-	}
-	way[highway=unclassified][!maxspeed] {
-		set maxspeed=50;
-	}
-	way[highway=residential][!maxspeed] {
-		set maxspeed=40;
-	}
-	way[highway=track][!maxspeed] {
-		set maxspeed=30;
-	}
-	way[highway=service][!maxspeed] {
-		set maxspeed=20;
-	}
-	way[highway][surface=unpaved],way[highway][surface=ground],way[highway][surface=compacted],way[highway][surface=dirt],
-	way[highway][surface=fine_gravel],way[highway][surface=gravel],way[highway][surface=mud],way[highway][surface=clay],way[highway][surface=grass],
-	way[highway][surface=pebbles],way[highway][surface=sand],way[highway][surface=scree] {
-		set "DNIT:Surface"=unpaved;
-	}
-	way[highway][surface=paved],way[highway][surface=sett],way[highway][surface=grass_paver],way[highway][surface=metal],
-	way[highway][surface=paving_stones],way[highway][surface=pebblestone],way[highway][surface=wood],way[highway][surface=cobblestone],
-	way[highway][surface=asphalt],way[highway][surface=asfalt],way[highway][surface=concrete],way[highway][surface=tarmac] {
-		set "DNIT:Surface"=paved;
-	}
-	way["DNIT:Surface"=unpaved][highway] {
-		set "DNIT:Class"=IMP; /* Implantada */
-	}
-	way["DNIT:Surface"=unpaved][highway=unclassified],
-	way["DNIT:Surface"=unpaved][highway=track][tracktype=grade1] {
-		set "DNIT:Class"=LEN; /* Leitão Natural */
-	}
-	way["DNIT:Surface"=paved][highway=track],
-	way["DNIT:Surface"=paved][highway=unclassified],
-	way["DNIT:Surface"=paved][highway=tertiary],
-	way["DNIT:Surface"=paved][highway=tertiary_link] {
-		set "DNIT:Class"=EOP; /* Em Pavimentação */
-	}
-	way["DNIT:Surface"=paved][highway=secondary],
-	way["DNIT:Surface"=paved][highway=secondary_link],
-	way["DNIT:Surface"=paved][highway=primary],
-	way["DNIT:Surface"=paved][highway=primary_link],
-	way["DNIT:Surface"=paved][highway=trunk][oneway?!],
-	way["DNIT:Surface"=paved][highway=trunk_link][oneway?!],
-	way["DNIT:Surface"=paved][highway=motorway][oneway?!],
-	way["DNIT:Surface"=paved][highway=motorway_link][oneway?!] {
-		set "DNIT:Class"=PAV; /* Pavimentada */
-	}
-	relation[route=road] >[role=forward] way[oneway?][!junction],
-	relation[route=road] >[role=backward] way[oneway=-1][!junction],
-	way["DNIT:Surface"=paved][highway=trunk][!oneway?!][!junction],
-	way["DNIT:Surface"=paved][highway=trunk_link][!oneway?!][!junction],
-	way["DNIT:Surface"=paved][highway=motorway][!oneway?!][!junction],
-	way["DNIT:Surface"=paved][highway=motorway_link][!oneway?!][!junction] {
-		set "DNIT:Class"=DUP; /* Duplicada */
-	}
-	way[highway=construction], way[highway][construction] {
-		set "DNIT:Class"=EOI; /* Em Implantação */
-	}
-	way[highway][construction=primary], way[highway][construction=trunk], way[highway][construction=motorway] {
-		set "DNIT:Class"=EOD; /* Em Duplicação */
-	}
-	way[highway=planned],
-	way[highway=proposed] {
-		set "DNIT:Class"=PLA; /* Planejado */
-	}
 }
 
 way|z5[highway][network].highway::highway, relation[route=road][network] > way.highway::highway {
@@ -510,14 +368,6 @@ way[highway=raceway].highway::highway {
     casing-opacity:     0.75;
 }
 
-/* High zoom levels should render the true width of the road */
-@media (user-agent: pgmapcss) { 
-	way|z18-[highway].highway::highway {
-		width:				eval(any(tag(width), set_width_in_meters(3 * tag(lanes)), 5));
-		casing-width:		3;
-	}
-}
-
 way|z6-[highway][bridge][!bridge?!].highway::bridge {
     width:              5;
     casing-width:       5;
@@ -632,15 +482,6 @@ node|z6-[barrier=toll_booth] {
 	icon-image:			"icons/vehicle/pedagio.svg";
 	icon-width:			12;
 }
-@media (user-agent: pgmapcss) { 
-	node[barrier=toll_booth] near[distance<100] {
-		/* No render, override second booth if too close to other */
-		icon-image:			"icons/void.svg";
-		icon-width:			0;
-		icon-height:		0;
-		icon-opacity:		0.0;
-	}
-}
 way[highway][toll=yes] {
     z-index:            -5;
     casing-width:       10;
@@ -705,15 +546,6 @@ icon-image:			"icons/vehicle/semaforo.svg";
 icon-width:			12;
 z-index:            10;
 }
-@media (user-agent: pgmapcss) {
-node[highway=traffic_signals] near[distance<20] {
-/* No render, override second traffic signal if too close to other */
-icon-image:			"icons/void.svg";
-icon-width:			0;
-icon-height:		0;
-icon-opacity:		0.0;
-}
-}
 
 /*
  * Railways
@@ -728,24 +560,9 @@ icon-opacity:		0.0;
 	icon-height:		12; /* default icon size */
 	set .railway;
 }
-@media (user-agent: pgmapcss) {
-	*[railway].railway {
-		dashes:			none;
-		set .railway;
-	}
-	*[railway].railway::dashes_overlay {
-		dashes:			6,4;
-		color:			white;
-	}
-}
 node|z9-[railway=level_crossing].railway {
 	icon-image:			"icons/vehicle/level_crossing.svg";
 }
-@media (user-agent: pgmapcss) {
-    area[railway@=station;roundhouse;platform]:closed::dashes_overlay {
-		dashes:				none;
-	}
-} 
 @supports (user-agent: josm) {
 	area[railway=station]:closed,
     area[railway=platform]:closed,

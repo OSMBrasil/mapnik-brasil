@@ -29,10 +29,3 @@ node|z9-[railway=level_crossing].railway {
         dashes:				none;
     }
 }
-@supports (user-agent: josm) {
-    area[railway=station]:closed,
-    area[railway=platform]:closed,
-    area[railway=roundhouse]:closed {
-        dashes:				none;
-    }
-}

@@ -91,7 +91,7 @@ way.rodovia_municipal.rodovia_federal::highway {
     casing-color:       darkred;
     dashes:             5,5;
     width:				1;
-        casing-width:		2;
+    casing-width:		2;
 set .highway;
 }
 way.rodovia_municipal.rodovia_estadual::highway {
@@ -325,14 +325,6 @@ way|z10-[highway][surface=metal].highway::highway {
     set	.highway;
 }
 
-@supports (user-agent: josm) {
-    way|z12-[highway][!surface].highway::highway {
-        color:				lightgray;
-        dashes:				3,2;
-        dashes-background-color:	pink;
-    }
-}
-
 way|z10-[highway=proposed].highway::highway,
 way|z10-[highway=planned].highway::highway {
     color:				white;
@@ -346,13 +338,6 @@ way|z8-[highway=construction].highway::highway {
     width:				2;
     dashes:				30,10;
     casing-dashes:		30,10;
-}
-@supports (user-agent: josm) {
-    way|z8-[highway=road].highway::highway {
-        width:				2;
-        dashes:				20,20;
-        dashes-background-color:	red;
-    }
 }
 
 way|z14-[highway=path].highway::highway {
