@@ -572,6 +572,52 @@ node|z9-[railway=level_crossing].railway {
 }
 
 /*
+ * Public Transport
+ */
+node[public_transport=stop_position][bus=yes]::public_transport,
+node[public_transport=platform][bus=yes]::public_transport,
+node[highway=platform]::public_transport,
+node[highway=bus_stop]::public_transport {
+    symbol-shape:       circle;
+    symbol-size:        64;
+    symbol-fill-color:  white;
+    icon-image:         "icons/transport/bus_stop.svg";
+    icon-height:        12;
+    z-index:            25;
+}
+relation[type=route][route=bus] >[role="stop"] node::stop_label {
+    z-index:        -1;
+    width:          16;
+    color:          red;
+    opacity:        0.25;
+    text-color:     red;
+    font-size:      19;
+    text:           eval(parent_tags(ref));
+/*    text-offset-y:  16; */
+}
+way ∈ relation[type=route][route=bus]::way_lable {
+    text-color:     red;
+    font-size:      19;
+    text:           eval(((parent_tags(ref))));
+    text-position:  line;
+    text-offset-y:  -16;
+    text-offset-x:  -16;
+}
+relation[type=route][route=bus] > way::relation_underlay {
+    z-index:        -1;
+    width:          16;
+    color:          cyan;
+    opacity:        0.25;
+    linecap:        none;
+    text-color:     red;
+    font-size:      19;
+    text:           eval(((parent_tags(ref))));
+    text-position:  line;
+    text-offset-y:  16;
+    text-offset-x:  16;
+}
+
+/*
  * Pipelines
  */
 way[man_made=pipeline]::man_made {
